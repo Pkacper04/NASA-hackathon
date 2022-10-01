@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a5e9a71ca2af6b4bbb6fdea672aca9c, type: 3}
-  m_Name: ResearchAmountTier3
+  m_Name: ReaserchCenter
   m_EditorClassIdentifier: 
-  ResearchName: Spacecraft bus upgrade
-  ResearchCost: 3000
-  ResearchDescription: Increases the amount of researched objects by 1
-  isPurchased: 0
+  ResearchName: Reasearch Center
+  ResearchCost: 0
+  BuildingCost: 0
+  ResearchDescription: 
+  isPurchased: 1
+  previousUpgrade: {fileID: 0}
+  nextUpgrade: {fileID: 11400000, guid: e1ce7a20d275c8740a6b3de990bfd8b4, type: 2}

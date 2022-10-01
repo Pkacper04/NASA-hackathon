@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5e9a71ca2af6b4bbb6fdea672aca9c, type: 3}
+  m_Name: ResearchRarityTier1
+  m_EditorClassIdentifier: 
+  ResearchName: Science Instrument Module upgrade
+  ResearchCost: 100
+  BuildingCost: 0
+  ResearchDescription: Increases the chance to find rarer objects
+  isPurchased: 0
+  previousUpgrade: {fileID: 11400000, guid: e1ce7a20d275c8740a6b3de990bfd8b4, type: 2}
+  nextUpgrade: {fileID: 11400000, guid: e13ddd85cee2ac74a8307cd14fa902ff, type: 2}

@@ -16,4 +16,4 @@ MonoBehaviour:
   Header: Observatory
   Description: To gain passive RP
   Price: 0
-  BuildingPrefab: {fileID: 1981131855061102, guid: 7ec354ef3daae7641b7a3fa5e1fe0c81, type: 3}
+  BuildingPrefab: {fileID: 7644728174993500952, guid: 72a06fd6ef5dfc940b36fdf34381dc74, type: 3}

@@ -30,10 +30,12 @@ public abstract class buildingFunctionality : MonoBehaviour, IPointerClickHandle
 
     protected BuildingUIData currentUI = null;
 
+    public BuildingTypes BuildingType { get => buildingType; set => buildingType = value; }
+
     protected void Start()
     {
         buildingData = BuildingController.Instance.GetBuildingData(buildingType);
-        Debug.Log("building data: "+buildingData);
+        buildingPanel = FindObjectOfType<BuildingUIData>(true);
     }
 
     public void OnPointerClick(PointerEventData eventData)

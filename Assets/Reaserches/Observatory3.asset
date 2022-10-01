@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a5e9a71ca2af6b4bbb6fdea672aca9c, type: 3}
-  m_Name: ResearchLengthTier2
+  m_Name: Observatory3
   m_EditorClassIdentifier: 
-  ResearchName: Trim flap upgrade
-  ResearchCost: 2000
-  ResearchDescription: Increases the duration of research by ?%
+  ResearchName: Observatory LVL 3
+  ResearchCost: 300
+  BuildingCost: 600
+  ResearchDescription: 
   isPurchased: 0
+  previousUpgrade: {fileID: 11400000, guid: 782660e1d84aecc42b0777145ee50fc1, type: 2}
+  nextUpgrade: {fileID: 0}

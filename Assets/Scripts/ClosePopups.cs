@@ -10,6 +10,7 @@ public class ClosePopups : MonoBehaviour, IPointerClickHandler
         Debug.Log("zamykanie");
         BuildingController.Instance.HideBuildingInfo();
         BuildingPanelController.Instance.DeInit();
+        TechTreeController.Instance.DisavleTechTreeUI();
     }
 
 

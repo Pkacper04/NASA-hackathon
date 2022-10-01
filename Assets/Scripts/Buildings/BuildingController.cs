@@ -22,6 +22,8 @@ public class BuildingController : Singleton<BuildingController>
 
     private buildingFunctionality lastBuilding;
 
+    public buildingFunctionality LastBuilding { get => lastBuilding; set => lastBuilding = value; }
+
     public BuildingScriptableObject GetBuildingData(BuildingTypes types)
     {
         switch (types)
@@ -38,11 +40,6 @@ public class BuildingController : Singleton<BuildingController>
                 return schoolingSectionData;
         }
         return null;
-    }
-
-    public void SellBuilding()
-    {
-        // do uzupelnienia
     }
 
     public bool DisplayBuildingInfo(buildingFunctionality currentBuilding)

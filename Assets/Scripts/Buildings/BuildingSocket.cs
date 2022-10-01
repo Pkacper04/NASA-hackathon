@@ -21,9 +21,14 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
     [SerializeField]
     private Color selectedColor;
 
+    [SerializeField]
+    private Vector3 positionOffset;
+
     private bool selected = false;
 
     public bool Selected { get => selected; set => selected = value; }
+
+    public BuildingTypes BuildingType { get => buildingType; set => buildingType = value; }
 
 /*    private void OnEnable()
     {
@@ -82,7 +87,7 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
     public void BuildBuilding()
     {
         BuildingScriptableObject buildingData = BuildingController.Instance.GetBuildingData(buildingType);
-        Instantiate(buildingData.BuildingPrefab, transform.position, Quaternion.identity);
+        Instantiate(buildingData.BuildingPrefab, transform.position + positionOffset, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
