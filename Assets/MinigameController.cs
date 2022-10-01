@@ -130,7 +130,7 @@ public class MinigameController : Singleton<MinigameController>
 
         if (number < commonChance)
             return 0;
-        else if (number < UnCommonChance)
+        else if (number < UnCommonChance + commonChance)
             return 1;
         else
             return 2;
