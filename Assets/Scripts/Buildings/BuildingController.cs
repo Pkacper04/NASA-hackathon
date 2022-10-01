@@ -47,6 +47,7 @@ public class BuildingController : Singleton<BuildingController>
 
     public bool DisplayBuildingInfo(buildingFunctionality currentBuilding)
     {
+        Debug.Log("Klikniecei");
         BuildingPanelController.Instance.DeInit();
         if(lastBuilding == null)
         {
