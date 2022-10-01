@@ -20,11 +20,11 @@ public class PlanetsController : MonoBehaviour
      }
     public PlanetsScriptableData GetUncommonPlanet()
     {
-        return uncommonPlanets[Random.Range(0, commonPlanets.Count)];
+        return uncommonPlanets[Random.Range(0, uncommonPlanets.Count)];
     }
     public PlanetsScriptableData GetRarePlanet()
     {
-        return rarePlanets[Random.Range(0, commonPlanets.Count)];
+        return rarePlanets[Random.Range(0, rarePlanets.Count)];
     }
 }
 
