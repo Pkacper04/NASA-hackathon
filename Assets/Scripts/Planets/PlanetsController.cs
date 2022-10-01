@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetsController : MonoBehaviour
+public class PlanetsController : Singleton<PlanetsController>
 {
     [SerializeField]
     private List<PlanetsScriptableData> commonPlanets = new List<PlanetsScriptableData>();
