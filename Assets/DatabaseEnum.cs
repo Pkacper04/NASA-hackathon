@@ -6,22 +6,21 @@ public class DatabaseEnum : MonoBehaviour
 { }
 
 public enum planetyCommon // you can see them without telescope and its not a problem 
-{ 
-    Mercury, //merkury
-    Venus, //wenus
-    Mars, //mars 
-    Jupiter, // jowisz
-    Saturn, // saturn
-    Polaris //northern star, we can call it either polaris or northern star or both at once idk honestly ~Luuq
+{
+    Mercury, //merkury // is the smallest planet in the solar system and the closest to the Sun.
+    Venus, //wenus // is second planet from the Sun. As the brightest natural object in Earth's sky after the Moon, Venus can cast shadows and can be visible to the naked eye in broad daylight. 
+    Mars, //mars // is the fourth planet from the sun and the second-smallest planet in our solar system. Mars is cerrestial planet with a thin atmosphere, it has a core made out of iron and nickel.
+    Jupiter, // jowisz // is the fifth planet from the Sun and the largest in our solar system. It's a gas giant it has 2.5x mass of all other planets in our solar system combined.
+    Saturn, // saturn //  is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter. It is a gas giant with an average radius of about nine and a half times that of Earth.It has only one-eighth the average density of Earth.
+    Polaris // is a star in the northern circumpolar constellation of Ursa Minor. It is designated Alpha Ursae Minoris and is commonly called the North Star or Pole Star.
 }
-
 public enum planetyUncommon // you can either spot them without telescope but they're rare to spot this way or u can see them easily with telescope
 {
-    Arcturus, // red giant, one of the brightest starts that you are able to see in night without a telescope ------------ u can see them without telescope but they're rare 
-    Antares, // red supergiant // the brightest star in constelation of scorpius ------------ u can see them without telescope but they're rare 
-    Uranus, // uran // its slow but with rapis spin, you can easily confuse it with background stars 
-    Neptune, // neptun // u can easily spot it with binoculars or a telescope
-    Triton // largest moon of neptune, it shines at magnitude 13.5 where naptune shines at 7.7. Kreci sie w druga strone niz neptun 
+    Arcturus, //  is the brightest star in the northern constellation of Boötes. It is the third-brightest of the individual stars in the night sky, and the brightest in the northern celestial hemisphere.
+    Antares, //  is a red supergiant, a large evolved massive star and one of the largest stars visible to the naked eye. Its exact size remains uncertain, but if placed at the center of the Solar System, it would reach to somewhere between the orbits of Mars and Jupiter.
+    Uranus, // uran // is the seventh planet from the Sun. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System. Uranus is similar in composition to Neptune.
+    Neptune, // neptun //  is the eighth planet from the Sun and the farthest known solar planet. In the Solar System, it is the fourth-largest planet by diameter, the third-most-massive planet, and the densest giant planet. It is 17 times the mass of Earth, and slightly more massive than its near-twin Uranus.
+    Triton //  is the largest natural satellite of the planet Neptune, and was the first Neptunian moon to be discovered. It is the only large moon in the Solar System with a retrograde orbit, an orbit in the direction opposite to its planet's rotation.
 }
 
 public enum planetyRare // u need observatory or idk what else, hard to find planets ;c
