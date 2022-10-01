@@ -27,8 +27,8 @@ public enum planetyRare // u need observatory or idk what else, hard to find pla
 {
     ProximaCentauriB, // exoplanet orbiting in the habitable zone of the red dwarf Proxima Centauri, which is closest star to the sun apart of the triple star system alpha centauri.
     Kepler452b, //only planet discovered by Kepler. Its super-earth exoplanet orbiting within the inner edge of the habitable zone of star Kepler-452
-    Wasp17b, // exoplanet in the constellation Scorpius that is orbiting the star Wasp-17.It is the first planet discovered to have a retrograde orbit, meaning it orbits in a direction counter to the rotation of its host star
-    Brahe, // 55 cancri c // exoplanet in an eccentric orbit around the sun-like star 55 Cancri A. It has mass of almost 1/6 of jupiter or roughly 1/2 of saturn
-    Ran // EpsilonEridani (its sun :DD) //
+    Wasp17b, // is exoplanet in the constellation Scorpius that is orbiting the star Wasp-17.It is the first planet discovered to have a retrograde orbit, meaning it orbits in a direction counter to the rotation of its host star
+    Brahe, // is often called 55 cancri c. Exoplanet in an eccentric orbit around the sun-like star 55 Cancri A. It has mass of almost 1/6 of jupiter or roughly 1/2 of saturn
+    EpsilonEridani // is formally named Ran. Is a star in the southern constellation of Eridanus. The star is estimated to be less than a billion years old. Because of its relative youth, Epsilon Eridani has a higher level of magnetic activity than the present-day Sun, with a stellar wind 30 times as strong.
 
 }
