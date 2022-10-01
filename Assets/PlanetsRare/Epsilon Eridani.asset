@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d135dc1058b597e4388bc0fa3e4a2325, type: 3}
   m_Name: Epsilon Eridani
   m_EditorClassIdentifier: 
-  PlanetName: 
-  PlanetDescription: 
-  PlanetCashValue: 0
-  PlanetResearchPointValue: 0
+  PlanetName: Epsilon Eridani
+  PlanetDescription: is formally named Ran. Is a star in the southern constellation
+    of Eridanus. The star is estimated to be less than a billion years old. Because
+    of its relative youth, Epsilon Eridani has a higher level of magnetic activity
+    than the present-day Sun, with a stellar wind 30 times as strong.
+  PlanetCashValue: 3
+  PlanetResearchPointValue: 3

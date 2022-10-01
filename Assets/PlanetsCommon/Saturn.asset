@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d135dc1058b597e4388bc0fa3e4a2325, type: 3}
   m_Name: Saturn
   m_EditorClassIdentifier: 
-  PlanetName: 
-  PlanetDescription: 
-  PlanetCashValue: 0
-  PlanetResearchPointValue: 0
+  PlanetName: Saturn
+  PlanetDescription: is the sixth planet from the Sun and the second-largest in the
+    Solar System, after Jupiter. It is a gas giant with an average radius of about
+    nine and a half times that of Earth.It has only one-eighth the average density
+    of Earth.
+  PlanetCashValue: 1
+  PlanetResearchPointValue: 1

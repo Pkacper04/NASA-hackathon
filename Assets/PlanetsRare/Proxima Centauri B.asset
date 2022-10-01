@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d135dc1058b597e4388bc0fa3e4a2325, type: 3}
   m_Name: Proxima Centauri B
   m_EditorClassIdentifier: 
-  PlanetName: 
-  PlanetDescription: 
-  PlanetCashValue: 0
-  PlanetResearchPointValue: 0
+  PlanetName: Proxima Centauri B
+  PlanetDescription: is exoplanet orbiting in the habitable zone of the red dwarf
+    Proxima Centauri, which is closest star to the sun apart of the triple star system
+    alpha centauri.
+  PlanetCashValue: 3
+  PlanetResearchPointValue: 3

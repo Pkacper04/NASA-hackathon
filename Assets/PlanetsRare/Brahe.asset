@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d135dc1058b597e4388bc0fa3e4a2325, type: 3}
   m_Name: Brahe
   m_EditorClassIdentifier: 
-  PlanetName: 
-  PlanetDescription: 
-  PlanetCashValue: 0
-  PlanetResearchPointValue: 0
+  PlanetName: Brahe
+  PlanetDescription: is often called 55 cancri c. Exoplanet in an eccentric orbit
+    around the sun-like star 55 Cancri A. It has mass of almost 1/6 of jupiter or
+    roughly 1/2 of saturn
+  PlanetCashValue: 3
+  PlanetResearchPointValue: 3

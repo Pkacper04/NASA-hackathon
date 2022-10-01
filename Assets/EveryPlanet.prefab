@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1518352789281886469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1518352789281886467}
+  - component: {fileID: 1518352789281886468}
+  m_Layer: 0
+  m_Name: EveryPlanet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1518352789281886467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518352789281886469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1518352789281886468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518352789281886469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de75a48f907333f42af7736b92455c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  commonPlanets:
+  - {fileID: 11400000, guid: dcad6cd90852e384c8f9e325cac5f0bc, type: 2}
+  - {fileID: 11400000, guid: 9a85e4acbd626da47b8e72d81c55c763, type: 2}
+  - {fileID: 11400000, guid: 1da8c345d0dcd35429f7d9ad68fa203b, type: 2}
+  - {fileID: 11400000, guid: 50f1555f1aafa2442b874da090b28527, type: 2}
+  - {fileID: 11400000, guid: 670e111a57b56d348b7a2158c9f9536a, type: 2}
+  - {fileID: 11400000, guid: 336ecb21661592747914d18fbe4d273c, type: 2}
+  uncommonPlanets:
+  - {fileID: 11400000, guid: 61b1afaed3c24454ab82d82beef36e11, type: 2}
+  - {fileID: 11400000, guid: f077f2070485cb3469e86f404d7a7101, type: 2}
+  - {fileID: 11400000, guid: 2dc680b1222233845b1bf8dfe93d0077, type: 2}
+  - {fileID: 11400000, guid: c6cf33468422441479d6258a17b06353, type: 2}
+  - {fileID: 11400000, guid: e6824699d8e42ff4199087b89e280f38, type: 2}
+  rarePlanets:
+  - {fileID: 11400000, guid: 817435580cf6ccc4ea3e3b5d63ffdb22, type: 2}
+  - {fileID: 11400000, guid: 000345f3c71a6174b9d0c1ce91791f84, type: 2}
+  - {fileID: 11400000, guid: 00105c8f02c78624c9e12e04de95cb51, type: 2}
+  - {fileID: 11400000, guid: f0079a7039ee6534cba55d42cb7167bc, type: 2}
+  - {fileID: 11400000, guid: 7cb5d89ec87b4d1448c070f202e7cc71, type: 2}
