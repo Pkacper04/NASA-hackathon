@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PlanetsController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private List<PlanetsScriptableData> commonPlanets = new List<PlanetsScriptableData>();
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private List<PlanetsScriptableData> uncommonPlanets = new List<PlanetsScriptableData>();
+
+    [SerializeField]
+    private List<PlanetsScriptableData> rarePlanets = new List<PlanetsScriptableData>();
+    
+    
+    public PlanetsScriptableData GetCommonPlanet()
+     {
+       return commonPlanets[Random.Range(0, commonPlanets.Count)];
+     }
+    public PlanetsScriptableData GetUncommonPlanet()
     {
-        
+        return uncommonPlanets[Random.Range(0, commonPlanets.Count)];
+    }
+    public PlanetsScriptableData GetRarePlanet()
+    {
+        return rarePlanets[Random.Range(0, commonPlanets.Count)];
     }
 }
+
