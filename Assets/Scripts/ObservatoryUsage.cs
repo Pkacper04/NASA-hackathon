@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : buildingFunctionality
+public class ObservatoryUsage : buildingFunctionality
 {
     
 }

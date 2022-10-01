@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Proxima Centauri B
   m_EditorClassIdentifier: 
   PlanetName: Proxima Centauri B
-  PlanetDescription: is exoplanet orbiting in the habitable zone of the red dwarf
+  PlanetDescription: n apart of the triple star system alpha centauri.e red dwarf
     Proxima Centauri, which is closest star to the sun apart of the triple star system
     alpha centauri.
   PlanetCashValue: 3
