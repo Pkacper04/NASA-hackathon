@@ -30,9 +30,10 @@ public abstract class buildingFunctionality : MonoBehaviour, IPointerClickHandle
 
     protected BuildingUIData currentUI = null;
 
-    private void Start()
+    protected void Start()
     {
         buildingData = BuildingController.Instance.GetBuildingData(buildingType);
+        Debug.Log("building data: "+buildingData);
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -54,7 +55,6 @@ public abstract class buildingFunctionality : MonoBehaviour, IPointerClickHandle
         currentUI.SetDecors(buildingData.BuildingSprite, buildingData.Header, buildingData.Description);
         generatedObject.SetActive(true);
         SelectedColor();
-
     }
 
     public virtual void HideBuilding()

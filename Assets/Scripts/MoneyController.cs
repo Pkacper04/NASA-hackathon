@@ -7,7 +7,6 @@ using UnityEngine;
 public class MoneyController : MonoBehaviour
 {
     [SerializeField] public int totalCash = 0;
-    [SerializeField] public int cashToAdd = 5;
     [SerializeField] public float cashGettingInterval = 1f;
 
     [SerializeField] public int totalResearchPoints = 0;
@@ -19,15 +18,18 @@ public class MoneyController : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Observatory());
         StartCoroutine(RecruitmentDepartment());
     }
-    IEnumerator Observatory()
+    private void AddCash(int cashToAdd)
     {
-        yield return new WaitForSeconds(cashGettingInterval);
         totalCash += cashToAdd;
-        StartCoroutine(Observatory());
-        moneyText.GetComponent<TMP_Text>().text = "Money: " + totalCash.ToString();
+        moneyText.text = totalCash.ToString();
+    }
+
+    private void RemoveCash(int cashToRemove)
+    {
+        totalCash -= cashToRemove;
+        moneyText.text = totalCash.ToString();
     }
 
     IEnumerator RecruitmentDepartment()
