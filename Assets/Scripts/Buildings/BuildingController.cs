@@ -20,6 +20,8 @@ public class BuildingController : Singleton<BuildingController>
     private BuildingScriptableObject schoolingSectionData;
 
 
+    private buildingFunctionality lastBuilding;
+
     public BuildingScriptableObject GetBuildingData(BuildingTypes types)
     {
         switch (types)
@@ -36,6 +38,40 @@ public class BuildingController : Singleton<BuildingController>
                 return schoolingSectionData;
         }
         return null;
+    }
+
+    public void SellBuilding()
+    {
+        // do uzupelnienia
+    }
+
+    public bool DisplayBuildingInfo(buildingFunctionality currentBuilding)
+    {
+        BuildingPanelController.Instance.DeInit();
+        if(lastBuilding == null)
+        {
+            lastBuilding = currentBuilding;
+            return true;
+        }
+        else if(lastBuilding == currentBuilding)
+        {
+            lastBuilding = null;
+            return false;
+        }
+        else
+        {
+            lastBuilding.HideBuilding();
+            lastBuilding = currentBuilding;
+            return true;
+        }
+    }
+
+    public void HideBuildingInfo()
+    {
+        if (lastBuilding == null)
+            return;
+        lastBuilding.HideBuilding();
+        lastBuilding = null;
     }
 
 }

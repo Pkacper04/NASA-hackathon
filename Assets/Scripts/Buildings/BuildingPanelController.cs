@@ -59,6 +59,8 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
             lastSocket.UnSelect();
             DeInit();
         }
+        BuildingController.Instance.HideBuildingInfo();
+
         currentSocket.SelectedColor();
         lastSocket = currentSocket;
 
@@ -74,6 +76,8 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
 
     public void DeInit()
     {
+        if (lastSocket == null)
+            return;
         lastSocket.UnSelect();
         lastBuildingData = null;
         lastSocket = null;
