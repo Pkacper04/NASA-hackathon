@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00a21556a5587c468e111f7b96c4a05, type: 3}
   m_Name: HowWebbWorks
   m_EditorClassIdentifier: 
-  CuriosityName: 
-  CuriosityDescription: 
+  CuriosityName: HowWebbWorks
+  CuriosityDescription: Webbs Telescope uses infrared light, which cannot be perceived
+    by the human eye, to study every phase in cosmic history. The telescope's four
+    scientific instruments are specifically designed to capture infrared light, and
+    are able to peer through cosmic dust to study colder or very distant objects.
+  CuriosityImage: {fileID: 21300000, guid: 5bb96b7ce266b0a48a30c2ebd2361f3f, type: 3}

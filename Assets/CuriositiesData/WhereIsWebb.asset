@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00a21556a5587c468e111f7b96c4a05, type: 3}
   m_Name: WhereIsWebb
   m_EditorClassIdentifier: 
-  CuriosityName: 
-  CuriosityDescription: 
+  CuriosityName: WhereIsWebb
+  CuriosityDescription: In addition to orbiting the Sun, Webb makes a tight orbit
+    around a point in space known as Lagrange 2, or L2. This point is located 1.5
+    million kilometres from Earth. Its distant location gives Webb an unobstructed
+    view of the sky, and aids its ability to see much farther into the universe than
+    the Hubble Space Telescope.
+  CuriosityImage: {fileID: 21300000, guid: c3b2669d92a327b47bf784a50f668363, type: 3}

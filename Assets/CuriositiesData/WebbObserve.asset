@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00a21556a5587c468e111f7b96c4a05, type: 3}
   m_Name: WebbObserve
   m_EditorClassIdentifier: 
-  CuriosityName: 
-  CuriosityDescription: 
+  CuriosityName: WebbObserve
+  CuriosityDescription: 'Webb is the ideal telescope to study brown dwarfs and better
+    understand their nature. A brown dwarf is a strange cosmic object that can be
+    considered a "failed star": not massive enough to be a star, but more massive
+    than a planet.'
+  CuriosityImage: {fileID: 21300000, guid: 1200a12222958d54c8eda1fcf7f743df, type: 3}

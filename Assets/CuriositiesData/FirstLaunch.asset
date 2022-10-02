@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00a21556a5587c468e111f7b96c4a05, type: 3}
   m_Name: FirstLaunch
   m_EditorClassIdentifier: 
-  CuriosityName: 
-  CuriosityDescription: 
+  CuriosityName: FirstLaunch
+  CuriosityDescription: "Launching in 1990, Hubble Space Telescope was the largest
+    space telescope in history. However, James Webb Space Telescope (JWST) took over
+    this record in 2018. At the size of a typical school bus, Hubble will be dwarfed
+    by JWST\u2019s tennis court size."
+  CuriosityImage: {fileID: 21300000, guid: c3b2669d92a327b47bf784a50f668363, type: 3}
