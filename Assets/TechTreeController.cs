@@ -18,6 +18,14 @@ public class TechTreeController : Singleton<TechTreeController>
     [SerializeField]
     private string boughtText;
 
+
+    public Action OnResearchBuy;
+
+    public void CallOnResearchBuy()
+    {
+        if (OnResearchBuy != null)
+            OnResearchBuy.Invoke();
+    }
     private void OnDisable()
     {
         foreach (ResearchData data in UpgradesList)
@@ -28,6 +36,8 @@ public class TechTreeController : Singleton<TechTreeController>
 
     public void EnableTechTreeUI()
     {
+        BuildingController.Instance.HideBuildingInfo();
+        BuildingPanelController.Instance.DeInit();
         if(TechTreeUI.TechtreeActive())
         {
             DisavleTechTreeUI();
@@ -58,16 +68,15 @@ public class TechTreeController : Singleton<TechTreeController>
 
     public void BuyUpgrade(UpgradeData upgradeData)
     {
-        Debug.Log("before upgrade");
         if (!CanBuyUpgrade(upgradeData.CurrentResearchData))
             return;
 
-        Debug.Log("Upgrade");
 
         MoneyController.Instance.RemoveRP(upgradeData.CurrentResearchData.ResearchCost);
         upgradeData.CurrentResearchData.isPurchased = true;
         upgradeData.ButtonText.text = boughtText;
         upgradeData.ObjectButton.interactable = false;
+        CallOnResearchBuy();
     }
 
 
@@ -92,8 +101,6 @@ public class TechTreeController : Singleton<TechTreeController>
 
         if (Upgrade.previousUpgrade == null)
             return true;
-        else if (Upgrade.nextUpgrade == null)
-            return false;
         else
         {
             if (Upgrade.previousUpgrade.isPurchased)

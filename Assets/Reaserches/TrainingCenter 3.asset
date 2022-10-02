@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TrainingCenter 3
   m_EditorClassIdentifier: 
   ResearchName: Training Center LVL 3
-  ResearchCost: 300
-  BuildingCost: 600
+  ResearchCost: 900
+  BuildingCost: 2000
   ResearchDescription: 
   isPurchased: 0
   previousUpgrade: {fileID: 11400000, guid: 7d2518ef8df0bcd4ea3d507594b768f1, type: 2}

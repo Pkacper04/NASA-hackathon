@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResearchName: Recruitment department LVL 1
   ResearchCost: 100
-  BuildingCost: 200
+  BuildingCost: 250
   ResearchDescription: 
   isPurchased: 0
   previousUpgrade: {fileID: 11400000, guid: e1ce7a20d275c8740a6b3de990bfd8b4, type: 2}

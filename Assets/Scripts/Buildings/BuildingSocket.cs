@@ -24,22 +24,41 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
     [SerializeField]
     private Vector3 positionOffset;
 
+    [SerializeField]
+    private string lockedButtonText;
+
+    [SerializeField]
+    private ResearchData firstLevelData;
+
+    public string LockedButtonText { get => lockedButtonText; set => lockedButtonText = value; }
+    public ResearchData FirstLevelData { get => firstLevelData; set => firstLevelData = value; }
+
     private bool selected = false;
 
     public bool Selected { get => selected; set => selected = value; }
 
     public BuildingTypes BuildingType { get => buildingType; set => buildingType = value; }
 
-/*    private void OnEnable()
-    {
-        PlayerEvents.Instance.OnPlayerMouseDown += Pointer;
-    }
+    /*    private void OnEnable()
+        {
+            PlayerEvents.Instance.OnPlayerMouseDown += Pointer;
+        }
 
-    private void OnDisable()
+        private void OnDisable()
+        {
+            if(PlayerEvents.Instance != null)
+                PlayerEvents.Instance.OnPlayerMouseDown -= Pointer;
+        }*/
+
+    private void Start()
     {
-        if(PlayerEvents.Instance != null)
-            PlayerEvents.Instance.OnPlayerMouseDown -= Pointer;
-    }*/
+        switch(buildingType)
+        {
+            case BuildingTypes.Observatory:
+                positionOffset = new Vector3(0, 25, 0);
+                break;
+        }
+    }
 
     public void Pointer()
     {
@@ -87,8 +106,11 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
     public void BuildBuilding()
     {
         BuildingScriptableObject buildingData = BuildingController.Instance.GetBuildingData(buildingType);
-        Instantiate(buildingData.BuildingPrefab, transform.position + positionOffset, Quaternion.identity);
-        Destroy(this.gameObject);
+        GameObject createdObject = Instantiate(buildingData.BuildingPrefab, transform.position + positionOffset, Quaternion.identity);
+
+        createdObject.GetComponent<buildingFunctionality>().Offset = positionOffset;
+        createdObject.GetComponent<buildingFunctionality>().Socket = this;
+        this.gameObject.SetActive(false);
     }
 
     public void UnSelect()

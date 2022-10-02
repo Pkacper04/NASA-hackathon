@@ -21,6 +21,7 @@ public class MoneyController : Singleton<MoneyController>
 
     public void AddCash(int cashToAdd)
     {
+        Debug.Log("Add cash: "+cashToAdd);
         totalCash += cashToAdd;
         moneyText.text = totalCash.ToString();
     }

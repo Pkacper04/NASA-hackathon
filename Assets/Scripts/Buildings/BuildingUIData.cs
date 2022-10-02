@@ -27,9 +27,6 @@ public class BuildingUIData : MonoBehaviour
     private TMP_Text functionButtonText;
 
     [SerializeField]
-    private BuildingSocket buildingSocket;
-
-    [SerializeField]
     private GameObject priceGameObject;
 
     [SerializeField]
@@ -57,9 +54,8 @@ public class BuildingUIData : MonoBehaviour
         buildingFunctionality lastBuilding = BuildingController.Instance.LastBuilding;
         BuildingScriptableObject buildingData = BuildingController.Instance.GetBuildingData(lastBuilding.BuildingType);
         MoneyController.Instance.AddCash(buildingData.Price);
-        buildingSocket.BuildingType = lastBuilding.BuildingType;
 
-        Instantiate(buildingSocket.gameObject, lastBuilding.transform.position, Quaternion.identity);
+        lastBuilding.Socket.gameObject.SetActive(true);
 
         BuildingController.Instance.HideBuildingInfo();
 

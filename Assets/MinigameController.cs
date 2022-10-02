@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using NaughtyAttributes;
-using UnityEngine;
+using System;
 
 public class MinigameController : Singleton<MinigameController>
 {
@@ -24,6 +24,13 @@ public class MinigameController : Singleton<MinigameController>
 
     [SerializeField]
     private float lookingOffset;
+
+    [SerializeField]
+    private float cooldownTime;
+
+    private bool hasCooldown = false;
+
+    private float timeToLeft;
 
    
 
@@ -70,16 +77,29 @@ public class MinigameController : Singleton<MinigameController>
     public float TimeToSearch { get => timeToSearch; set => timeToSearch = value; }
     public float DetectingTime { get => detectingTime; set => detectingTime = value; }
 
+    public bool HasCooldown { get => hasCooldown; set => hasCooldown = value; }
+
+    public Action OnEndCooldown;
+
+    public void CallOnEndCooldown()
+    {
+        if (OnEndCooldown != null)
+            OnEndCooldown.Invoke();
+    }
+
 
     private void Start()
     {
         starTransform = commonStar.GetComponent<RectTransform>();
-        InitGame();
     }
 
     [Button("initGame")]
     public void InitGame()
     {
+
+        if (hasCooldown)
+            return;
+
         listStarsFound.Clear();
         starTransform = commonStar.GetComponent<RectTransform>();
         minutes = CalculateMinutes();
@@ -126,7 +146,7 @@ public class MinigameController : Singleton<MinigameController>
 
     private int ChooseRarity()
     {
-        int number = Random.Range(0,101);
+        int number = UnityEngine.Random.Range(0,101);
 
         if (number < commonChance)
             return 0;
@@ -144,8 +164,8 @@ public class MinigameController : Singleton<MinigameController>
             float xMaxValue = (LookingArea.rect.width - lookingOffset) / 2;
             float yMaxValue = (LookingArea.rect.height - lookingOffset) / 2;
 
-            float positionX = Random.Range(-xMaxValue, xMaxValue);
-            float positionY = Random.Range(-yMaxValue, yMaxValue);
+            float positionX = UnityEngine.Random.Range(-xMaxValue, xMaxValue);
+            float positionY = UnityEngine.Random.Range(-yMaxValue, yMaxValue);
 
             Vector3 newPosition = new Vector3(positionX, positionY, 1f);
 
@@ -197,6 +217,15 @@ public class MinigameController : Singleton<MinigameController>
                 timerText.text = "0" + minutes + " : " + seconds;
 
         }
+        else if(hasCooldown)
+        {
+            if (timeToLeft <= 0)
+            {
+                hasCooldown = false;
+                CallOnEndCooldown();
+            }
+            timeToLeft -= Time.deltaTime;
+        }
     }
 
     public void FoundStar(PlanetsScriptableData planet)
@@ -217,6 +246,9 @@ public class MinigameController : Singleton<MinigameController>
         {
             Debug.Log(data.PlanetName);
         }
+
+        hasCooldown = true;
+        timeToLeft = cooldownTime;
     }
 
     private int CalculateMinutes()

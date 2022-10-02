@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Observatory3
   m_EditorClassIdentifier: 
   ResearchName: Observatory LVL 3
-  ResearchCost: 300
-  BuildingCost: 600
+  ResearchCost: 600
+  BuildingCost: 1200
   ResearchDescription: 
   isPurchased: 0
   previousUpgrade: {fileID: 11400000, guid: 782660e1d84aecc42b0777145ee50fc1, type: 2}

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -26,12 +27,19 @@ public abstract class buildingFunctionality : MonoBehaviour, IPointerClickHandle
     [SerializeField]
     private Color selectedColor;
 
+    private BuildingSocket socket;
+
     protected BuildingScriptableObject buildingData = null;
 
     protected BuildingUIData currentUI = null;
 
     public BuildingTypes BuildingType { get => buildingType; set => buildingType = value; }
 
+    private Vector3 offset;
+
+    public BuildingSocket Socket { get => socket; set => socket = value; }
+
+    public Vector3 Offset { get => offset; set => offset = value; }
     protected void Start()
     {
         buildingData = BuildingController.Instance.GetBuildingData(buildingType);

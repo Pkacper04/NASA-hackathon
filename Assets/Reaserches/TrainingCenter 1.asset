@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TrainingCenter 1
   m_EditorClassIdentifier: 
   ResearchName: Training Center LVL 1
-  ResearchCost: 100
-  BuildingCost: 200
+  ResearchCost: 400
+  BuildingCost: 1200
   ResearchDescription: 
   isPurchased: 0
   previousUpgrade: {fileID: 11400000, guid: e1ce7a20d275c8740a6b3de990bfd8b4, type: 2}

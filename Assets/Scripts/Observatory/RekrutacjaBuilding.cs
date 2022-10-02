@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObservatoryUsage : buildingFunctionality
+public class RekrutacjaBuilding : buildingFunctionality
 {
     [SerializeField]
     private int amountToGive;
@@ -36,17 +36,15 @@ public class ObservatoryUsage : buildingFunctionality
 
     public int AmountToGive { get => amountToGive; set => amountToGive = value; }
 
-
     private void OnEnable()
     {
         SchoolingBuilding schooling = FindObjectOfType<SchoolingBuilding>();
 
-        if(schooling != null)
+        if (schooling != null)
         {
             amountToGive += schooling.AddBuildingToList(this);
         }
     }
-
     private void Start()
     {
         base.Start();
@@ -64,10 +62,10 @@ public class ObservatoryUsage : buildingFunctionality
         if (HasUpgrades)
         {
             currentUI.DeactiveButton();
-            Debug.Log("current level: "+currentLevel);
+            Debug.Log("current level: " + currentLevel);
             if (currentLevel == Level1)
             {
-                
+
                 if (TechTreeController.Instance.isUnlocked(Level2))
                 {
 
@@ -75,7 +73,7 @@ public class ObservatoryUsage : buildingFunctionality
                     currentUI.ActivateButton();
                 }
             }
-            else if(currentLevel == Level2)
+            else if (currentLevel == Level2)
             {
                 if (TechTreeController.Instance.isUnlocked(Level3))
                 {
@@ -87,9 +85,9 @@ public class ObservatoryUsage : buildingFunctionality
     }
 
     private void UpgradeBuilding()
-    { 
+    {
         Debug.Log("upgrade");
-        if(currentLevel == Level1)
+        if (currentLevel == Level1)
         {
             if (!MoneyController.Instance.CheckIfCanPurchase(Level2.BuildingCost))
                 return;
@@ -98,7 +96,7 @@ public class ObservatoryUsage : buildingFunctionality
 
             Debug.Log("unlock 2");
             currentLevel = Level2;
-            amountToGive += 1;
+            amountToGive += 10;
             base.HideBuilding();
         }
         else if (currentLevel == Level2)
@@ -109,21 +107,21 @@ public class ObservatoryUsage : buildingFunctionality
             MoneyController.Instance.RemoveCash(Level3.BuildingCost);
             Debug.Log("unlock 3");
             currentLevel = Level3;
-            amountToGive += 1;
+            amountToGive += 10;
             base.HideBuilding();
         }
     }
 
     private void Update()
     {
-        if(time > 0)
+        if (time > 0)
         {
             time -= Time.deltaTime;
         }
         else
         {
             time = timeToGive;
-            MoneyController.Instance.AddRP(amountToGive);
+            MoneyController.Instance.AddCash(amountToGive);
         }
     }
 
@@ -131,13 +129,13 @@ public class ObservatoryUsage : buildingFunctionality
     {
         if (currentLevel == Level1)
         {
-            amountToGive = 1;
+            amountToGive = 10;
         }
         else if (currentLevel == Level2)
         {
-            amountToGive = 2;
+            amountToGive = 20;
         }
         else
-            amountToGive = 3;
+            amountToGive = 30;
     }
 }
