@@ -59,6 +59,8 @@ public class BuildingUIData : MonoBehaviour
 
         BuildingController.Instance.HideBuildingInfo();
 
+        BuildingController.Instance.CallOnSell(buildingData);
+
         Destroy(lastBuilding.gameObject);
     }
 

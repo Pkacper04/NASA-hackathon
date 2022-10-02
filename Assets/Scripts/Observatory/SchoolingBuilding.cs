@@ -30,6 +30,13 @@ public class SchoolingBuilding : buildingFunctionality
     [SerializeField]
     private bool HasUpgrades = false;
 
+    [SerializeField]
+    private Sprite Level2Sprite;
+
+    [SerializeField]
+    private Sprite Level3Sprite;
+
+
     private ResearchData currentLevel;
 
     public int AmountToGiveCash { get => amountToGiveCash; set => amountToGiveCash = value; }
@@ -145,7 +152,7 @@ public class SchoolingBuilding : buildingFunctionality
 
             MoneyController.Instance.RemoveCash(Level2.BuildingCost);
 
-            Debug.Log("unlock 2");
+            SpriteRendererO.sprite = Level2Sprite;
             currentLevel = Level2;
             foreach (ObservatoryUsage ob in Observatories)
             {
@@ -164,7 +171,9 @@ public class SchoolingBuilding : buildingFunctionality
                 return;
 
             MoneyController.Instance.RemoveCash(Level3.BuildingCost);
-            Debug.Log("unlock 3");
+
+            SpriteRendererO.sprite = Level3Sprite;
+
             currentLevel = Level3;
             foreach (ObservatoryUsage ob in Observatories)
             {

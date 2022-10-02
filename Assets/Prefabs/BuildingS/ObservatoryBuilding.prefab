@@ -112,6 +112,8 @@ MonoBehaviour:
   Level1: {fileID: 11400000, guid: d49a2a60db98f3b40bc813fd41d21b0a, type: 2}
   Level2: {fileID: 11400000, guid: 782660e1d84aecc42b0777145ee50fc1, type: 2}
   Level3: {fileID: 11400000, guid: c37435478af4e884aab3becd71eec296, type: 2}
+  Level2Sprite: {fileID: 21300000, guid: 890059b5ba6cdb54d97a61dfe5f6d383, type: 3}
+  Level3Sprite: {fileID: 21300000, guid: 469dd4a5705957e499a65cc12a220dd8, type: 3}
   HasUpgrades: 1
 --- !u!70 &7644728174993500934
 CapsuleCollider2D:

@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using NaughtyAttributes;
 using System;
+using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class MinigameController : Singleton<MinigameController>
 {
@@ -28,10 +30,41 @@ public class MinigameController : Singleton<MinigameController>
     [SerializeField]
     private float cooldownTime;
 
+    [SerializeField]
+    private GameObject globalLight;
+
+    [SerializeField]
+    private Canvas backgroundCanvas;
+
+    [SerializeField]
+    private GraphicRaycaster backgroundRaycaster;
+
+    [SerializeField]
+    private GameObject SpotLight;
+
+    [SerializeField]
+    private Canvas canvasGui;
+
+    [SerializeField]
+    private GraphicRaycaster guiRaycaster;
+
+    [SerializeField]
+    private CanvasGroup AreaGroup;
+
+    [SerializeField]
+    private TMP_Text startMisionText;
+
+    [SerializeField]
+    private Button startMissionButton;
+
+    [SerializeField]
+    private string buttonCommonText;
+
     private bool hasCooldown = false;
 
     private float timeToLeft;
 
+    private float tempTimeToSearch;
    
 
     [SerializeField]
@@ -88,6 +121,93 @@ public class MinigameController : Singleton<MinigameController>
     }
 
 
+    private void OnEnable()
+    {
+        TechTreeController.Instance.OnSpecificResearchBuy += upgradeSatelite;
+    }
+
+    private void OnDisable()
+    {
+        if (TechTreeController.Instance != null)
+        {
+            TechTreeController.Instance.OnSpecificResearchBuy -= upgradeSatelite;
+        }
+    }
+
+
+    public void upgradeSatelite(UpgradeData data)
+    {
+        if (data.CurrentResearchData.typeOfReaserch != TypeOfReaserch.Satelite)
+            return;
+
+        switch(data.CurrentResearchData.sateliteData)
+        {
+            case SateliteData.ReaserchAmount:
+                ReaserchAmountUpgrade(data.CurrentResearchData);
+                break;
+            case SateliteData.ReaserchLength:
+                ReaserchLengthUpgrade(data.CurrentResearchData);
+                break;
+            case SateliteData.ReaserchRarity:
+                ReaserchRarityUpgrade(data.CurrentResearchData);
+                break;
+        }
+    }
+
+    private void ReaserchRarityUpgrade(ResearchData currentResearchData)
+    {
+        if(currentResearchData.reaserchLevel == ReaserchLevel.L1)
+        {
+            commonChance = 70;
+            unCommonChance = 25;
+            rareChance = 5;
+        }
+        else if(currentResearchData.reaserchLevel == ReaserchLevel.L2)
+        {
+            commonChance = 50;
+            unCommonChance = 35;
+            rareChance = 15;
+        }
+        else
+        {
+            commonChance = 30;
+            unCommonChance = 45;
+            rareChance = 25;
+        }
+    }
+
+    private void ReaserchLengthUpgrade(ResearchData currentResearchData)
+    {
+        if (currentResearchData.reaserchLevel == ReaserchLevel.L1)
+        {
+            timeToSearch = 72;
+        }
+        else if (currentResearchData.reaserchLevel == ReaserchLevel.L2)
+        {
+            timeToSearch = 90;
+        }
+        else
+        {
+            timeToSearch = 120;
+        }
+    }
+
+    private void ReaserchAmountUpgrade(ResearchData currentResearchData)
+    {
+        if (currentResearchData.reaserchLevel == ReaserchLevel.L1)
+        {
+            starsCounter = 4;
+        }
+        else if (currentResearchData.reaserchLevel == ReaserchLevel.L2)
+        {
+            starsCounter = 6;
+        }
+        else
+        {
+            starsCounter = 9;
+        }
+    }
+
     private void Start()
     {
         starTransform = commonStar.GetComponent<RectTransform>();
@@ -100,6 +220,10 @@ public class MinigameController : Singleton<MinigameController>
         if (hasCooldown)
             return;
 
+        tempTimeToSearch = timeToSearch;
+
+        ScreenTransition.Instance.startFadingIn();
+        backgroundRaycaster.enabled = true;
         listStarsFound.Clear();
         starTransform = commonStar.GetComponent<RectTransform>();
         minutes = CalculateMinutes();
@@ -112,7 +236,7 @@ public class MinigameController : Singleton<MinigameController>
         starsFound = 0;
         positions.Clear();
         AddStars();
-        gameStarted = true;
+        EnableMinigameValues();
     }
 
     private void AddStars()
@@ -160,9 +284,12 @@ public class MinigameController : Singleton<MinigameController>
     {
         for(int i=0;i<360;i++)
         {
-            Debug.Log("LookingArea.rect.width: "+LookingArea.rect.width);
+            Debug.Log("looking area width: "+ LookingArea.rect.width);
             float xMaxValue = (LookingArea.rect.width - lookingOffset) / 2;
             float yMaxValue = (LookingArea.rect.height - lookingOffset) / 2;
+
+            Debug.Log("y Max Value: "+yMaxValue);
+            Debug.Log("x Max Value: "+xMaxValue);
 
             float positionX = UnityEngine.Random.Range(-xMaxValue, xMaxValue);
             float positionY = UnityEngine.Random.Range(-yMaxValue, yMaxValue);
@@ -199,9 +326,9 @@ public class MinigameController : Singleton<MinigameController>
     {
         if(gameStarted)
         {
-            timeToSearch -= Time.deltaTime;
+            tempTimeToSearch -= Time.deltaTime;
 
-            if (timeToSearch <= 0)
+            if (tempTimeToSearch <= 0)
             {
                 timerText.text = "00 : 00";
                 EndGame();
@@ -219,9 +346,19 @@ public class MinigameController : Singleton<MinigameController>
         }
         else if(hasCooldown)
         {
+            Debug.Log("working");
+            int Cminutes = CalculateMinutes(timeToLeft);
+            int Cseconds = CalculateSeconds(timeToLeft, Cminutes);
+
+            if (Cseconds < 10)
+                startMisionText.text = "0" + Cminutes + " : " + "0" + Cseconds;
+            else
+                startMisionText.text = "0" + Cminutes + " : " + Cseconds;
             if (timeToLeft <= 0)
             {
                 hasCooldown = false;
+                startMisionText.text = buttonCommonText;
+                startMissionButton.interactable = true;
                 CallOnEndCooldown();
             }
             timeToLeft -= Time.deltaTime;
@@ -241,23 +378,98 @@ public class MinigameController : Singleton<MinigameController>
     private void EndGame()
     {
         gameStarted = false;
-        Debug.Log("Planets that yoy found: ");
-        foreach (PlanetsScriptableData data in listStarsFound)
-        {
-            Debug.Log(data.PlanetName);
-        }
 
-        hasCooldown = true;
+        ScreenTransition.Instance.startFadingIn();
+
+        ClearArea();
+
+
+        StartCoroutine(WaitForNewspaper());
+
+    }
+
+    private void ClearArea()
+    {
+        for(int i=1; i<LookingArea.childCount; i++)
+        {
+            Destroy(LookingArea.GetChild(i).gameObject);
+        }
+    }
+
+    private IEnumerator WaitForNewspaper()
+    {
+        yield return new WaitUntil(() => ScreenTransition.Instance.InTransition == false);
+        globalLight.SetActive(true);
+        backgroundRaycaster.enabled = false;
+        SpotLight.SetActive(false);
+        guiRaycaster.enabled = true;
+        canvasGui.enabled = true;
+        AreaGroup.alpha = 0;
+        AreaGroup.interactable = false;
+        AreaGroup.blocksRaycasts = false;
+        NewspaperController.Instance.EnableNewspaper();
+
+        int Cminutes = CalculateMinutes(cooldownTime);
+        int Cseconds = CalculateSeconds(cooldownTime, Cminutes);
+
+        if (seconds < 10)
+            startMisionText.text = "0" + Cminutes + " : " + "0" + Cseconds;
+        else
+            startMisionText.text = "0" + Cminutes + " : " + Cseconds;
+
         timeToLeft = cooldownTime;
+
+        startMissionButton.interactable = false;
+        ScreenTransition.Instance.startFadingOut();
+        yield return new WaitUntil(() => ScreenTransition.Instance.InTransition == false);
+
+        NewspaperController.Instance.InitNewspaper(listStarsFound);
+    }
+
+    private int CalculateMinutes(float cooldownTime)
+    {
+        return (int)(cooldownTime / 60f);
+    }
+
+    private int CalculateSeconds(float cooldownTime, int minutes)
+    {
+        return (int)(cooldownTime - (minutes * 60));
     }
 
     private int CalculateMinutes()
     {
-        return (int)(timeToSearch / 60f);
+        return (int)(tempTimeToSearch / 60f);
     }
 
     private int CalculateSeconds(int minutes)
     {
-        return (int)(timeToSearch - (minutes * 60));
+        return (int)(tempTimeToSearch - (minutes * 60));
+    }
+
+    private void EnableMinigameValues()
+    {
+        StartCoroutine(WaitForTransition());
+    }
+
+    private IEnumerator WaitForTransition()
+    {
+        yield return new WaitUntil(() => ScreenTransition.Instance.InTransition == false);
+        globalLight.SetActive(false);
+        SpotLight.SetActive(true);
+        guiRaycaster.enabled = false;
+        canvasGui.enabled = false;
+        backgroundRaycaster.enabled = true;
+        AreaGroup.alpha = 1;
+        AreaGroup.interactable = true;
+        AreaGroup.blocksRaycasts = true;
+        ScreenTransition.Instance.startFadingOut();
+        yield return new WaitUntil(() => ScreenTransition.Instance.InTransition == false);
+        yield return new WaitForSeconds(.5f);
+        gameStarted = true;
+    }
+
+    internal void StartCooldown()
+    {
+        hasCooldown = true;
     }
 }

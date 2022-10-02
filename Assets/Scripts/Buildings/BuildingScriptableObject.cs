@@ -19,4 +19,6 @@ public class BuildingScriptableObject : ScriptableObject
 
     public GameObject BuildingPrefab;
 
+    public TypeOfReaserch reaserch = TypeOfReaserch.Main;
+
 }

@@ -27,6 +27,12 @@ public class ObservatoryUsage : buildingFunctionality
     private ResearchData Level3;
 
     [SerializeField]
+    private Sprite Level2Sprite;
+
+    [SerializeField]
+    private Sprite Level3Sprite;
+
+    [SerializeField]
     private bool HasUpgrades = false;
 
     private ResearchData currentLevel;
@@ -96,6 +102,7 @@ public class ObservatoryUsage : buildingFunctionality
 
             MoneyController.Instance.RemoveCash(Level2.BuildingCost);
 
+            SpriteRendererO.sprite = Level2Sprite;
             Debug.Log("unlock 2");
             currentLevel = Level2;
             amountToGive += 1;
@@ -107,6 +114,8 @@ public class ObservatoryUsage : buildingFunctionality
                 return;
 
             MoneyController.Instance.RemoveCash(Level3.BuildingCost);
+
+            SpriteRendererO.sprite = Level3Sprite;
             Debug.Log("unlock 3");
             currentLevel = Level3;
             amountToGive += 1;

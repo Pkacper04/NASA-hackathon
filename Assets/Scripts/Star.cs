@@ -12,6 +12,9 @@ public class Star : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPoin
     [SerializeField]
     private Image loadingImage;
 
+    [SerializeField]
+    private Image starImage;
+
     private float timeSearched;
 
 
@@ -53,6 +56,9 @@ public class Star : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPoin
         objectFound = true;
         loadingImage.fillAmount = 0;
         MinigameController.Instance.FoundStar(StarData);
+        starImage.sprite = starData.planetSprite;
+        starImage.material = null;
+        starImage.color = new Color(1, 1, 1, 1);
     }
 
     public void OnPointerExit(PointerEventData eventData)

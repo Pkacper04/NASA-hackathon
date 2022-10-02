@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d135dc1058b597e4388bc0fa3e4a2325, type: 3}
   m_Name: Proxima Centauri B
   m_EditorClassIdentifier: 
+  planetSprite: {fileID: 21300000, guid: ad60e23f42ca1c640a5918aeafc0603f, type: 3}
   PlanetName: Proxima Centauri B
   PlanetDescription: n apart of the triple star system alpha centauri.e red dwarf
     Proxima Centauri, which is closest star to the sun apart of the triple star system
     alpha centauri.
   PlanetCashValue: 3
   PlanetResearchPointValue: 3
+  rarity: 2

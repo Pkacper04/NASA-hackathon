@@ -39,6 +39,7 @@ public abstract class buildingFunctionality : MonoBehaviour, IPointerClickHandle
 
     public BuildingSocket Socket { get => socket; set => socket = value; }
 
+    public SpriteRenderer SpriteRendererO { get => spriteRenderer; set => spriteRenderer = value; }
     public Vector3 Offset { get => offset; set => offset = value; }
     protected void Start()
     {

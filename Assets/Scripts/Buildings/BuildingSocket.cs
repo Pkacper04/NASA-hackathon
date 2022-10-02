@@ -111,6 +111,8 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
         createdObject.GetComponent<buildingFunctionality>().Offset = positionOffset;
         createdObject.GetComponent<buildingFunctionality>().Socket = this;
         this.gameObject.SetActive(false);
+
+        BuildingController.Instance.CallOnBuild(buildingData);
     }
 
     public void UnSelect()
