@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00a21556a5587c468e111f7b96c4a05, type: 3}
+  m_Name: HowWebbWorks
+  m_EditorClassIdentifier: 
+  CuriosityName: HowWebbWorks
+  CuriosityDescription: Webbs Telescope uses infrared light, which cannot be perceived
+    by the human eye, to study every phase in cosmic history. The telescope's four
+    scientific instruments are specifically designed to capture infrared light, and
+    are able to peer through cosmic dust to study colder or very distant objects.
+  CuriosityImage: {fileID: 21300000, guid: 5bb96b7ce266b0a48a30c2ebd2361f3f, type: 3}

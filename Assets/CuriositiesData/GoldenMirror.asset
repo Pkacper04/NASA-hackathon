@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00a21556a5587c468e111f7b96c4a05, type: 3}
+  m_Name: GoldenMirror
+  m_EditorClassIdentifier: 
+  CuriosityName: GoldenMirror
+  CuriosityDescription: "Gold layers plating the scope\u2019s mirrors are only 1,000
+    atoms thick. Indeed, only a golf-ball-sized amount of gold was used to coat the
+    entire 21-foot-wide mirror."
+  CuriosityImage: {fileID: 21300000, guid: 1cc0e260639bea242bb29f278408f2f2, type: 3}
