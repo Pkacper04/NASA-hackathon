@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
+    public GameObject loadingScreen;
+    public Slider slider;
+    public Text progressText;
+    [SerializeField] Button loadingScreenButton;
     public void LoadLevel(int sceneIndex)
     {
         StartCoroutine(LoadAsynchronously(sceneIndex));
@@ -14,9 +18,15 @@ public class LevelLoader : MonoBehaviour
     {
         AsyncOperation operation= SceneManager.LoadSceneAsync(sceneIndex);
 
-        while(!operation.isDone)
+        loadingScreen.SetActive(true);
+        loadingScreenButton.gameObject.SetActive(false);
+
+        while (!operation.isDone)
         {
-            Debug.Log(operation.progress);
+            float progress = Mathf.Clamp01(operation.progress/.9f);
+
+            slider.value = progress;
+            progressText.text = progress * 100f + "%"; 
 
             yield return null;
         }
