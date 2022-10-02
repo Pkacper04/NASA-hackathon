@@ -549,17 +549,8 @@ MonoBehaviour:
   listOfCutscenes:
     numberOfCutscenes:
     - cutsceneImages:
-      - {fileID: 21300000, guid: c951c80c451cd3448a6a5536b7342bc3, type: 3}
-      cutsceneDialogue: After years of hard work, humans finally managed to send
-        Hubble Space Telescope into space. It was a giant breakthrough in human history.
-    - cutsceneImages:
-      - {fileID: 21300000, guid: af8bb9bff6f0cab46a3e5138f54fac83, type: 3}
-      cutsceneDialogue: 'However, human desire for knowledge is incomprehensible.
-        Humans want to know more and more about space. '
-    - cutsceneImages:
-      - {fileID: 21300000, guid: bd70cab78fc781a488334273771466bb, type: 3}
-      cutsceneDialogue: "It didn\u2019t take them long to start building new telescope.
-        With it, they can expand known universe to the brim."
+      - {fileID: 21300000, guid: 3a2890f63390b894288b133a44eeef91, type: 3}
+      cutsceneDialogue: Thanks to your efforts, humanity has taken another step forward.
 --- !u!4 &813430183
 Transform:
   m_ObjectHideFlags: 0
@@ -759,8 +750,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 817.74, y: 87.4}
-  m_SizeDelta: {x: 1573.7749, y: 122.1918}
+  m_AnchoredPosition: {x: 821.8, y: 89.8}
+  m_SizeDelta: {x: 1575.6956, y: 122.1918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1772618145
 MonoBehaviour:
@@ -805,7 +796,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 0.01886791, g: 0.01886791, b: 0.01886791, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
