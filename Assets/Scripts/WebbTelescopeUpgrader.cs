@@ -1,7 +1,10 @@
+using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WebbTelescopeUpgrader : MonoBehaviour
 {
@@ -19,6 +22,9 @@ public class WebbTelescopeUpgrader : MonoBehaviour
 
     [SerializeField]
     private List<ResearchData> necessaryResearch = new List<ResearchData>();
+
+    [SerializeField, Scene]
+    private string SceneToChange;
 
     private void OnEnable()
     {
@@ -43,8 +49,8 @@ public class WebbTelescopeUpgrader : MonoBehaviour
 
         if (unlockedTechnologies == necessaryResearch.Count)
         {
-            Debug.Log("End game");
-            //EndGame
+            ScreenTransition.Instance.startFadingIn();
+            StartCoroutine(WaitForFade());
             return;
         }
 
@@ -63,4 +69,9 @@ public class WebbTelescopeUpgrader : MonoBehaviour
 
     }
 
+    public IEnumerator WaitForFade()
+    {
+        yield return new WaitUntil(() => ScreenTransition.Instance.InTransition == false);
+        SceneManager.LoadScene(SceneToChange);
+    }
 }

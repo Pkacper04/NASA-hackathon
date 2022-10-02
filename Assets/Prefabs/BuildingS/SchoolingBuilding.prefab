@@ -129,3 +129,5 @@ MonoBehaviour:
   Level2: {fileID: 11400000, guid: 7d2518ef8df0bcd4ea3d507594b768f1, type: 2}
   Level3: {fileID: 11400000, guid: 31e08e1d8083a53448ed65dddd762fa0, type: 2}
   HasUpgrades: 1
+  Level2Sprite: {fileID: 21300000, guid: 2ae066b2498288849b4c915dd15017bb, type: 3}
+  Level3Sprite: {fileID: 21300000, guid: 3a92f2c1f53774d4481c5487a38f5827, type: 3}

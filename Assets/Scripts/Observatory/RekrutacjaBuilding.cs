@@ -29,6 +29,13 @@ public class RekrutacjaBuilding : buildingFunctionality
     [SerializeField]
     private bool HasUpgrades = false;
 
+    [SerializeField]
+    private Sprite Level2Sprite;
+
+    [SerializeField]
+    private Sprite Level3Sprite;
+
+
     private ResearchData currentLevel;
 
 
@@ -86,7 +93,6 @@ public class RekrutacjaBuilding : buildingFunctionality
 
     private void UpgradeBuilding()
     {
-        Debug.Log("upgrade");
         if (currentLevel == Level1)
         {
             if (!MoneyController.Instance.CheckIfCanPurchase(Level2.BuildingCost))
@@ -94,7 +100,7 @@ public class RekrutacjaBuilding : buildingFunctionality
 
             MoneyController.Instance.RemoveCash(Level2.BuildingCost);
 
-            Debug.Log("unlock 2");
+            SpriteRendererO.sprite = Level2Sprite;
             currentLevel = Level2;
             amountToGive += 10;
             base.HideBuilding();
@@ -105,7 +111,9 @@ public class RekrutacjaBuilding : buildingFunctionality
                 return;
 
             MoneyController.Instance.RemoveCash(Level3.BuildingCost);
-            Debug.Log("unlock 3");
+
+            SpriteRendererO.sprite = Level3Sprite;
+
             currentLevel = Level3;
             amountToGive += 10;
             base.HideBuilding();
