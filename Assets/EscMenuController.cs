@@ -18,7 +18,11 @@ public class EscMenuController : MonoBehaviour
         {
             Menu.enabled =! Menu.enabled;
             if (Menu.enabled)
+            {
+                BuildingController.Instance.HideBuildingInfo();
+                BuildingPanelController.Instance.DeInit();
                 Time.timeScale = 0;
+            }
             else
             {
                 Time.timeScale = 1;
@@ -29,6 +33,14 @@ public class EscMenuController : MonoBehaviour
  
         }
 
+    }
+
+    public void disableMenu()
+    {
+        Menu.enabled = false;
+        Time.timeScale = 1;
+        Settings.SetActive(false);
+        MainMenu.SetActive(true);
     }
     public void SaveGame()
     {

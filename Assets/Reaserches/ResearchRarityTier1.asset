@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ResearchRarityTier1
   m_EditorClassIdentifier: 
   ResearchName: Science Instrument Module upgrade
-  ResearchCost: 100
+  ResearchCost: 200
   BuildingCost: 0
   ResearchDescription: Increases the chance to find rarer objects
   isPurchased: 0

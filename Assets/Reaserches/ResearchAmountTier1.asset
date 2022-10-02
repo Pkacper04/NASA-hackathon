@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ResearchAmountTier1
   m_EditorClassIdentifier: 
   ResearchName: Star trackers upgrade
-  ResearchCost: 100
+  ResearchCost: 200
   BuildingCost: 0
   ResearchDescription: Increases the amount of researched objects by 1
   isPurchased: 0

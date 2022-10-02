@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ResearchLengthTier1
   m_EditorClassIdentifier: 
   ResearchName: Multilayer sunshield upgrade
-  ResearchCost: 100
+  ResearchCost: 200
   BuildingCost: 0
   ResearchDescription: Increases the duration of your research by ?%
   isPurchased: 0

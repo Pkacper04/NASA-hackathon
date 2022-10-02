@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ResearchLengthTier2
   m_EditorClassIdentifier: 
   ResearchName: Trim flap upgrade
-  ResearchCost: 200
+  ResearchCost: 400
   BuildingCost: 0
   ResearchDescription: Increases the duration of research by ?%
   isPurchased: 0

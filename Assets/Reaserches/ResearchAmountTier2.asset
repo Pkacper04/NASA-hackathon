@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ResearchAmountTier2
   m_EditorClassIdentifier: 
   ResearchName: Earth-pointing antenna upgrade
-  ResearchCost: 200
+  ResearchCost: 400
   BuildingCost: 0
   ResearchDescription: Increases the amount of researched objects by 1
   isPurchased: 0

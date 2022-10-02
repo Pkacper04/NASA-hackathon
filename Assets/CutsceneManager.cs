@@ -71,6 +71,11 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void ChangeCutscene()
     {
         if (currentCutscene + 1 == listOfCutscenes.numberOfCutscenes.Count)
