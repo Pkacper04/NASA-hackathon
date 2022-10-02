@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676dd59e85273644d92f0fb7c299a93f, type: 3}
   m_Name: SchoolingSection
   m_EditorClassIdentifier: 
-  BuildingSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  BuildingSprite: {fileID: 21300000, guid: 0cba13a59cdbabd4abfc116314f59531, type: 3}
   Header: Schooling Section
   Description: To make more RP and cash
-  Price: 0
-  BuildingPrefab: {fileID: 1981131855061102, guid: 7ec354ef3daae7641b7a3fa5e1fe0c81, type: 3}
+  Price: 1200
+  BuildingPrefab: {fileID: 3630066316851638690, guid: 4b074cf3decc3fd408ac2f9d85de20af, type: 3}

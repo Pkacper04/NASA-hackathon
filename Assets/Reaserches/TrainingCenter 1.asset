@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a5e9a71ca2af6b4bbb6fdea672aca9c, type: 3}
-  m_Name: ResearchAmountTier2
+  m_Name: TrainingCenter 1
   m_EditorClassIdentifier: 
-  ResearchName: Earth-pointing antenna upgrade
-  ResearchCost: 2000
-  ResearchDescription: Increases the amount of researched objects by 1
+  ResearchName: Training Center LVL 1
+  ResearchCost: 400
+  BuildingCost: 1200
+  ResearchDescription: 
   isPurchased: 0
+  previousUpgrade: {fileID: 11400000, guid: e1ce7a20d275c8740a6b3de990bfd8b4, type: 2}
+  nextUpgrade: {fileID: 11400000, guid: 7d2518ef8df0bcd4ea3d507594b768f1, type: 2}

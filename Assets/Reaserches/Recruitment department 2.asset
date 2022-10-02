@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a5e9a71ca2af6b4bbb6fdea672aca9c, type: 3}
-  m_Name: ResearchLengthTier2
+  m_Name: Recruitment department 2
   m_EditorClassIdentifier: 
-  ResearchName: Trim flap upgrade
-  ResearchCost: 2000
-  ResearchDescription: Increases the duration of research by ?%
+  ResearchName: Recruitment department LVL 2
+  ResearchCost: 200
+  BuildingCost: 500
+  ResearchDescription: 
   isPurchased: 0
+  previousUpgrade: {fileID: 11400000, guid: 2349e26f802ad444e80ec5f6d07f2baa, type: 2}
+  nextUpgrade: {fileID: 11400000, guid: a3c8ea75ef894ff488ddd0d95161797d, type: 2}

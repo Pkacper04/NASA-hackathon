@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676dd59e85273644d92f0fb7c299a93f, type: 3}
   m_Name: RocketPlatform
   m_EditorClassIdentifier: 
-  BuildingSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  BuildingSprite: {fileID: 21300000, guid: d65c6b30265e8154cbe93e82b520ae4d, type: 3}
   Header: Rocket Platform
   Description: Platform to launch rockets
-  Price: 0
-  BuildingPrefab: {fileID: 1981131855061102, guid: 7ec354ef3daae7641b7a3fa5e1fe0c81, type: 3}
+  Price: 1000
+  BuildingPrefab: {fileID: 4247006055328542189, guid: 564c3ceb94af9d64386422403d8155f6, type: 3}

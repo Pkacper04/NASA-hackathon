@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a5e9a71ca2af6b4bbb6fdea672aca9c, type: 3}
-  m_Name: ResearchLengthTier1
+  m_Name: ResearchLengthTier3
   m_EditorClassIdentifier: 
-  ResearchName: Multilayer sunshield upgrade
-  ResearchCost: 1000
-  ResearchDescription: Increases the duration of your research by ?%
+  ResearchName: Solar power array upgrade
+  ResearchCost: 300
+  BuildingCost: 0
+  ResearchDescription: Increases the duration of research by ?%
   isPurchased: 0
+  previousUpgrade: {fileID: 11400000, guid: b331610caf5868b45b70c6dbfac7534d, type: 2}
+  nextUpgrade: {fileID: 0}

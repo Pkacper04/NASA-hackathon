@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a5e9a71ca2af6b4bbb6fdea672aca9c, type: 3}
-  m_Name: ResearchLengthTier3
+  m_Name: Recruitment department 1
   m_EditorClassIdentifier: 
-  ResearchName: Solar power array upgrade
-  ResearchCost: 3000
-  ResearchDescription: Increases the duration of research by ?%
+  ResearchName: Recruitment department LVL 1
+  ResearchCost: 100
+  BuildingCost: 250
+  ResearchDescription: 
   isPurchased: 0
+  previousUpgrade: {fileID: 11400000, guid: e1ce7a20d275c8740a6b3de990bfd8b4, type: 2}
+  nextUpgrade: {fileID: 11400000, guid: 06e0ea5e52da39e4cacf7b64ffc3db77, type: 2}

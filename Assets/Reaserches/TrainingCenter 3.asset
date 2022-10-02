@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a5e9a71ca2af6b4bbb6fdea672aca9c, type: 3}
-  m_Name: ResearchRarityTier3
+  m_Name: TrainingCenter 3
   m_EditorClassIdentifier: 
-  ResearchName: Secondary Mirror upgrade
-  ResearchCost: 3000
-  ResearchDescription: Increases the chance to find rarer objects
+  ResearchName: Training Center LVL 3
+  ResearchCost: 900
+  BuildingCost: 2000
+  ResearchDescription: 
   isPurchased: 0
+  previousUpgrade: {fileID: 11400000, guid: 7d2518ef8df0bcd4ea3d507594b768f1, type: 2}
+  nextUpgrade: {fileID: 0}

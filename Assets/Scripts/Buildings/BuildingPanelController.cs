@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Runtime.Serialization;
 
 public class BuildingPanelController : Singleton<BuildingPanelController>
 {
@@ -25,6 +26,15 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
 
     [SerializeField]
     private RectTransform objectToAnimateTransform;
+
+    [SerializeField]
+    private TMP_Text price;
+
+    [SerializeField]
+    private TMP_Text buttonText;
+
+    [SerializeField]
+    private Button purchaseButton;
 
     private Sprite buildingSprite;
     private string buildingName;
@@ -69,6 +79,18 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
         buildingSprite= buildingData.BuildingSprite;
         buildingName = buildingData.Header;
         buildingDescription = buildingData.Description;
+        price.text = buildingData.Price.ToString();
+
+        if (!TechTreeController.Instance.isUnlocked(lastSocket.FirstLevelData))
+        {
+            purchaseButton.interactable = false;
+            buttonText.text = lastSocket.LockedButtonText;
+        }
+        else
+        {
+            purchaseButton.interactable = true;
+            buttonText.text = "/";
+        }
 
         StartCoroutine(ShowPanel());
         return true;
@@ -86,6 +108,10 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
 
     public void BuildBuilding()
     {
+        if (!MoneyController.Instance.CheckIfCanPurchase(lastBuildingData.Price))
+            return;
+
+        MoneyController.Instance.RemoveCash(lastBuildingData.Price);
         lastSocket.BuildBuilding();
         DeInit();
     }
