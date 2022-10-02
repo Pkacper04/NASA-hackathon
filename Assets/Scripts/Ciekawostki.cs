@@ -21,4 +21,5 @@ public enum curisities
 
     WebbTemperature,    //First, the side of JWST that will always face the Sun will constantly sit at a scorching 185º F. However, the other side, containing the mirrors and instruments, will constantly sit at a frigid -388º F. 
 
+    JakKolwiek // Webb allows scientists to study planets, both within and beyond our solar system, in greater detail than ever before. It is designed to help determine the elements that make them up and unveil these worlds' potential to support life. The telescope may even detect signs of alien life known as biosignatures.
 }
