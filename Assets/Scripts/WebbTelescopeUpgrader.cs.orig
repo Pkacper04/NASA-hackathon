@@ -4,8 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.SceneManagement;
+=======
 using UnityEngine.UI;
+>>>>>>> 7ef712e (Font and Descriptions)
 
 public class WebbTelescopeUpgrader : MonoBehaviour
 {
@@ -27,9 +30,12 @@ public class WebbTelescopeUpgrader : MonoBehaviour
     [SerializeField]
     private List<ResearchData> necessaryResearch = new List<ResearchData>();
 
+<<<<<<< HEAD
+    [SerializeField, Scene]
+    private string SceneToChange;
+=======
     private float value;
-
-    [SerializeField, Scene]private string SceneToChange;
+>>>>>>> 7ef712e (Font and Descriptions)
 
     private void OnEnable()
     {
