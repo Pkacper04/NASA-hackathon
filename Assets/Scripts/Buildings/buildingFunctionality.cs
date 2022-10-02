@@ -1,3 +1,5 @@
+using Events;
+using Game.SaveLoadSystem;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.NCalc;
@@ -41,6 +43,17 @@ public abstract class buildingFunctionality : MonoBehaviour, IPointerClickHandle
 
     public SpriteRenderer SpriteRendererO { get => spriteRenderer; set => spriteRenderer = value; }
     public Vector3 Offset { get => offset; set => offset = value; }
+
+    protected ResearchData currentLevel;
+
+    public ResearchData CurrentLevel { get => currentLevel; set => currentLevel = value; }
+
+
+    public virtual void ChangeCurrentLevel(int level)
+    {
+        
+    }
+
     protected void Start()
     {
         buildingData = BuildingController.Instance.GetBuildingData(buildingType);
