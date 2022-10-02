@@ -11,7 +11,7 @@ public enum curisities
 {
     WebbObserve, //Webb is the ideal telescope to study brown dwarfs and better understand their nature. A brown dwarf is a strange cosmic object that can be considered a "failed star": not massive enough to be a star, but more massive than a planet.
 
-    HowWebbWorks, //Webb uses infrared light, which cannot be perceived by the human eye, to study every phase in cosmic history. The telescope's four scientific instruments are specifically designed to capture infrared light, and are able to peer through cosmic dust to study colder or very distant objects.
+    HowWebbWorks, //Webbs Telescope uses infrared light, which cannot be perceived by the human eye, to study every phase in cosmic history. The telescope's four scientific instruments are specifically designed to capture infrared light, and are able to peer through cosmic dust to study colder or very distant objects.
 
     WhereIsWebb,  //In addition to orbiting the Sun, Webb makes a tight orbit around a point in space known as Lagrange 2, or L2. This point is located 1.5 million kilometres from Earth. Its distant location gives Webb an unobstructed view of the sky, and aids its ability to see much farther into the universe than the Hubble Space Telescope.
 
