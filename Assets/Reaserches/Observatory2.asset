@@ -21,4 +21,4 @@ MonoBehaviour:
   nextUpgrade: {fileID: 11400000, guid: c37435478af4e884aab3becd71eec296, type: 2}
   typeOfReaserch: 0
   sateliteData: 0
-  reaserchLevel: 0
+  reaserchLevel: 1

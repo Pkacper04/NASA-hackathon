@@ -19,3 +19,6 @@ MonoBehaviour:
   isPurchased: 0
   previousUpgrade: {fileID: 11400000, guid: af0df4590854fdb4e8ca39992b15e212, type: 2}
   nextUpgrade: {fileID: 11400000, guid: 31e08e1d8083a53448ed65dddd762fa0, type: 2}
+  typeOfReaserch: 0
+  sateliteData: 0
+  reaserchLevel: 1

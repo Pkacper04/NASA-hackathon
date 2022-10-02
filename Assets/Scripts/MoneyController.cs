@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
+using Events;
+using Game.SaveLoadSystem;
 
 public class MoneyController : Singleton<MoneyController>
 {
@@ -12,6 +14,42 @@ public class MoneyController : Singleton<MoneyController>
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text researchPointsText;
 
+
+
+    private void OnEnable()
+    {
+        PlayerEvents.Instance.OnSaveGame += SaveStats;
+        PlayerEvents.Instance.OnLoadGame += LoadGame;
+    }
+
+    private void OnDisable()
+    {
+        if (PlayerEvents.Instance != null)
+        {
+            PlayerEvents.Instance.OnSaveGame -= SaveStats;
+            PlayerEvents.Instance.OnLoadGame -= LoadGame;
+        }
+    }
+
+
+    private void SaveStats()
+    {
+        SaveSystem.SaveInt(totalCash, "CashStorage");
+        SaveSystem.SaveInt(totalResearchPoints, "RPStorage");
+    }
+
+    private void LoadGame()
+    {
+        if(SaveSystem.CheckIfFileExists("CashStorage"))
+        {
+            totalCash = SaveSystem.LoadInt("CashStorage");
+        }
+
+        if(SaveSystem.CheckIfFileExists("RPStorage"))
+        {
+            totalResearchPoints = SaveSystem.LoadInt("RPStorage");
+        }
+    }
 
     private void Start()
     {

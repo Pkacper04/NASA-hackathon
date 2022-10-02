@@ -33,6 +33,8 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
     public string LockedButtonText { get => lockedButtonText; set => lockedButtonText = value; }
     public ResearchData FirstLevelData { get => firstLevelData; set => firstLevelData = value; }
 
+    public buildingFunctionality BuildingOnSocket = null;
+
     private bool selected = false;
 
     public bool Selected { get => selected; set => selected = value; }
@@ -107,11 +109,10 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
     {
         BuildingScriptableObject buildingData = BuildingController.Instance.GetBuildingData(buildingType);
         GameObject createdObject = Instantiate(buildingData.BuildingPrefab, transform.position + positionOffset, Quaternion.identity);
-
         createdObject.GetComponent<buildingFunctionality>().Offset = positionOffset;
         createdObject.GetComponent<buildingFunctionality>().Socket = this;
+        BuildingOnSocket = createdObject.GetComponent<buildingFunctionality>();
         this.gameObject.SetActive(false);
-
         BuildingController.Instance.CallOnBuild(buildingData);
     }
 

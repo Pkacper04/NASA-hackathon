@@ -1,3 +1,5 @@
+using Events;
+using Game.SaveLoadSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,18 +31,73 @@ public class TechTreeController : Singleton<TechTreeController>
 
     public Action<UpgradeData> OnSpecificResearchBuy;
 
-    public void CallOnSpecificReasearchBuy(UpgradeData data)
+
+    private void OnEnable()
     {
-        if (OnSpecificResearchBuy != null)
-            OnSpecificResearchBuy.Invoke(data);
+        PlayerEvents.Instance.OnSaveGame += SaveData;
+        PlayerEvents.Instance.OnLoadGame += LoadData;
     }
+
     private void OnDisable()
     {
+        if (PlayerEvents.Instance != null)
+        {
+            PlayerEvents.Instance.OnSaveGame -= SaveData;
+            PlayerEvents.Instance.OnLoadGame -= LoadData;
+        }
+
         foreach (ResearchData data in UpgradesList)
             data.isPurchased = false;
 
         firstBuilding.isPurchased = true;
     }
+
+    private void SaveData()
+    {
+        List<bool> upgradesList = new List<bool>();
+        foreach(ResearchData data in UpgradesList)
+        {
+            upgradesList.Add(data.isPurchased);
+        }
+        SaveSystem.SaveBoolList(upgradesList, "UpgradeLists");
+    }
+
+    private void LoadData()
+    {
+        if(SaveSystem.CheckIfFileExists("UpgradeLists"))
+        {
+            List<bool> upgradesList = new List<bool>(SaveSystem.LoadBoolList("UpgradeLists"));
+            List<UpgradeData> upgradeData = new List<UpgradeData>(FindObjectsOfType<UpgradeData>());
+
+
+            for(int i=0;i<upgradesList.Count; i++)
+            {
+                UpgradesList[i].isPurchased = upgradesList[i];
+            }
+
+            for(int i=0; i< UpgradesList.Count; i++)
+            {
+                for(int j=0; j<upgradeData.Count;j++)
+                {
+                    if (upgradeData[j].CurrentResearchData == UpgradesList[i] && UpgradesList[i].isPurchased)
+                    {
+                        CallOnSpecificReasearchBuy(upgradeData[j]);
+                        upgradeData[j].ButtonText.text = boughtText;
+                        upgradeData[j].ObjectButton.interactable = false;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
+    public void CallOnSpecificReasearchBuy(UpgradeData data)
+    {
+        if (OnSpecificResearchBuy != null)
+            OnSpecificResearchBuy.Invoke(data);
+    }
+
 
     public void EnableTechTreeUI()
     {

@@ -21,4 +21,4 @@ MonoBehaviour:
   nextUpgrade: {fileID: 0}
   typeOfReaserch: 0
   sateliteData: 0
-  reaserchLevel: 0
+  reaserchLevel: 2

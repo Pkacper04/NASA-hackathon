@@ -59,6 +59,24 @@ public class RekrutacjaBuilding : buildingFunctionality
         currentLevel = Level1;
     }
 
+    public override void ChangeCurrentLevel(int level)
+    {
+        if (level == 1)
+            currentLevel = Level1;
+        else if (level == 2)
+        {
+            currentLevel = Level2;
+            amountToGive += 10;
+            SpriteRendererO.sprite = Level2Sprite;
+        }
+        else
+        {
+            currentLevel = Level3;
+            amountToGive += 10;
+            SpriteRendererO.sprite = Level3Sprite;
+        }
+    }
+
     public override void DisplayBuilding()
     {
         base.DisplayBuilding();

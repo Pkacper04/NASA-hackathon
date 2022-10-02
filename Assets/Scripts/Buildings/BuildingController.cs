@@ -1,3 +1,5 @@
+using Events;
+using Game.SaveLoadSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,6 +35,9 @@ public class BuildingController : Singleton<BuildingController>
     [SerializeField]
     private BuildingScriptableObject rocketLauncher;
 
+    [SerializeField]
+    private List<BuildingSocket> sockets = new List<BuildingSocket>();
+
     public Action<BuildingScriptableObject> OnBuild;
 
     public void CallOnBuild(BuildingScriptableObject buildingData) {
@@ -57,18 +62,102 @@ public class BuildingController : Singleton<BuildingController>
     {
         OnBuild += CheckIfImportantBuilding;
         OnSell += CheckIfSellImportantBuilding;
+        PlayerEvents.Instance.OnSaveGame += SaveData;
+        PlayerEvents.Instance.OnLoadGame += LoadData;
     }
 
     private void OnDisable()
     {
         OnBuild -= CheckIfImportantBuilding;
         OnSell -= CheckIfSellImportantBuilding;
+        if(PlayerEvents.Instance != null)
+        {
+            PlayerEvents.Instance.OnSaveGame -= SaveData;
+            PlayerEvents.Instance.OnLoadGame -= LoadData;
+        }
     }
 
-    private void Start()
+    private void SaveData()
     {
-        ReaserchButton.gameObject.SetActive(false);
-        LaunchSateliteButton.gameObject.SetActive(false);
+        List<bool> hasBuildings = new List<bool>();
+        List<int> whatLevel = new List<int>();
+
+        for(int i=0; i<sockets.Count; i++)
+        {
+            if (sockets[i].BuildingOnSocket != null)
+            {
+                hasBuildings.Add(true);
+                if (sockets[i].BuildingOnSocket.CurrentLevel != null)
+                    whatLevel.Add(GetLevel(sockets[i].BuildingOnSocket.CurrentLevel.reaserchLevel));
+                else
+                    whatLevel.Add(-1);
+            }
+            else
+            {
+                hasBuildings.Add(false);
+                whatLevel.Add(-1);
+            }
+        }
+
+        SaveSystem.SaveBoolList(hasBuildings, "SavedBuildingsInfo");
+        SaveSystem.SaveIntList(whatLevel, "SavedBuildingsLevel");
+    }
+
+    private void LoadData()
+    {
+        List<int> whatLevel = new List<int>();
+        List<bool> hasBuildings = new List<bool>();
+
+        if (SaveSystem.CheckIfFileExists("SavedBuildingsInfo"))
+        {
+            hasBuildings = new List<bool>(SaveSystem.LoadBoolList("SavedBuildingsInfo"));
+        }
+
+        if(SaveSystem.CheckIfFileExists("SavedBuildingsLevel"))
+        {
+            whatLevel = new List<int>(SaveSystem.LoadIntList("SavedBuildingsLevel"));
+        }
+
+        for(int i=0; i< hasBuildings.Count; i++)
+        {
+            if (hasBuildings[i] == true)
+            {
+                sockets[i].BuildBuilding();
+
+                if (whatLevel[i] != -1)
+                {
+                    sockets[i].BuildingOnSocket.ChangeCurrentLevel(whatLevel[i]);
+                }
+            }
+        }
+    }
+
+    private int GetLevel(ReaserchLevel level)
+    {
+        switch (level) {
+            case ReaserchLevel.L1:
+                return 1;
+            case ReaserchLevel.L2:
+                return 2;
+            case ReaserchLevel.L3:
+                return 3;
+        }
+
+        return -1;
+    }
+
+    private ReaserchLevel GetLevel(int level)
+    {
+        switch (level)
+        {
+            case 1:
+                return ReaserchLevel.L1;
+            case 2:
+                return ReaserchLevel.L2;
+            case 3:
+                return ReaserchLevel.L3;
+        }
+        return ReaserchLevel.L1;
     }
 
     private void CheckIfSellImportantBuilding(BuildingScriptableObject data)
@@ -85,8 +174,11 @@ public class BuildingController : Singleton<BuildingController>
 
     private void CheckIfImportantBuilding(BuildingScriptableObject data)
     {
+        Debug.Log("data: "+data.name);
         if(data == reseachFacility)
         {
+            Debug.Log("research button");
+            Debug.Log("button gameObject: " + ReaserchButton.gameObject.activeInHierarchy) ;
             ReaserchButton.gameObject.SetActive(true);
         }
         else if(data == rocketLauncher)
