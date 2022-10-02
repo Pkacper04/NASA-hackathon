@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
@@ -9,6 +10,7 @@ public class LevelLoader : MonoBehaviour
     public Slider slider;
     public Text progressText;
     [SerializeField] Button loadingScreenButton;
+    public TMP_Text miejsceNaCiekawostke;
     public void LoadLevel(int sceneIndex)
     {
         StartCoroutine(LoadAsynchronously(sceneIndex));
@@ -20,6 +22,7 @@ public class LevelLoader : MonoBehaviour
 
         loadingScreen.SetActive(true);
         loadingScreenButton.gameObject.SetActive(false);
+        
 
         while (!operation.isDone)
         {
