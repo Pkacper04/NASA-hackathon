@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ResearchAmountTier3
   m_EditorClassIdentifier: 
   ResearchName: Spacecraft bus upgrade
-  ResearchCost: 300
+  ResearchCost: 600
   BuildingCost: 0
   ResearchDescription: Increases the amount of researched objects by 1
   isPurchased: 0

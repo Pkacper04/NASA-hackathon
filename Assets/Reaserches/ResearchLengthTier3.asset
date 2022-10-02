@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ResearchLengthTier3
   m_EditorClassIdentifier: 
   ResearchName: Solar power array upgrade
-  ResearchCost: 300
+  ResearchCost: 600
   BuildingCost: 0
   ResearchDescription: Increases the duration of research by ?%
   isPurchased: 0

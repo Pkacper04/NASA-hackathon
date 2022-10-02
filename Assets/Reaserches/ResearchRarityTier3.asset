@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ResearchRarityTier3
   m_EditorClassIdentifier: 
   ResearchName: Secondary Mirror upgrade
-  ResearchCost: 300
+  ResearchCost: 600
   BuildingCost: 0
   ResearchDescription: Increases the chance to find rarer objects
   isPurchased: 0

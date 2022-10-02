@@ -149,14 +149,14 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
                 Description.text = buildingDescription; 
                 objectToAnimateTransform.anchoredPosition3D = StartPosition;
                 objectToAnimateTransform.anchoredPosition3D = Vector3.Lerp(StartPosition, endPosition, timeElapsed / animationTime);
-                timeElapsed += Time.deltaTime;
+                timeElapsed += Time.unscaledDeltaTime;
                 yield return null;
             }
             else
             {
                 objectToAnimateTransform.anchoredPosition3D = endPosition;
                 objectToAnimateTransform.anchoredPosition3D = Vector3.Lerp(endPosition, StartPosition, timeElapsed / animationTime);
-                timeElapsed += Time.deltaTime;
+                timeElapsed += Time.unscaledDeltaTime;
                 panelVisible = false;
                 yield return null;
             }
