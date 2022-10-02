@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: AmbientCollection
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: e6d425083710f6a4a8e29cd43bb3dd10, type: 2}
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 0a7cfe87cb466ea49910e22ff0300281, type: 3}

@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: EnviromentCollection
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: cd807f63d91c15842b32679766b7b3bd, type: 2}
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 215155dcf215f9140baa96429d67c8d3, type: 3}
+  - {fileID: 8300000, guid: bf0d7e1581150cf458aba362d8df6cdc, type: 3}
+  - {fileID: 8300000, guid: 5a27927d2bdce9042ab451d4fa0f8e86, type: 3}
+  - {fileID: 8300000, guid: 909efbaa4d019ec48bd6262c5cbc8bef, type: 3}
+  - {fileID: 8300000, guid: 69e5877e71c846a4db10055b5d8221e2, type: 3}
+  - {fileID: 8300000, guid: 76c54aac8422c114699d014fe5c1f353, type: 3}
