@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d135dc1058b597e4388bc0fa3e4a2325, type: 3}
   m_Name: Neptune
   m_EditorClassIdentifier: 
+  planetSprite: {fileID: 21300000, guid: dd56d5d9188bd16428ab852800125b28, type: 3}
   PlanetName: Neptune
   PlanetDescription: ' is the eighth planet from the Sun and the farthest known solar
     planet. In the Solar System, it is the fourth-largest planet by diameter, the
@@ -19,3 +20,4 @@ MonoBehaviour:
     of Earth, and slightly more massive than its near-twin Uranus.'
   PlanetCashValue: 2
   PlanetResearchPointValue: 2
+  rarity: 1

@@ -26,6 +26,14 @@ public class TechTreeController : Singleton<TechTreeController>
         if (OnResearchBuy != null)
             OnResearchBuy.Invoke();
     }
+
+    public Action<UpgradeData> OnSpecificResearchBuy;
+
+    public void CallOnSpecificReasearchBuy(UpgradeData data)
+    {
+        if (OnSpecificResearchBuy != null)
+            OnSpecificResearchBuy.Invoke(data);
+    }
     private void OnDisable()
     {
         foreach (ResearchData data in UpgradesList)
@@ -77,6 +85,7 @@ public class TechTreeController : Singleton<TechTreeController>
         upgradeData.ButtonText.text = boughtText;
         upgradeData.ObjectButton.interactable = false;
         CallOnResearchBuy();
+        CallOnSpecificReasearchBuy(upgradeData);
     }
 
 

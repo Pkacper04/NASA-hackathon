@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d135dc1058b597e4388bc0fa3e4a2325, type: 3}
   m_Name: Mars
   m_EditorClassIdentifier: 
+  planetSprite: {fileID: 21300000, guid: 6783196c919d2e84dafc3fe4df28441e, type: 3}
   PlanetName: Mars
   PlanetDescription: is the fourth planet from the sun and the second-smallest planet
     in our solar system. Mars is cerrestial planet with a thin atmosphere, it has

@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d135dc1058b597e4388bc0fa3e4a2325, type: 3}
   m_Name: Arcturus
   m_EditorClassIdentifier: 
+  planetSprite: {fileID: 21300000, guid: 8648a0bc42440d247b5b47838bef3d16, type: 3}
   PlanetName: Arcturus
   PlanetDescription: "is the brightest star in the northern constellation of Bo\xF6tes.
     It is the third-brightest of the individual stars in the night sky, and the brightest
     in the northern celestial hemisphere."
   PlanetCashValue: 2
   PlanetResearchPointValue: 2
+  rarity: 1
