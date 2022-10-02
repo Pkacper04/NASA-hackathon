@@ -60,7 +60,6 @@ public class ObservatoryUsage : buildingFunctionality
 
     public override void ChangeCurrentLevel(int level)
     {
-        Debug.Log("change current Level: "+level);
         if (level == 1)
             currentLevel = Level1;
         else if (level == 2)

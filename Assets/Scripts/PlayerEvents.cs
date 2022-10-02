@@ -18,11 +18,6 @@ namespace Events
             //this line is only if user needs to make object that is singleton not to destroyed in load
         }
 
-        private void Start()
-        {
-            LoadGame();
-        }
-
         public Action OnPlayerMouseDown;
 
         public void CallOnPlayerMouseDown()
@@ -56,14 +51,6 @@ namespace Events
         public void LoadGame()
         {
             CallOnLoadGame();
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                CallOnSaveGame();
-            }
         }
 
     }
