@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9db1d87eba487354abe157223c2d221e, type: 3}
-  m_Name: UICollection
+  m_Name: SDX_Confirm(2)
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: ccd86969c366ad140a67b8e3388da498, type: 2}
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: cba12794c44231e4e844a6946c536c85, type: 3}
+  - {fileID: 8300000, guid: ef89dd81b993fd442bfc1088339d585a, type: 3}
+  - {fileID: 8300000, guid: b5d11311b11c4b44bbfaa6c93eb2958e, type: 3}
+  - {fileID: 8300000, guid: 80dfd74efee7ab84cb8f07c47db578e7, type: 3}

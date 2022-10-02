@@ -65,7 +65,7 @@ public class MinigameController : Singleton<MinigameController>
     private float timeToLeft;
 
     private float tempTimeToSearch;
-   
+
 
     [SerializeField]
     private Star commonStar;
@@ -99,6 +99,12 @@ public class MinigameController : Singleton<MinigameController>
 
     [SerializeField]
     private float rareChance;
+
+    [SerializeField]
+    private AudioSource backgroundMusic;
+
+    [SerializeField]
+    private AudioSource miniGameBackgroundMusic;
 
     public float CommonChance { get => commonChance; set => commonChance = value; }
     public float UnCommonChance { get => unCommonChance; set => unCommonChance = value; }
@@ -140,7 +146,7 @@ public class MinigameController : Singleton<MinigameController>
         if (data.CurrentResearchData.typeOfReaserch != TypeOfReaserch.Satelite)
             return;
 
-        switch(data.CurrentResearchData.sateliteData)
+        switch (data.CurrentResearchData.sateliteData)
         {
             case SateliteData.ReaserchAmount:
                 ReaserchAmountUpgrade(data.CurrentResearchData);
@@ -156,13 +162,13 @@ public class MinigameController : Singleton<MinigameController>
 
     private void ReaserchRarityUpgrade(ResearchData currentResearchData)
     {
-        if(currentResearchData.reaserchLevel == ReaserchLevel.L1)
+        if (currentResearchData.reaserchLevel == ReaserchLevel.L1)
         {
             commonChance = 70;
             unCommonChance = 25;
             rareChance = 5;
         }
-        else if(currentResearchData.reaserchLevel == ReaserchLevel.L2)
+        else if (currentResearchData.reaserchLevel == ReaserchLevel.L2)
         {
             commonChance = 50;
             unCommonChance = 35;
@@ -247,7 +253,7 @@ public class MinigameController : Singleton<MinigameController>
             Vector3 starPosition = FindSpot();
             Star starToAdd = null;
 
-            switch(ChooseRarity())
+            switch (ChooseRarity())
             {
                 case 0:
                     starToAdd = commonStar;
@@ -263,14 +269,14 @@ public class MinigameController : Singleton<MinigameController>
                     break;
             }
 
-            GameObject NewStar = Instantiate(starToAdd.gameObject, starPosition,Quaternion.identity, LookingArea);
+            GameObject NewStar = Instantiate(starToAdd.gameObject, starPosition, Quaternion.identity, LookingArea);
             NewStar.GetComponent<RectTransform>().anchoredPosition3D = starPosition;
         }
     }
 
     private int ChooseRarity()
     {
-        int number = UnityEngine.Random.Range(0,101);
+        int number = UnityEngine.Random.Range(0, 101);
 
         if (number < commonChance)
             return 0;
@@ -282,14 +288,14 @@ public class MinigameController : Singleton<MinigameController>
 
     private Vector3 FindSpot()
     {
-        for(int i=0;i<360;i++)
+        for (int i = 0; i < 360; i++)
         {
-            Debug.Log("looking area width: "+ LookingArea.rect.width);
+            Debug.Log("looking area width: " + LookingArea.rect.width);
             float xMaxValue = (LookingArea.rect.width - lookingOffset) / 2;
             float yMaxValue = (LookingArea.rect.height - lookingOffset) / 2;
 
-            Debug.Log("y Max Value: "+yMaxValue);
-            Debug.Log("x Max Value: "+xMaxValue);
+            Debug.Log("y Max Value: " + yMaxValue);
+            Debug.Log("x Max Value: " + xMaxValue);
 
             float positionX = UnityEngine.Random.Range(-xMaxValue, xMaxValue);
             float positionY = UnityEngine.Random.Range(-yMaxValue, yMaxValue);
@@ -308,13 +314,13 @@ public class MinigameController : Singleton<MinigameController>
     private bool CheckIfPositionOccupied(Vector3 ourPosition)
     {
 
-        foreach(Vector3 position in positions)
+        foreach (Vector3 position in positions)
         {
             if (Mathf.Abs(position.x - ourPosition.x) < starTransform.rect.width + 10f)
             {
                 return false;
             }
-            else if(Mathf.Abs(position.y - ourPosition.y) < starTransform.rect.height + 10f)
+            else if (Mathf.Abs(position.y - ourPosition.y) < starTransform.rect.height + 10f)
             {
                 return false;
             }
@@ -324,7 +330,7 @@ public class MinigameController : Singleton<MinigameController>
 
     private void Update()
     {
-        if(gameStarted)
+        if (gameStarted)
         {
             tempTimeToSearch -= Time.deltaTime;
 
@@ -344,7 +350,7 @@ public class MinigameController : Singleton<MinigameController>
                 timerText.text = "0" + minutes + " : " + seconds;
 
         }
-        else if(hasCooldown)
+        else if (hasCooldown)
         {
             Debug.Log("working");
             int Cminutes = CalculateMinutes(timeToLeft);
@@ -390,7 +396,7 @@ public class MinigameController : Singleton<MinigameController>
 
     private void ClearArea()
     {
-        for(int i=1; i<LookingArea.childCount; i++)
+        for (int i = 1; i < LookingArea.childCount; i++)
         {
             Destroy(LookingArea.GetChild(i).gameObject);
         }
