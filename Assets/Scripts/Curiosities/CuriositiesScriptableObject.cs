@@ -7,6 +7,7 @@ using UnityEngine;
 public class CuriositiesScriptableObject : ScriptableObject
 {
     public string CuriosityName;
+    [Multiline]
     public string CuriosityDescription;
     public Sprite CuriosityImage;
 }
