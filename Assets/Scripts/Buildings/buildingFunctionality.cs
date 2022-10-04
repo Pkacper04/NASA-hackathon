@@ -54,7 +54,7 @@ public abstract class buildingFunctionality : MonoBehaviour, IPointerClickHandle
         
     }
 
-    protected void Start()
+    protected virtual void Start()
     {
         buildingData = BuildingController.Instance.GetBuildingData(buildingType);
         buildingPanel = FindObjectOfType<BuildingUIData>(true);

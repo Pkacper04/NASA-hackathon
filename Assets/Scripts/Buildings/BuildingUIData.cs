@@ -57,7 +57,7 @@ public class BuildingUIData : MonoBehaviour
 
         lastBuilding.Socket.gameObject.SetActive(true);
 
-        BuildingController.Instance.HideBuildingInfo();
+        ClosePopups.Instance.CloseWithoutOne(BuildingPanelController.Instance);
 
         BuildingController.Instance.CallOnSell(buildingData);
 

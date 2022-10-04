@@ -174,11 +174,8 @@ public class BuildingController : Singleton<BuildingController>
 
     private void CheckIfImportantBuilding(BuildingScriptableObject data)
     {
-        Debug.Log("data: "+data.name);
         if(data == reseachFacility)
         {
-            Debug.Log("research button");
-            Debug.Log("button gameObject: " + ReaserchButton.gameObject.activeInHierarchy) ;
             ReaserchButton.gameObject.SetActive(true);
         }
         else if(data == rocketLauncher)
@@ -207,8 +204,9 @@ public class BuildingController : Singleton<BuildingController>
 
     public bool DisplayBuildingInfo(buildingFunctionality currentBuilding)
     {
-        Debug.Log("Klikniecei");
-        BuildingPanelController.Instance.DeInit();
+
+        ClosePopups.Instance.CloseWithoutOne(this);
+
         if(lastBuilding == null)
         {
             lastBuilding = currentBuilding;

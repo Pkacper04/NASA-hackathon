@@ -3,35 +3,63 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class LevelLoader : MonoBehaviour
 {
-    public GameObject loadingScreen;
-    public Slider slider;
-    public Text progressText;
-    [SerializeField] Button loadingScreenButton;
-    public TMP_Text miejsceNaCiekawostke;
-    public void LoadLevel(int sceneIndex)
+
+    [SerializeField, Scene]
+    private string sceneToLoad;
+
+    [SerializeField]
+    private TextWriter finalText;
+
+    [SerializeField]
+    private string startingText;
+
+    [SerializeField]
+    private Image loadingBar;
+
+    [SerializeField]
+    private TMP_Text curosityText;
+
+    [SerializeField]
+    private Image curiosityImage;
+
+
+    private void Awake()
     {
-        StartCoroutine(LoadAsynchronously(sceneIndex));
+        CuriositiesScriptableObject curiosity = CuriositiesController.Instance.GetCuriosities();
+        curiosityImage.sprite = curiosity.CuriosityImage;
+        curosityText.text = curiosity.CuriosityDescription;
     }
 
-    IEnumerator LoadAsynchronously (int sceneIndex)
+    private void Start()
     {
-        AsyncOperation operation= SceneManager.LoadSceneAsync(sceneIndex);
+        LoadLevel();
+    }
 
-        loadingScreen.SetActive(true);
-        loadingScreenButton.gameObject.SetActive(false);
-        
+    private void LoadLevel()
+    {
+        StartCoroutine(LoadAsynchronously());
+    }
 
-        while (!operation.isDone)
+    IEnumerator LoadAsynchronously()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneToLoad);
+
+        operation.allowSceneActivation = false;
+
+        while (operation.progress < .9f)
         {
             float progress = Mathf.Clamp01(operation.progress/.9f);
-
-            slider.value = progress;
-            progressText.text = progress * 100f + "%"; 
-
+            loadingBar.fillAmount = progress;
             yield return null;
         }
+        loadingBar.fillAmount = 1;
+        finalText.BuildText(startingText, .05f);
+
+        yield return new WaitUntil(() => Input.anyKeyDown);
+        operation.allowSceneActivation = true;
     }
 }
