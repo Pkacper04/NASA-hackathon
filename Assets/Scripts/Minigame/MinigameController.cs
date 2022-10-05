@@ -5,8 +5,6 @@ using TMPro;
 using NaughtyAttributes;
 using System;
 using UnityEngine.UI;
-using Unity.VisualScripting;
-using UnityEditor;
 
 public class MinigameController : Singleton<MinigameController>
 {
@@ -91,6 +89,8 @@ public class MinigameController : Singleton<MinigameController>
     private int minutes;
 
     private int seconds;
+
+    private List<PlanetsScriptableData> starsOnMap = new List<PlanetsScriptableData>();
 
     [SerializeField]
     private float commonChance;
@@ -227,6 +227,7 @@ public class MinigameController : Singleton<MinigameController>
         if (hasCooldown)
             return;
 
+        starsOnMap.Clear();
         ClosePopups.Instance.CloseAllPanels();
 
         tempTimeToSearch = timeToSearch;
@@ -254,27 +255,63 @@ public class MinigameController : Singleton<MinigameController>
 
         for (int i = 0; i < starsCounter; i++)
         {
+            Debug.Log("start");
             Vector3 starPosition = FindSpot();
             Star starToAdd = null;
 
-            switch (ChooseRarity())
-            {
-                case 0:
-                    starToAdd = commonStar;
-                    starToAdd.StarData = PlanetsController.Instance.GetCommonPlanet();
-                    break;
-                case 1:
-                    starToAdd = unCommonStar;
-                    starToAdd.StarData = PlanetsController.Instance.GetUncommonPlanet();
-                    break;
-                case 2:
-                    starToAdd = rareStar;
-                    starToAdd.StarData = PlanetsController.Instance.GetRarePlanet();
-                    break;
-            }
+            int rarity = ChooseRarity();
 
+            if (rarity == 0)
+            {
+                starToAdd = commonStar;
+                starToAdd.StarData = PlanetsController.Instance.GetCommonPlanet();
+                if (CheckIfStarExists(starToAdd.StarData))
+                {
+                    i -= 1;
+                    Debug.Log("check");
+                    continue;
+                }
+            }
+            else if (rarity == 1)
+            {
+
+                starToAdd = unCommonStar;
+                starToAdd.StarData = PlanetsController.Instance.GetUncommonPlanet();
+                if (CheckIfStarExists(starToAdd.StarData))
+                {
+                    i -= 1;
+                    Debug.Log("check");
+                    continue;
+                }
+            }
+            else
+            {
+                starToAdd = rareStar;
+                starToAdd.StarData = PlanetsController.Instance.GetRarePlanet();
+                if (CheckIfStarExists(starToAdd.StarData))
+                {
+                    i -= 1;
+                    Debug.Log("check");
+                    continue;
+                }
+            }
+            Debug.Log("finish");
             GameObject NewStar = Instantiate(starToAdd.gameObject, starPosition, Quaternion.identity, LookingArea);
             NewStar.GetComponent<RectTransform>().anchoredPosition3D = starPosition;
+        }
+    }
+    
+
+    private bool CheckIfStarExists(PlanetsScriptableData starToAdd)
+    {
+        if (starsOnMap.Contains(starToAdd))
+        {
+            return true;
+        }
+        else
+        {
+            starsOnMap.Add(starToAdd);
+            return false;
         }
     }
 
@@ -306,25 +343,25 @@ public class MinigameController : Singleton<MinigameController>
                 continue;
             positions.Add(newPosition);
 
+            Debug.Log("return new position");
+
             return newPosition;
         }
+
+        Debug.Log("return 0");
         return Vector3.zero;
     }
 
     private bool CheckIfPositionOccupied(Vector3 ourPosition)
     {
 
-        foreach (Vector3 position in positions)
+        Collider2D hitColliders = Physics2D.OverlapCircle(ourPosition, 10);
+
+        if (hitColliders != null)
         {
-            if (Mathf.Abs(position.x - ourPosition.x) < starTransform.rect.width + 10f)
-            {
-                return false;
-            }
-            else if (Mathf.Abs(position.y - ourPosition.y) < starTransform.rect.height + 10f)
-            {
-                return false;
-            }
+            return false;
         }
+        
         return true;
     }
 

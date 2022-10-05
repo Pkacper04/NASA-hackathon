@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -31,6 +32,13 @@ public class WebbTelescopeUpgrader : MonoBehaviour
 
     [SerializeField, Scene]private string SceneToChange;
 
+
+    [SerializeField]
+    private Button endGameButton;
+
+    [SerializeField]
+    private TMP_Text endGameText;
+
     private void OnEnable()
     {
         TechTreeController.Instance.OnResearchBuy += OnReasearchPurchase;
@@ -40,6 +48,12 @@ public class WebbTelescopeUpgrader : MonoBehaviour
     {
         if(TechTreeController.Instance != null)
             TechTreeController.Instance.OnResearchBuy -= OnReasearchPurchase;
+    }
+
+    private void Start()
+    {
+        endGameButton.interactable = false;
+        endGameText.enabled = false;
     }
 
     private void OnReasearchPurchase()
@@ -59,8 +73,8 @@ public class WebbTelescopeUpgrader : MonoBehaviour
         SateliteLoadingBar();
         if (unlockedTechnologies == necessaryResearch.Count)
         {
-            ScreenTransition.Instance.startFadingIn();
-            StartCoroutine(WaitForFade());
+            endGameButton.interactable = true;
+            endGameText.enabled = true;
             return;
         }
 
@@ -80,6 +94,14 @@ public class WebbTelescopeUpgrader : MonoBehaviour
     public void SateliteLoadingBar()
     {
         image.fillAmount = value;
+    }
+
+
+    public void EndGame()
+    {
+        Debug.Log("game is ending");
+        ScreenTransition.Instance.startFadingIn();
+        StartCoroutine(WaitForFade());
     }
 
     public IEnumerator WaitForFade()
