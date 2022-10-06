@@ -7,7 +7,7 @@ public class RocketMinigame : buildingFunctionality
 {
 
     [SerializeField]
-    private string functionButtonText;
+    private TranslateKeys functionButtonText;
 
 
     private void OnEnable()
@@ -38,7 +38,7 @@ public class RocketMinigame : buildingFunctionality
     public override void DisplayBuilding()
     {
         base.DisplayBuilding();
-        currentUI.FunctionButtonText.text = functionButtonText;
+        currentUI.FunctionButtonText.text = Language.Instance.GetTranslation(functionButtonText);
 
         if(MinigameController.Instance.HasCooldown)
         {

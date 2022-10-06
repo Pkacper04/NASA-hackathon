@@ -82,8 +82,8 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
         lastBuildingData = buildingData;
 
         buildingSprite= buildingData.BuildingSprite;
-        buildingName = buildingData.Header;
-        buildingDescription = buildingData.Description;
+        buildingName = Language.Instance.GetTranslation(buildingData.Header);
+        buildingDescription = Language.Instance.GetTranslation(buildingData.Description);
         price.text = buildingData.Price.ToString();
 
         if (!TechTreeController.Instance.isUnlocked(lastSocket.FirstLevelData))

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Polaris
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 21300000, guid: 2b655323ee400c84e9852f217119ad1f, type: 3}
-  PlanetName: Polaris
-  PlanetDescription: is a star in the northern circumpolar constellation of Ursa
-    Minor. It is designated Alpha Ursae Minoris and is commonly called the North
-    Star or Pole Star.
+  PlanetName: 79
+  PlanetDescription: 80
   PlanetCashValue: 1
   PlanetResearchPointValue: 1
+  rarity: 0

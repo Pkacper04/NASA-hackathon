@@ -26,6 +26,11 @@ public class TextWriter : MonoBehaviour
         return dialogue.text + text;
     }
 
+    public void ReplaceText(string text)
+    {
+        dialogue.text = text;   
+    }
+
     public void ClearDialogue()
     {
         dialogue.text = "";
@@ -61,9 +66,7 @@ public class TextWriter : MonoBehaviour
         int startPosition = dialogue.text.IndexOf(textToDelete);
         string endtext;
         endtext = dialogue.text.Remove(startPosition, textToDelete.Length);
-        Debug.Log("end text: " + endtext);
         endtext = endtext.Remove(startPosition - 1, 1);
-        Debug.Log("after end text: " + endtext);
         return endtext;
     }
     public void TextDissapear(string textToDelete, float speed)
@@ -98,10 +101,8 @@ public class TextWriter : MonoBehaviour
     private IEnumerator AnimatedDissapear(string text, float speed)
     {
         TextIsVanishing = true;
-        Debug.Log("animacja");
         int startPosition = dialogue.text.IndexOf(text);
         int endPosition = startPosition + text.Length - 1;
-        Debug.Log("start postion: " + startPosition);
         for (int i = 0; i < text.Length; i++)
         {
             dialogue.text = dialogue.text.Remove(endPosition - i, 1);

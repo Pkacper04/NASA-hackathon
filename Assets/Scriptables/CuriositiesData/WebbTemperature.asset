@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00a21556a5587c468e111f7b96c4a05, type: 3}
   m_Name: WebbTemperature
   m_EditorClassIdentifier: 
-  CuriosityName: WebbTemperature
-  CuriosityDescription: "First, the side of JWST that will always face the Sun will
-    constantly sit at a scorching 185\xBA F. However, the other side, containing
-    the mirrors and instruments, will constantly sit at a frigid -388\xBA F."
+  CuriosityName: 0
+  CuriosityDescription: 71
   CuriosityImage: {fileID: 21300000, guid: 6b8ea407e33bea3469c7803ab2c14d74, type: 3}

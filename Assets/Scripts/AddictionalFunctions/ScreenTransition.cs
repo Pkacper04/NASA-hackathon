@@ -32,7 +32,6 @@ public class ScreenTransition : Singleton<ScreenTransition>
     public bool InTransition { get => inTransition; }
     public void startFadingIn()
     {
-        Debug.Log("fading in");
         inTransition = true;
 
         if(!canvasRaycaster.enabled)

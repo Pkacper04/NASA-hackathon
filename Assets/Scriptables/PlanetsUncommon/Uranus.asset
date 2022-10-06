@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: Uranus
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 21300000, guid: a3e5136a27fe7a34283329040a197828, type: 3}
-  PlanetName: Uranus
-  PlanetDescription: is the seventh planet from the Sun. It has the third-largest
-    planetary radius and fourth-largest planetary mass in the Solar System. Uranus
-    is similar in composition to Neptune.
+  PlanetName: 93
+  PlanetDescription: 94
   PlanetCashValue: 2
   PlanetResearchPointValue: 2
   rarity: 1

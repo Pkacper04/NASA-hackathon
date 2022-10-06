@@ -135,7 +135,7 @@ public class TutorialController : Singleton<TutorialController>
     {
         lastInfoPanel = Instantiate(infoBox, steps[currentQuest].questInfoPanelPosition, Quaternion.identity, indicatorParent);
         InfoPanelManager manager = lastInfoPanel.GetComponent<InfoPanelManager>();
-        manager.SetInfo(steps[currentQuest].questName, steps[currentQuest].questDescription);
+        manager.SetInfo(Language.Instance.GetTranslation(steps[currentQuest].questName), Language.Instance.GetTranslation(steps[currentQuest].questDescription));
 
         if (steps[currentQuest].disableButton)
         {

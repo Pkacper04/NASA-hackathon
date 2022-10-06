@@ -116,7 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPanel: {fileID: 0}
   buildingType: 3
-  infoOffset: {x: 0, y: 25, z: 0}
+  infoOffset: {x: 0, y: 0, z: 0}
   spriteRenderer: {fileID: 2863736107341876120}
   activeColor: {r: 0.6392157, g: 1, b: 0.61960787, a: 1}
   inActiveColor: {r: 1, g: 1, b: 1, a: 1}
@@ -124,7 +124,7 @@ MonoBehaviour:
   amountToGive: 5
   timeToGive: 10
   buildingLevel: 1
-  functionButtonText: Upgrade
+  functionButtonText: 64
   Level1: {fileID: 11400000, guid: 2349e26f802ad444e80ec5f6d07f2baa, type: 2}
   Level2: {fileID: 11400000, guid: 06e0ea5e52da39e4cacf7b64ffc3db77, type: 2}
   Level3: {fileID: 11400000, guid: a3c8ea75ef894ff488ddd0d95161797d, type: 2}

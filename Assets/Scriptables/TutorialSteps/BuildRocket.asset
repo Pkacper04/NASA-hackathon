@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe39b7fd8a3534bb32f09744b67095, type: 3}
   m_Name: BuildRocket
   m_EditorClassIdentifier: 
-  questName: Build Rocket
-  questDescription: Try to build rocket by yourself.
+  questName: 124
+  questDescription: 125
   questIndicatorPosition: {x: 200, y: 200, z: 0}
   questIndicatorScale: {x: 2, y: 2, z: 1}
   hiddenIndicator: 0

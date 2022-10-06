@@ -57,7 +57,7 @@ public class MinigameController : Singleton<MinigameController>
     private Button startMissionButton;
 
     [SerializeField]
-    private string buttonCommonText;
+    private TranslateKeys buttonCommonText;
 
     private bool hasCooldown = false;
 
@@ -228,11 +228,11 @@ public class MinigameController : Singleton<MinigameController>
         }
         else if (currentResearchData.reaserchLevel == ReaserchLevel.L2)
         {
-            starsCounter = 6;
+            starsCounter = 5;
         }
         else
         {
-            starsCounter = 9;
+            starsCounter = 6;
         }
     }
 
@@ -377,7 +377,7 @@ public class MinigameController : Singleton<MinigameController>
     private bool CheckIfPositionOccupied(Vector3 ourPosition)
     {
 
-        Collider2D hitColliders = Physics2D.OverlapCircle(ourPosition, 10);
+        Collider2D hitColliders = Physics2D.OverlapCircle(ourPosition, 20);
 
         if (hitColliders != null)
         {
@@ -421,7 +421,7 @@ public class MinigameController : Singleton<MinigameController>
             if (timeToLeft <= 0)
             {
                 hasCooldown = false;
-                startMisionText.text = buttonCommonText;
+                startMisionText.text = Language.Instance.GetTranslation(buttonCommonText);
                 startMissionButton.interactable = true;
                 CallOnEndCooldown();
             }

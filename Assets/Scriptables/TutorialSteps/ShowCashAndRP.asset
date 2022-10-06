@@ -12,16 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe39b7fd8a3534bb32f09744b67095, type: 3}
   m_Name: ShowCashAndRP
   m_EditorClassIdentifier: 
-  questName: Cash and Reasearch Points
-  questDescription: 'This is your cash and reasearch points.
-
-    With cash you can
-    buy or upgrade buildinbs.
-
-    With research points you can unlock buildings
-    and upgrade satelite.'
+  questName: 114
+  questDescription: 115
   questIndicatorPosition: {x: 0, y: 0, z: 0}
   questIndicatorScale: {x: 1, y: 1, z: 1}
   hiddenIndicator: 1
   showInfoBox: 1
+  disableButton: 0
   questInfoPanelPosition: {x: 345, y: 285, z: 0}

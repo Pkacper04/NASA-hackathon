@@ -55,7 +55,7 @@ public class EscMenuController : MonoBehaviour
     public void ExitToMainMenu()
     {
         //Tutaj wstawiæ autozapis
-
+        Time.timeScale = 1;
         SceneManager.LoadScene(mainMenuScene);
     }
 

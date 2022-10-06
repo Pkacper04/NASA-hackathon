@@ -37,7 +37,7 @@ public class LanguageDatabase : MonoBehaviour
             case TranslateKeys.RocketPlatform:
                 return "Platforma Rakietowa";
             case TranslateKeys.RocketPlatformDesc:
-                return "W srodku rakiety mo¿esz eksplorowaæ kosmos i odkrywac nowe gwiazdy oraz planety. Poprzez granie w minigre zdobywasz pieniadze oraz punkty badawcze poprzez granie w minigre.";
+                return "W srodku rakiety mo¿esz eksplorowaæ kosmos i odkrywac nowe gwiazdy oraz planety. Poprzez granie w minigre zdobywasz pieniadze oraz punkty zasobow.";
             case TranslateKeys.ResearchCenter:
                 return "Centrum badawcze";
             case TranslateKeys.ResearchCenterDesc:
@@ -69,11 +69,11 @@ public class LanguageDatabase : MonoBehaviour
             case TranslateKeys.Observatory3:
                 return "Obserwatorium Poziom 3";
             case TranslateKeys.Observatory1Desc:
-                return "Generuje 2 punkty badawcze co 5 sekund";
+                return "Generuje 2 punkty badawcze co 10 sekund";
             case TranslateKeys.Observatory2Desc:
-                return "Generuje 4 punkty badawcze co 5 sekund";
+                return "Generuje 4 punkty badawcze co 10 sekund";
             case TranslateKeys.Observatory3Desc:
-                return "Generuje 8 punktow badawczych co 5 sekund";
+                return "Generuje 8 punktow badawczych co 10 sekund";
             case TranslateKeys.RecruitmentCenter1:
                 return "Dzial rekrutacyjny Poziom 1";
             case TranslateKeys.RecruitmentCenter2:
@@ -81,11 +81,11 @@ public class LanguageDatabase : MonoBehaviour
             case TranslateKeys.RecruitmentCenter3:
                 return "Dzial rekrutacyjny Poziom 3";
             case TranslateKeys.RecruitmentCenter1Desc:
-                return "Generuje 5 monet co 5 sekund";
+                return "Generuje 5 monet co 10 sekund";
             case TranslateKeys.RecruitmentCenter2Desc:
-                return "Generuje 10 monet co 5 sekund";
+                return "Generuje 10 monet co 10 sekund";
             case TranslateKeys.RecruitmentCenter3Desc:
-                return "Generuje 15 monet co 5 sekund";
+                return "Generuje 15 monet co 10 sekund";
             case TranslateKeys.TrainingCenter1:
                 return "Centrum szkoleniowe Poziom 1";
             case TranslateKeys.TrainingCenter2:
@@ -263,7 +263,7 @@ public class LanguageDatabase : MonoBehaviour
             case TranslateKeys.Popup8:
                 return "Rozpocznij Minigre";
             case TranslateKeys.Popup8Desc:
-                return "Nacisnij wyslij satelite abyt rozpoczac minigre.";
+                return "Nacisnij przycisk wyslij satelite aby rozpoczac minigre.";
             case TranslateKeys.Popup9:
                 return "Zasady Minigry";
             case TranslateKeys.Popup9Desc:
@@ -272,6 +272,26 @@ public class LanguageDatabase : MonoBehaviour
                 return "Ukonczyles samouczek";
             case TranslateKeys.Language:
                 return "Jezyk";
+            case TranslateKeys.QuitConfirm:
+                return "Jestes pewny ze chcesz wyjsc z gry ?";
+            case TranslateKeys.Yes:
+                return "Tak";
+            case TranslateKeys.No:
+                return "Nie";
+            case TranslateKeys.Next:
+                return "Dalej";
+            case TranslateKeys.Skip:
+                return "Pomin";
+            case TranslateKeys.EndingCutscene:
+                return "Dzieki twoim wysilkom ludzkosc postawila kolejny krok naprzod";
+            case TranslateKeys.EndGame:
+                return "ZAKONCZ GRE";
+            case TranslateKeys.PausedGame:
+                return "Pauza";
+            case TranslateKeys.BackToGame:
+                return "Powrot do gry";
+            case TranslateKeys.ExitToMenu:
+                return "Wyjscie do menu";
             default:
                 return "klucz nie istnieje";
         }
@@ -346,11 +366,11 @@ public class LanguageDatabase : MonoBehaviour
             case TranslateKeys.Observatory3:
                 return "Observatory Level 3";
             case TranslateKeys.Observatory1Desc:
-                return "Generate 2 resource points every 5 second";
+                return "Generate 2 resource points every 10 second";
             case TranslateKeys.Observatory2Desc:
-                return "Generate 4 resource points every 5 second";
+                return "Generate 4 resource points every 10 second";
             case TranslateKeys.Observatory3Desc:
-                return "Generate 8 resource points every 5 second";
+                return "Generate 8 resource points every 10 second";
             case TranslateKeys.RecruitmentCenter1:
                 return "Recruitment Center Level 1";
             case TranslateKeys.RecruitmentCenter2:
@@ -358,11 +378,11 @@ public class LanguageDatabase : MonoBehaviour
             case TranslateKeys.RecruitmentCenter3:
                 return "Recruitment Center Level 3";
             case TranslateKeys.RecruitmentCenter1Desc:
-                return "Generate 5 cash every 5 seconds";
+                return "Generate 5 cash every 10 seconds";
             case TranslateKeys.RecruitmentCenter2Desc:
-                return "Generate 10 cash every 5 seconds";
+                return "Generate 10 cash every 10 seconds";
             case TranslateKeys.RecruitmentCenter3Desc:
-                return "Generate 15 cash every 5 seconds";
+                return "Generate 15 cash every 10 seconds";
             case TranslateKeys.TrainingCenter1:
                 return "Training Center Level 1";
             case TranslateKeys.TrainingCenter2:
@@ -549,6 +569,26 @@ public class LanguageDatabase : MonoBehaviour
                 return "You finished the tutorial";
             case TranslateKeys.Language:
                 return "Language";
+            case TranslateKeys.QuitConfirm:
+                return "Are you sure you want to exit ?";
+            case TranslateKeys.Yes:
+                return "Yes";
+            case TranslateKeys.No:
+                return "No";
+            case TranslateKeys.Next:
+                return "Next";
+            case TranslateKeys.Skip:
+                return "Skip";
+            case TranslateKeys.EndingCutscene:
+                return "Thanks to your efforts, humanity has taken another step forward.";
+            case TranslateKeys.EndGame:
+                return "END GAME";
+            case TranslateKeys.PausedGame:
+                return "Game Paused";
+            case TranslateKeys.BackToGame:
+                return "Back to game";
+            case TranslateKeys.ExitToMenu:
+                return "Exit to main menu";
             default:
                 return "Key does not exist";
         }
@@ -697,6 +737,16 @@ public enum TranslateKeys
     Popup9Desc,
     Popup10,
     Language,
+    QuitConfirm,
+    Yes,
+    No,
+    Next,
+    Skip,
+    EndingCutscene,
+    EndGame,
+    PausedGame,
+    BackToGame,
+    ExitToMenu
 }
 #endregion TranslateKeys
 

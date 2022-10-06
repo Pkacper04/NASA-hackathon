@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class ResearchData : ScriptableObject
 {
-    public string ResearchName;
     public int ResearchCost;
     public int BuildingCost;
     public string ResearchDescription;

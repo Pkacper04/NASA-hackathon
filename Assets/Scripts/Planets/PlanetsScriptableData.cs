@@ -6,8 +6,8 @@ using UnityEngine;
 public class PlanetsScriptableData : ScriptableObject
 {
     public Sprite planetSprite;
-    public string PlanetName;
-    public string PlanetDescription;
+    public TranslateKeys PlanetName;
+    public TranslateKeys PlanetDescription;
     public int PlanetCashValue;
     public int PlanetResearchPointValue;
     public Rarity rarity;

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mercury
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 21300000, guid: 5ece95b65c8ef2440a45a1c03e571cfe, type: 3}
-  PlanetName: 'Mercury '
-  PlanetDescription: is the smallest planet in the solar system and the closest to
-    the Sun.
+  PlanetName: 77
+  PlanetDescription: 78
   PlanetCashValue: 1
   PlanetResearchPointValue: 1
+  rarity: 0

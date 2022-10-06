@@ -15,7 +15,7 @@ public class ObservatoryUsage : buildingFunctionality
     private int buildingLevel = 1;
 
     [SerializeField]
-    private string functionButtonText;
+    private TranslateKeys functionButtonText;
 
     [SerializeField]
     private ResearchData Level1;
@@ -65,13 +65,13 @@ public class ObservatoryUsage : buildingFunctionality
         else if (level == 2)
         {
             currentLevel = Level2;
-            amountToGive += 1;
+            amountToGive += 2;
             SpriteRendererO.sprite = Level2Sprite;
         }
         else
         {
             currentLevel = Level3;
-            amountToGive += 1;
+            amountToGive += 4;
             SpriteRendererO.sprite = Level3Sprite;
         }
     }
@@ -79,14 +79,13 @@ public class ObservatoryUsage : buildingFunctionality
     public override void DisplayBuilding()
     {
         base.DisplayBuilding();
-        currentUI.FunctionButtonText.text = functionButtonText;
+        currentUI.FunctionButtonText.text = Language.Instance.GetTranslation(functionButtonText);
         currentUI.FunctionButton.onClick.RemoveAllListeners();
         currentUI.FunctionButton.onClick.AddListener(() => UpgradeBuilding());
 
         if (HasUpgrades)
         {
             currentUI.DeactiveButton();
-            Debug.Log("current level: "+currentLevel);
             if (currentLevel == Level1)
             {
                 
@@ -110,7 +109,6 @@ public class ObservatoryUsage : buildingFunctionality
 
     private void UpgradeBuilding()
     { 
-        Debug.Log("upgrade");
         if(currentLevel == Level1)
         {
             if (!MoneyController.Instance.CheckIfCanPurchase(Level2.BuildingCost))
@@ -119,9 +117,8 @@ public class ObservatoryUsage : buildingFunctionality
             MoneyController.Instance.RemoveCash(Level2.BuildingCost);
 
             SpriteRendererO.sprite = Level2Sprite;
-            Debug.Log("unlock 2");
             currentLevel = Level2;
-            amountToGive += 1;
+            amountToGive += 2;
             base.HideBuilding();
         }
         else if (currentLevel == Level2)
@@ -132,9 +129,8 @@ public class ObservatoryUsage : buildingFunctionality
             MoneyController.Instance.RemoveCash(Level3.BuildingCost);
 
             SpriteRendererO.sprite = Level3Sprite;
-            Debug.Log("unlock 3");
             currentLevel = Level3;
-            amountToGive += 1;
+            amountToGive += 4;
             base.HideBuilding();
         }
     }
@@ -156,13 +152,13 @@ public class ObservatoryUsage : buildingFunctionality
     {
         if (currentLevel == Level1)
         {
-            amountToGive = 1;
+            amountToGive = 2;
         }
         else if (currentLevel == Level2)
         {
-            amountToGive = 2;
+            amountToGive = 4;
         }
         else
-            amountToGive = 3;
+            amountToGive = 8;
     }
 }

@@ -19,11 +19,17 @@ public class NewspaperController : Singleton<NewspaperController>
     [SerializeField]
     private TMP_Text newspaperEarnings;
 
-    [SerializeField, Multiline]
-    private string startOfNewspaper;
+    [SerializeField]
+    private TranslateKeys startOfNewspaper;
 
-    [SerializeField, Multiline]
-    private string EarningsMessage;
+    [SerializeField]
+    private TranslateKeys EarningsMessage;
+
+    [SerializeField]
+    private TranslateKeys cashKey;
+
+    [SerializeField]
+    private TranslateKeys RpKey;
 
     [SerializeField]
     private Image starImage;
@@ -55,7 +61,7 @@ public class NewspaperController : Singleton<NewspaperController>
     public void InitNewspaper(List<PlanetsScriptableData> starsFound)
     {
         EnableNewspaper();
-        newspaperMessage.text = startOfNewspaper;
+        newspaperMessage.text = Language.Instance.GetTranslation(startOfNewspaper)+": ";
 
         calculatedCash = 0;
 
@@ -79,19 +85,19 @@ public class NewspaperController : Singleton<NewspaperController>
                     break;
             }
 
-            newspaperMessage.text += data.PlanetName + " , ";
+            newspaperMessage.text += Language.Instance.GetTranslation(data.PlanetName) + " , ";
         }
 
         MoneyController.Instance.AddCash(calculatedCash);
         MoneyController.Instance.AddRP(calculatedRP);
         newspaperMessage.text.Remove(newspaperMessage.text.Length - 2, 2);
-        newspaperEarnings.text = EarningsMessage + "\nCash: " + calculatedCash + "\nResource Points: " + calculatedRP;
+        newspaperEarnings.text = Language.Instance.GetTranslation(EarningsMessage) + "\n" + Language.Instance.GetTranslation(cashKey)+": " + calculatedCash + "\n" + Language.Instance.GetTranslation(RpKey) + ": " + calculatedRP;
 
         PlanetsScriptableData randomStar = starsFound[UnityEngine.Random.Range(0, starsFound.Count)];
 
         starImage.sprite = randomStar.planetSprite;
-        starName.text = randomStar.PlanetName;
-        starDescription.text = randomStar.PlanetDescription;
+        starName.text = Language.Instance.GetTranslation(randomStar.PlanetName);
+        starDescription.text = Language.Instance.GetTranslation(randomStar.PlanetDescription);
 
 
         timeElapsed = 0;

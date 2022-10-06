@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe39b7fd8a3534bb32f09744b67095, type: 3}
   m_Name: ShowProgressBar
   m_EditorClassIdentifier: 
-  questName: Progress Bar
-  questDescription: This is progress bar, when you buy satelite upgrades this bar
-    will change.
+  questName: 116
+  questDescription: 117
   questIndicatorPosition: {x: 0, y: 0, z: 0}
   questIndicatorScale: {x: 1, y: 1, z: 1}
   hiddenIndicator: 1
   showInfoBox: 1
+  disableButton: 0
   questInfoPanelPosition: {x: 0, y: -270, z: 0}

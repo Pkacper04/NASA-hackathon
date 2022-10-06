@@ -13,11 +13,8 @@ MonoBehaviour:
   m_Name: Triton
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 21300000, guid: 4bc22993e355255439eefb07f4062c1f, type: 3}
-  PlanetName: Triton
-  PlanetDescription: is the largest natural satellite of the planet Neptune, and
-    was the first Neptunian moon to be discovered. It is the only large moon in the
-    Solar System with a retrograde orbit, an orbit in the direction opposite to its
-    planet's rotation.
+  PlanetName: 91
+  PlanetDescription: 92
   PlanetCashValue: 2
   PlanetResearchPointValue: 2
   rarity: 1

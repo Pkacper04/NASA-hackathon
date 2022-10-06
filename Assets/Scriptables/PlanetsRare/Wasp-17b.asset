@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: Wasp-17b
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 21300000, guid: a9c2327cf87f7774fa3e91f3beb3d1ba, type: 3}
-  PlanetName: Wasp-17b
-  PlanetDescription: ' is exoplanet in the constellation Scorpius that is orbiting
-    the star Wasp-17.It is the first planet discovered to have a retrograde orbit,
-    meaning it orbits in a direction counter to the rotation of its host star'
+  PlanetName: 103
+  PlanetDescription: 104
   PlanetCashValue: 3
   PlanetResearchPointValue: 3
   rarity: 2

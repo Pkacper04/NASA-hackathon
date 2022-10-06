@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Mars
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 21300000, guid: 6783196c919d2e84dafc3fe4df28441e, type: 3}
-  PlanetName: Mars
-  PlanetDescription: is the fourth planet from the sun and the second-smallest planet
-    in our solar system. Mars is cerrestial planet with a thin atmosphere, it has
-    a core made out of iron and nickel.
+  PlanetName: 75
+  PlanetDescription: 76
   PlanetCashValue: 0
   PlanetResearchPointValue: 0
+  rarity: 0

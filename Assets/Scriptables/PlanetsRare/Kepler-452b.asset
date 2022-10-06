@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Kepler-452b
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 21300000, guid: e18a79a16f298d8418b6d0aabc701660, type: 3}
-  PlanetName: Kepler-452b
-  PlanetDescription: only planet discovered by Kepler. Its super-earth exoplanet
-    orbiting within the inner edge of the habitable zone of star Kepler-452
+  PlanetName: 99
+  PlanetDescription: 100
   PlanetCashValue: 3
   PlanetResearchPointValue: 3
   rarity: 2

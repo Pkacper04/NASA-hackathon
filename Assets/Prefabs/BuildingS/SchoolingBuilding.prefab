@@ -124,7 +124,7 @@ MonoBehaviour:
   amountToGiveCash: 5
   amountToGiveRP: 1
   buildingLevel: 1
-  functionButtonText: Upgrade
+  functionButtonText: 64
   Level1: {fileID: 11400000, guid: af0df4590854fdb4e8ca39992b15e212, type: 2}
   Level2: {fileID: 11400000, guid: 7d2518ef8df0bcd4ea3d507594b768f1, type: 2}
   Level3: {fileID: 11400000, guid: 31e08e1d8083a53448ed65dddd762fa0, type: 2}

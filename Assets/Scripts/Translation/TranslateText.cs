@@ -35,9 +35,40 @@ public class TranslateText : MonoBehaviour,ITranslation
 
 
 
-    private void Start()
+
+
+    private void ConfigurateDropdown()
     {
-        if(dropdown)
+        dropdownText = GetComponent<TMP_Dropdown>();
+        for(int i=0;i<translateKeys.Length;i++)
+        {
+            dropdownText.options[i].text = Language.Instance.GetTranslation(translateKeys[i]);
+        }   
+    }
+
+    private void InsertTextInto(TMP_Text text)
+    {
+        text.text = Language.Instance.GetTranslation(translationKey);
+    }
+
+    private void InsertTextInto(TMP_InputField text)
+    {
+        text.text = Language.Instance.GetTranslation(translationKey);
+    }
+
+
+    private void InsertTextInto(Text text)
+    {
+        text.text = Language.Instance.GetTranslation(translationKey);
+    }
+
+    public void RefreshTranslation()
+    {
+        SetText();
+    }
+    public void SetText()
+    {
+        if (dropdown)
         {
             ConfigurateDropdown();
             return;
@@ -49,44 +80,14 @@ public class TranslateText : MonoBehaviour,ITranslation
         else if (TryGetComponent<TMP_InputField>(out inputText))
             InsertTextInto(inputText);
     }
-
-    private void ConfigurateDropdown()
-    {
-        dropdownText = GetComponent<TMP_Dropdown>();
-        for(int i=0;i<translateKeys.Length;i++)
-        {
-            dropdownText.options[i].text = Language.GetTranslation(translateKeys[i]);
-        }
-    }
-
-    private void InsertTextInto(TMP_Text text)
-    {
-        text.text = Language.GetTranslation(translationKey);
-    }
-
-    private void InsertTextInto(TMP_InputField text)
-    {
-        text.text = Language.GetTranslation(translationKey);
-    }
-
-
-    private void InsertTextInto(Text text)
-    {
-        text.text = Language.GetTranslation(translationKey);
-    }
-
-    public void RefreshTranslation()
-    {
-        Start();
-    }
-
     public void OnEnable()
     {
-        Language.translationChanged += RefreshTranslation;
+        SetText();
+        Language.Instance.translationChanged += RefreshTranslation;
     }
 
     public void OnDisable()
     {
-        Language.translationChanged -= RefreshTranslation;
+        Language.Instance.translationChanged -= RefreshTranslation;
     }
 }

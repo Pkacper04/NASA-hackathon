@@ -1,52 +1,71 @@
 using System;
+using System.Diagnostics;
 using NaughtyAttributes;
 public class Language : LanguageDatabase
 {
     public static Language Instance { get; private set; }
 
-    [OnValueChanged(nameof(InformAllSubscribers))]
+    [ReadOnly]
     public Languages language;
 
-    public static event Action translationChanged;
+    public event Action translationChanged;
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
-            Destroy(this);
+            Destroy(this.gameObject);
         else
+        {
             Instance = this;
+            DontDestroyOnLoad(this);
+        }
     }
 
 
-    public static string GetTranslation(TranslateKeys key)
+    public string GetTranslation(TranslateKeys key)
     {
-        if (Language.Instance.language == Languages.English)
+        if (language == Languages.English)
             return EnglishTranslation(key);
-        else if (Language.Instance.language == Languages.Polish)
+        else if (language == Languages.Polish)
             return PolishTranslation(key);
         else
             return null;
     }
 
-    public static string GetTranslation(string key)
+    public string GetTranslation(string key)
     {
         TranslateKeys enumKey = ConvertStringToKey(key);
 
-        if (Language.Instance.language == Languages.English)
+        if (language == Languages.English)
             return EnglishTranslation(enumKey);
-        else if (Language.Instance.language == Languages.Polish)
+        else if (language == Languages.Polish)
             return PolishTranslation(enumKey);
         else
             return null;
     }
 
-    private static void InformAllSubscribers()
+    public void ChangeLanguage(Languages newLanguage)
+    {
+        language = newLanguage;
+        InformAllSubscribers();
+    }
+
+    [Button("ChangeLanguage")]
+    public void ChangeLanguage()
+    {
+        if (language == Languages.Polish)
+            language = Languages.English;
+        else
+            language = Languages.Polish;
+    }
+
+    private void InformAllSubscribers()
     {
         translationChanged?.Invoke();
     }
 
 
-    private static TranslateKeys ConvertStringToKey(string textKey)
+    private TranslateKeys ConvertStringToKey(string textKey)
     {
         TranslateKeys myEnum = (TranslateKeys)Enum.Parse(typeof(TranslateKeys), textKey);
         return myEnum;

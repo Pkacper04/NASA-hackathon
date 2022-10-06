@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Venus
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 21300000, guid: 3c64a976c2798254baf203216970ba11, type: 3}
-  PlanetName: Venus
-  PlanetDescription: is second planet from the Sun. As the brightest natural object
-    in Earth's sky after the Moon, Venus can cast shadows and can be visible to the
-    naked eye in broad daylight.
+  PlanetName: 83
+  PlanetDescription: 84
   PlanetCashValue: 1
   PlanetResearchPointValue: 1
+  rarity: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Observatory
   m_EditorClassIdentifier: 
   BuildingSprite: {fileID: 21300000, guid: 03ef2f80c430cf74aa0f73c6456c17de, type: 3}
-  Header: Observatory
-  Description: Thanks to the observatory, you can obtain cash
+  Header: 19
+  Description: 20
   Price: 500
   BuildingPrefab: {fileID: 7644728174993500952, guid: 72a06fd6ef5dfc940b36fdf34381dc74, type: 3}
   reaserch: 1

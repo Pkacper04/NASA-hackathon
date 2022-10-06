@@ -44,6 +44,9 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField]
     private TMP_Text endButtonText;
 
+    [SerializeField]
+    private TranslateKeys endButtonTranslation;
+
 
     [Scene]
     public string afterCutsceneScene;
@@ -54,6 +57,31 @@ public class CutsceneManager : MonoBehaviour
     private bool canChange = true;
     private bool startCutscene = false;
     private bool canSkip = false;
+
+
+    public void OnDisable()
+    {
+        Language.Instance.translationChanged -= RefreshTranslation;
+    }
+
+    public void OnEnable()
+    {
+        foreach(cutscenes cutscene in listOfCutscenes.numberOfCutscenes)
+        {
+            cutscene.cutsceneDialogue = Language.Instance.GetTranslation(cutscene.TranslateKeys);
+        }
+        Language.Instance.translationChanged += RefreshTranslation;
+    }
+
+    public void RefreshTranslation()
+    {
+        foreach (cutscenes cutscene in listOfCutscenes.numberOfCutscenes)
+        {
+            cutscene.cutsceneDialogue = Language.Instance.GetTranslation(cutscene.TranslateKeys);
+        }
+    }
+
+
 
     private void Start()
     {
@@ -131,7 +159,7 @@ public class CutsceneManager : MonoBehaviour
 
         if (currentCutscene == listOfCutscenes.numberOfCutscenes.Count - 1 && endButtonText != null)
         {
-            endButtonText.text = "Skip";
+            endButtonText.text = Language.Instance.GetTranslation(endButtonTranslation);
         }
 
         yield return new WaitForSeconds(cutsceneBlackScreenDuration);
