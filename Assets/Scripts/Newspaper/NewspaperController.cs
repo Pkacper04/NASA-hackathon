@@ -43,6 +43,9 @@ public class NewspaperController : Singleton<NewspaperController>
     [SerializeField]
     private Vector3 endPosition;
 
+    [SerializeField]
+    private AudioSource backgroundMusic;
+
     private int calculatedCash = 0;
 
     private int calculatedRP = 0;
@@ -108,6 +111,7 @@ public class NewspaperController : Singleton<NewspaperController>
     public void ExitNewspaper()
     {
         ScreenTransition.Instance.startFadingIn();
+        backgroundMusic.Play();
         StartCoroutine(waitForScript());
     }
 

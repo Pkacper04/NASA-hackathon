@@ -108,6 +108,21 @@ public class MinigameController : Singleton<MinigameController>
     private AudioSource miniGameBackgroundMusic;
 
     [SerializeField]
+    private AudioSource sfx_photographingStar;
+
+    [SerializeField]
+    private AudioSource sfx_photographedStar;
+
+    [SerializeField]
+    private AudioSource sfx_newspaper;
+
+    [SerializeField]
+    private AudioClip sfx_photographedStar_OneShot;
+
+    [SerializeField]
+    private AudioClip sfx_newspaper_OneShot;
+
+    [SerializeField]
     private TutorialStepsData minigameQuest;
 
     [SerializeField]
@@ -417,7 +432,7 @@ public class MinigameController : Singleton<MinigameController>
     public void FoundStar(PlanetsScriptableData planet)
     {
         listStarsFound.Add(planet);
-
+        sfx_photographedStar.PlayOneShot(sfx_photographedStar_OneShot,1f);
         starsFound++;
         if (starsFound == StarsCounter)
             EndGame();
@@ -430,7 +445,7 @@ public class MinigameController : Singleton<MinigameController>
 
         ScreenTransition.Instance.startFadingIn();
         miniGameBackgroundMusic.Stop();
-        backgroundMusic.Play();
+       
 
         StartCoroutine(WaitForNewspaper());
 
@@ -456,6 +471,7 @@ public class MinigameController : Singleton<MinigameController>
         AreaGroup.interactable = false;
         AreaGroup.blocksRaycasts = false;
         NewspaperController.Instance.EnableNewspaper();
+        sfx_newspaper.PlayOneShot(sfx_newspaper_OneShot, 1f);
 
         int Cminutes = CalculateMinutes(cooldownTime);
         int Cseconds = CalculateSeconds(cooldownTime, Cminutes);
@@ -469,6 +485,7 @@ public class MinigameController : Singleton<MinigameController>
 
         startMissionButton.interactable = false;
         ClearArea();
+       
         Cursor.visible = true;
         ScreenTransition.Instance.startFadingOut();
         yield return new WaitUntil(() => ScreenTransition.Instance.InTransition == false);
