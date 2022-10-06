@@ -13146,7 +13146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 254245520273636251, guid: ede8c26d3a8786841a2336880ef54e24, type: 3}
       propertyPath: positionOffset.y
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1303853782215007206, guid: ede8c26d3a8786841a2336880ef54e24, type: 3}
@@ -13994,7 +13994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 254245520273636251, guid: ede8c26d3a8786841a2336880ef54e24, type: 3}
       propertyPath: positionOffset.y
-      value: 25
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1303853782215007206, guid: ede8c26d3a8786841a2336880ef54e24, type: 3}
@@ -23116,7 +23116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 254245520273636251, guid: ede8c26d3a8786841a2336880ef54e24, type: 3}
       propertyPath: positionOffset.y
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1303853782215007206, guid: ede8c26d3a8786841a2336880ef54e24, type: 3}
@@ -26445,7 +26445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 254245520273636251, guid: ede8c26d3a8786841a2336880ef54e24, type: 3}
       propertyPath: positionOffset.y
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1303853782215007206, guid: ede8c26d3a8786841a2336880ef54e24, type: 3}
       propertyPath: m_AutoTiling
