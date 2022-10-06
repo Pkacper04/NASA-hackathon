@@ -82,7 +82,7 @@ public class MinigameController : Singleton<MinigameController>
 
     private List<Vector3> positions = new List<Vector3>();
 
-    private RectTransform starTransform;
+
 
     private bool gameStarted = false;
 
@@ -106,6 +106,12 @@ public class MinigameController : Singleton<MinigameController>
 
     [SerializeField]
     private AudioSource miniGameBackgroundMusic;
+
+    [SerializeField]
+    private TutorialStepsData minigameQuest;
+
+    [SerializeField]
+    private TutorialStepsData finishMinigameQuest;
 
     public float CommonChance { get => commonChance; set => commonChance = value; }
     public float UnCommonChance { get => unCommonChance; set => unCommonChance = value; }
@@ -215,17 +221,17 @@ public class MinigameController : Singleton<MinigameController>
         }
     }
 
-    private void Start()
-    {
-        starTransform = commonStar.GetComponent<RectTransform>();
-    }
-
     [Button("initGame")]
     public void InitGame()
     {
 
         if (hasCooldown)
             return;
+
+        if(TutorialController.Instance.TutorialGoing)
+        {
+            TutorialController.Instance.FinishQuest(minigameQuest);
+        }
 
         starsOnMap.Clear();
         ClosePopups.Instance.CloseAllPanels();
@@ -235,7 +241,6 @@ public class MinigameController : Singleton<MinigameController>
         ScreenTransition.Instance.startFadingIn();
         backgroundRaycaster.enabled = true;
         listStarsFound.Clear();
-        starTransform = commonStar.GetComponent<RectTransform>();
         minutes = CalculateMinutes();
         seconds = CalculateSeconds(minutes);
 
@@ -319,9 +324,9 @@ public class MinigameController : Singleton<MinigameController>
     {
         int number = UnityEngine.Random.Range(0, 101);
 
-        if (number < commonChance)
+        if (number <= commonChance)
             return 0;
-        else if (number < UnCommonChance + commonChance)
+        else if (number <= UnCommonChance + commonChance)
             return 1;
         else
             return 2;
@@ -452,7 +457,7 @@ public class MinigameController : Singleton<MinigameController>
         int Cminutes = CalculateMinutes(cooldownTime);
         int Cseconds = CalculateSeconds(cooldownTime, Cminutes);
 
-        if (seconds < 10)
+        if (Cseconds < 10)
             startMisionText.text = "0" + Cminutes + " : " + "0" + Cseconds;
         else
             startMisionText.text = "0" + Cminutes + " : " + Cseconds;
@@ -512,6 +517,10 @@ public class MinigameController : Singleton<MinigameController>
 
     internal void StartCooldown()
     {
+        if(TutorialController.Instance.TutorialGoing)
+        {
+            TutorialController.Instance.FinishQuest(finishMinigameQuest);
+        }
         hasCooldown = true;
     }
 }

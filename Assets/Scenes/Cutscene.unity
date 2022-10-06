@@ -515,7 +515,6 @@ GameObject:
   m_Component:
   - component: {fileID: 813430183}
   - component: {fileID: 813430182}
-  - component: {fileID: 813430184}
   m_Layer: 0
   m_Name: CutsceneManager
   m_TagString: Untagged
@@ -542,11 +541,11 @@ MonoBehaviour:
   cutsceneChangeSpeed: 0.1
   cutsceneBlackScreenDuration: 0
   dialogOffset: 0
-  dialogSpeed: 0.1
+  dialogSpeed: 0.05
   writer: {fileID: 1772618145}
   musicAudio: {fileID: 0}
   soundFadeDuration: 0
-  afterCutsceneScene: MainGame
+  afterCutsceneScene: LoadingScreenScene
   listOfCutscenes:
     numberOfCutscenes:
     - cutsceneImages:
@@ -577,18 +576,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &813430184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813430181}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bb16980ca718a4439f8a433b9a09fd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &835027292
 GameObject:
   m_ObjectHideFlags: 0
