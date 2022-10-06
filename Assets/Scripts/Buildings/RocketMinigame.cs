@@ -49,7 +49,8 @@ public class RocketMinigame : buildingFunctionality
         currentUI.FunctionButton.interactable = true;
         currentUI.FunctionButton.onClick.RemoveAllListeners();
         currentUI.FunctionButton.onClick.AddListener(() => StartMinigame());
-        
+        currentUI.SellButton.gameObject.SetActive(false);
+
     }
 
     private void StartMinigame()

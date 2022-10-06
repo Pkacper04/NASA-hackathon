@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: BuildRocket
   m_EditorClassIdentifier: 
   questName: Build Rocket
-  questDescription: Build by yourself rocket
+  questDescription: Try to build rocket by yourself.
   questIndicatorPosition: {x: 200, y: 200, z: 0}
   questIndicatorScale: {x: 2, y: 2, z: 1}
+  hiddenIndicator: 0
+  showInfoBox: 1
+  disableButton: 1
+  questInfoPanelPosition: {x: -200, y: 150, z: 0}

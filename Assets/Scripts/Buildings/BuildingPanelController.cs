@@ -42,6 +42,10 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
 
     private bool panelVisible = false;
 
+    private bool blockBuilding = false;
+
+    public bool BlockBuilding { get => blockBuilding; set => blockBuilding = value; }
+
     private BuildingScriptableObject lastBuildingData;
 
     private Coroutine showingCoroutine = null;
@@ -85,12 +89,10 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
         if (!TechTreeController.Instance.isUnlocked(lastSocket.FirstLevelData))
         {
             purchaseButton.interactable = false;
-            buttonText.text = lastSocket.LockedButtonText;
         }
         else
         {
             purchaseButton.interactable = true;
-            buttonText.text = "/";
         }
 
         StartCoroutine(ShowPanel());
@@ -110,6 +112,9 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
     public void BuildBuilding()
     {
         if (!MoneyController.Instance.CheckIfCanPurchase(lastBuildingData.Price))
+            return;
+
+        if (blockBuilding)
             return;
 
         MoneyController.Instance.RemoveCash(lastBuildingData.Price);
