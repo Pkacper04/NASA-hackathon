@@ -249,7 +249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skip
+  m_text: Next
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2d4c8bccbdb9c494885d4ef130c1a6f1, type: 2}
   m_sharedMaterial: {fileID: 8803812631675104412, guid: 2d4c8bccbdb9c494885d4ef130c1a6f1, type: 2}
@@ -537,14 +537,15 @@ MonoBehaviour:
   cutscenePlace: {fileID: 104886120}
   dialoguePlace: {fileID: 1957418954}
   buttonCanvas: {fileID: 835027293}
-  imageChangeSpeed: 0
-  cutsceneChangeSpeed: 0.1
-  cutsceneBlackScreenDuration: 0
+  imageChangeSpeed: 0.01
+  cutsceneChangeSpeed: 0.01
+  cutsceneBlackScreenDuration: 1
   dialogOffset: 0
   dialogSpeed: 0.05
   writer: {fileID: 1772618145}
   musicAudio: {fileID: 0}
   soundFadeDuration: 0
+  endButtonText: {fileID: 99798300}
   afterCutsceneScene: LoadingScreenScene
   listOfCutscenes:
     numberOfCutscenes:

@@ -537,14 +537,15 @@ MonoBehaviour:
   cutscenePlace: {fileID: 104886120}
   dialoguePlace: {fileID: 1957418954}
   buttonCanvas: {fileID: 835027293}
-  imageChangeSpeed: 0
-  cutsceneChangeSpeed: 0.1
-  cutsceneBlackScreenDuration: 0
+  imageChangeSpeed: 0.01
+  cutsceneChangeSpeed: 0.01
+  cutsceneBlackScreenDuration: 1
   dialogOffset: 0
-  dialogSpeed: 0.1
+  dialogSpeed: 0.05
   writer: {fileID: 1772618145}
   musicAudio: {fileID: 0}
   soundFadeDuration: 0
+  endButtonText: {fileID: 0}
   afterCutsceneScene: MainMenuScene
   listOfCutscenes:
     numberOfCutscenes:

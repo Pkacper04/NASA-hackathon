@@ -29,6 +29,7 @@ public class LevelLoader : MonoBehaviour
 
     private void Awake()
     {
+        ScreenTransition.Instance.startFadingOut();
         CuriositiesScriptableObject curiosity = CuriositiesController.Instance.GetCuriosities();
         curiosityImage.sprite = curiosity.CuriosityImage;
         curosityText.text = curiosity.CuriosityDescription;
@@ -60,6 +61,10 @@ public class LevelLoader : MonoBehaviour
         finalText.BuildText(startingText, .05f);
 
         yield return new WaitUntil(() => Input.anyKeyDown);
+
+        ScreenTransition.Instance.startFadingIn();
+
+        yield return new WaitUntil(() => !ScreenTransition.Instance.InTransition);
         operation.allowSceneActivation = true;
     }
 }

@@ -29,6 +29,10 @@ public class TechTreeController : Singleton<TechTreeController>
     [SerializeField]
     private TutorialStepsData rocketBuyQuest;
 
+    private bool blockTechTree = false;
+
+    public bool BlockTechTree { get => blockTechTree; set => blockTechTree = value; }
+
 
     private bool canFinishQuestRocket = false;
 
@@ -112,6 +116,9 @@ public class TechTreeController : Singleton<TechTreeController>
 
     public void EnableTechTreeUI()
     {
+        if (blockTechTree)
+            return;
+
         if(TutorialController.Instance.TutorialGoing)
         {
             TutorialController.Instance.FinishQuest(techTreeUIQuest);
@@ -131,7 +138,13 @@ public class TechTreeController : Singleton<TechTreeController>
     {
         if(TutorialController.Instance.TutorialGoing)
         {
-            TutorialController.Instance.FinishQuest(rocketBuyQuest);
+            Debug.Log("disable in tutorial");
+            if (canFinishQuestRocket)
+            {
+                Debug.Log("finish rocket quest");
+                TutorialController.Instance.FinishQuest(rocketBuyQuest);
+                blockTechTree = true;
+            }
         }
         TechTreeUI.DisableTechTree();
     }
@@ -155,7 +168,7 @@ public class TechTreeController : Singleton<TechTreeController>
         if (!CanBuyUpgrade(upgradeData.CurrentResearchData))
             return;
 
-        if(upgradeData == rocketBuilding)
+        if(upgradeData.CurrentResearchData == rocketBuilding)
         {
             canFinishQuestRocket = true;
         }
