@@ -253,6 +253,8 @@ public class MinigameController : Singleton<MinigameController>
         Cursor.visible = false;
         AddStars();
         EnableMinigameValues();
+        backgroundMusic.Stop();
+        miniGameBackgroundMusic.Play();
     }
 
     private void AddStars()
@@ -427,7 +429,8 @@ public class MinigameController : Singleton<MinigameController>
         gameStarted = false;
 
         ScreenTransition.Instance.startFadingIn();
-
+        miniGameBackgroundMusic.Stop();
+        backgroundMusic.Play();
 
         StartCoroutine(WaitForNewspaper());
 
