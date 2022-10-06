@@ -26,6 +26,9 @@ public class WebbTelescopeUpgrader : MonoBehaviour
     private Sprite model3;
 
     [SerializeField]
+    private TMP_Text LoadingText;
+
+    [SerializeField]
     private List<ResearchData> necessaryResearch = new List<ResearchData>();
 
     private float value;
@@ -53,7 +56,7 @@ public class WebbTelescopeUpgrader : MonoBehaviour
     private void Start()
     {
         endGameButton.interactable = false;
-        endGameText.enabled = false;
+        endGameText.text = "0%";
     }
 
     private void OnReasearchPurchase()
@@ -94,6 +97,8 @@ public class WebbTelescopeUpgrader : MonoBehaviour
     public void SateliteLoadingBar()
     {
         image.fillAmount = value;
+        LoadingText.text = (Math.Round(value * 100)).ToString() + "%";
+        if (value == 1) LoadingText.text = "END GAME";
     }
 
 
