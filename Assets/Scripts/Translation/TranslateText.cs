@@ -35,20 +35,7 @@ public class TranslateText : MonoBehaviour,ITranslation
 
 
 
-    private void Start()
-    {
-        if(dropdown)
-        {
-            ConfigurateDropdown();
-            return;
-        }
-        if (TryGetComponent<TMP_Text>(out tmpText))
-            InsertTextInto(tmpText);
-        else if (TryGetComponent<Text>(out text))
-            InsertTextInto(text);
-        else if (TryGetComponent<TMP_InputField>(out inputText))
-            InsertTextInto(inputText);
-    }
+
 
     private void ConfigurateDropdown()
     {
@@ -77,11 +64,25 @@ public class TranslateText : MonoBehaviour,ITranslation
 
     public void RefreshTranslation()
     {
-        Start();
+        SetText();
     }
-
+    public void SetText()
+    {
+        if (dropdown)
+        {
+            ConfigurateDropdown();
+            return;
+        }
+        if (TryGetComponent<TMP_Text>(out tmpText))
+            InsertTextInto(tmpText);
+        else if (TryGetComponent<Text>(out text))
+            InsertTextInto(text);
+        else if (TryGetComponent<TMP_InputField>(out inputText))
+            InsertTextInto(inputText);
+    }
     public void OnEnable()
     {
+        SetText();
         Language.translationChanged += RefreshTranslation;
     }
 
