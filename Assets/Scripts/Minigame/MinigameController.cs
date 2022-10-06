@@ -512,6 +512,16 @@ public class MinigameController : Singleton<MinigameController>
         ScreenTransition.Instance.startFadingOut();
         yield return new WaitUntil(() => ScreenTransition.Instance.InTransition == false);
         yield return new WaitForSeconds(.5f);
+
+        if(TutorialController.Instance.TutorialGoing)
+        {
+            Cursor.visible = true;
+            TutorialController.Instance.DisplayMinigameTutorialPanel();
+            yield return new WaitUntil(() => TutorialController.Instance.MinigameTutorialGoing == false);
+            Cursor.visible = false;
+            yield return new WaitForSeconds(.5f);
+        }
+
         gameStarted = true;
     }
 

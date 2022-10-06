@@ -16,7 +16,7 @@ public class ResearchCenterBuilding : buildingFunctionality
         currentUI.FunctionButton.interactable = true;
         currentUI.FunctionButton.onClick.RemoveAllListeners();
         currentUI.FunctionButton.onClick.AddListener(() => OpenResources());
-
+        currentUI.SellButton.gameObject.SetActive(false);
     }
 
     private void OpenResources()

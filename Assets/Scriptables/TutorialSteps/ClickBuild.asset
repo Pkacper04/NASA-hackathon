@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: ClickBuild
   m_EditorClassIdentifier: 
   questName: Click To Build
-  questDescription: Click selceted button to build building
+  questDescription: Click right button to build.
   questIndicatorPosition: {x: 150, y: 355, z: 0}
   questIndicatorScale: {x: 1.2, y: 1.2, z: 1}
+  hiddenIndicator: 0
+  showInfoBox: 1
+  disableButton: 1
+  questInfoPanelPosition: {x: 0, y: 150, z: 0}
