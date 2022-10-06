@@ -38,6 +38,12 @@ public class BuildingController : Singleton<BuildingController>
     [SerializeField]
     private List<BuildingSocket> sockets = new List<BuildingSocket>();
 
+    [SerializeField]
+    private TutorialStepsData researchQuest;
+
+    [SerializeField]
+    private TutorialStepsData rocketQuest;
+
     public Action<BuildingScriptableObject> OnBuild;
 
     public void CallOnBuild(BuildingScriptableObject buildingData) {
@@ -176,10 +182,18 @@ public class BuildingController : Singleton<BuildingController>
     {
         if(data == reseachFacility)
         {
+            if(TutorialController.Instance.TutorialGoing)
+            {
+                TutorialController.Instance.FinishQuest(researchQuest);
+            }
             ReaserchButton.gameObject.SetActive(true);
         }
         else if(data == rocketLauncher)
         {
+            if (TutorialController.Instance.TutorialGoing)
+            {
+                TutorialController.Instance.FinishQuest(rocketQuest);
+            }
             LaunchSateliteButton.gameObject.SetActive(true);
         }
     }

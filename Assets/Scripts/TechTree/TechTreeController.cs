@@ -15,11 +15,22 @@ public class TechTreeController : Singleton<TechTreeController>
     private ResearchData firstBuilding;
 
     [SerializeField]
+    private ResearchData rocketBuilding;
+
+    [SerializeField]
     private TechTreeUI TechTreeUI;
 
     [SerializeField]
     private string boughtText;
 
+    [SerializeField]
+    private TutorialStepsData techTreeUIQuest;
+
+    [SerializeField]
+    private TutorialStepsData rocketBuyQuest;
+
+
+    private bool canFinishQuestRocket = false;
 
     public Action OnResearchBuy;
 
@@ -101,6 +112,11 @@ public class TechTreeController : Singleton<TechTreeController>
 
     public void EnableTechTreeUI()
     {
+        if(TutorialController.Instance.TutorialGoing)
+        {
+            TutorialController.Instance.FinishQuest(techTreeUIQuest);
+        }
+
         ClosePopups.Instance.CloseWithoutOne(this);
         if(TechTreeUI.TechtreeActive())
         {
@@ -113,6 +129,10 @@ public class TechTreeController : Singleton<TechTreeController>
 
     public void DisavleTechTreeUI()
     {
+        if(TutorialController.Instance.TutorialGoing)
+        {
+            TutorialController.Instance.FinishQuest(rocketBuyQuest);
+        }
         TechTreeUI.DisableTechTree();
     }
 
@@ -135,7 +155,10 @@ public class TechTreeController : Singleton<TechTreeController>
         if (!CanBuyUpgrade(upgradeData.CurrentResearchData))
             return;
 
-
+        if(upgradeData == rocketBuilding)
+        {
+            canFinishQuestRocket = true;
+        }
         MoneyController.Instance.RemoveRP(upgradeData.CurrentResearchData.ResearchCost);
         upgradeData.CurrentResearchData.isPurchased = true;
         upgradeData.ButtonText.text = boughtText;
