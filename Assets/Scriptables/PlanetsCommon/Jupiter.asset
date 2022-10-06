@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Jupiter
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 21300000, guid: c14b1eaa4624fa540a1e0f85930f0977, type: 3}
-  PlanetName: Jupiter
-  PlanetDescription: is the fifth planet from the Sun and the largest in our solar
-    system. It's a gas giant it has 2.5x mass of all other planets in our solar system
-    combined.
+  PlanetName: 73
+  PlanetDescription: 74
   PlanetCashValue: 1
   PlanetResearchPointValue: 1
+  rarity: 0

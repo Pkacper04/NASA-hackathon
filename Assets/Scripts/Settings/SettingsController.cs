@@ -50,9 +50,10 @@ public class SettingsController : MonoBehaviour
 
     public void OnLanguageChange()
     {
+       
         if (languageDropdown.value == 1)
-            Language.Instance.language = Language.Languages.English;
+            Language.Instance.ChangeLanguage(Language.Languages.English);
         else
-            Language.Instance.language = Language.Languages.Polish;
+            Language.Instance.ChangeLanguage(Language.Languages.Polish);
     }
 }

@@ -42,24 +42,24 @@ public class TranslateText : MonoBehaviour,ITranslation
         dropdownText = GetComponent<TMP_Dropdown>();
         for(int i=0;i<translateKeys.Length;i++)
         {
-            dropdownText.options[i].text = Language.GetTranslation(translateKeys[i]);
-        }
+            dropdownText.options[i].text = Language.Instance.GetTranslation(translateKeys[i]);
+        }   
     }
 
     private void InsertTextInto(TMP_Text text)
     {
-        text.text = Language.GetTranslation(translationKey);
+        text.text = Language.Instance.GetTranslation(translationKey);
     }
 
     private void InsertTextInto(TMP_InputField text)
     {
-        text.text = Language.GetTranslation(translationKey);
+        text.text = Language.Instance.GetTranslation(translationKey);
     }
 
 
     private void InsertTextInto(Text text)
     {
-        text.text = Language.GetTranslation(translationKey);
+        text.text = Language.Instance.GetTranslation(translationKey);
     }
 
     public void RefreshTranslation()
@@ -83,11 +83,11 @@ public class TranslateText : MonoBehaviour,ITranslation
     public void OnEnable()
     {
         SetText();
-        Language.translationChanged += RefreshTranslation;
+        Language.Instance.translationChanged += RefreshTranslation;
     }
 
     public void OnDisable()
     {
-        Language.translationChanged -= RefreshTranslation;
+        Language.Instance.translationChanged -= RefreshTranslation;
     }
 }

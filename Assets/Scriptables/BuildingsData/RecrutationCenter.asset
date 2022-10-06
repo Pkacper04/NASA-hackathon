@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: RecrutationCenter
   m_EditorClassIdentifier: 
   BuildingSprite: {fileID: 21300000, guid: 581703664f073b74680bfedc9e1c87b7, type: 3}
-  Header: Recruitment Center
-  Description: By hiring more people inside the recruitment center, you can increase
-    your earnings.
+  Header: 21
+  Description: 22
   Price: 250
   BuildingPrefab: {fileID: 2863736107341876125, guid: 2cd69a9cb0109b94cb1cb1a9ff5e3fc3, type: 3}
   reaserch: 1

@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00a21556a5587c468e111f7b96c4a05, type: 3}
   m_Name: OstatniaCiekawostka
   m_EditorClassIdentifier: 
-  CuriosityName: OstatniaCiekawostka
-  CuriosityDescription: Webb allows scientists to study planets, both within and
-    beyond our solar system, in greater detail than ever before. It is designed to
-    help determine the elements that make them up and unveil these worlds' potential
-    to support life. The telescope may even detect signs of alien life known as biosignatures.
+  CuriosityName: 0
+  CuriosityDescription: 69
   CuriosityImage: {fileID: 21300000, guid: a74e76f0d36eb004d8b1c52b556aa935, type: 3}

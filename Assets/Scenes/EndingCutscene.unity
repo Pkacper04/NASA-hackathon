@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 99798299}
   - component: {fileID: 99798301}
   - component: {fileID: 99798300}
+  - component: {fileID: 99798302}
   m_Layer: 5
   m_Name: SkipButtonText
   m_TagString: Untagged
@@ -326,6 +327,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99798298}
   m_CullTransparentMesh: 1
+--- !u!114 &99798302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99798298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9466cf02b039f40a4e96af97debbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropdown: 0
+  translationKey: 136
+  translateKeys: 
 --- !u!1 &104886117
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,11 +562,13 @@ MonoBehaviour:
   musicAudio: {fileID: 0}
   soundFadeDuration: 0
   endButtonText: {fileID: 0}
+  endButtonTranslation: 0
   afterCutsceneScene: MainMenuScene
   listOfCutscenes:
     numberOfCutscenes:
     - cutsceneImages:
       - {fileID: 21300000, guid: 3a2890f63390b894288b133a44eeef91, type: 3}
+      TranslateKeys: 137
       cutsceneDialogue: Thanks to your efforts, humanity has taken another step forward.
 --- !u!4 &813430183
 Transform:

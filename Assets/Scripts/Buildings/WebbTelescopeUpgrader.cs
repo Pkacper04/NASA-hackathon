@@ -29,6 +29,9 @@ public class WebbTelescopeUpgrader : MonoBehaviour
     private TMP_Text LoadingText;
 
     [SerializeField]
+    private TranslateKeys endMessageKey;
+
+    [SerializeField]
     private List<ResearchData> necessaryResearch = new List<ResearchData>();
 
     private float value;
@@ -98,7 +101,7 @@ public class WebbTelescopeUpgrader : MonoBehaviour
     {
         image.fillAmount = value;
         LoadingText.text = (Math.Round(value * 100)).ToString() + "%";
-        if (value == 1) LoadingText.text = "END GAME";
+        if (value == 1) LoadingText.text = Language.Instance.GetTranslation(endMessageKey);
     }
 
 

@@ -21,7 +21,7 @@ public class TechTreeController : Singleton<TechTreeController>
     private TechTreeUI TechTreeUI;
 
     [SerializeField]
-    private string boughtText;
+    private TranslateKeys boughtText;
 
     [SerializeField]
     private TutorialStepsData techTreeUIQuest;
@@ -97,7 +97,7 @@ public class TechTreeController : Singleton<TechTreeController>
                     if (upgradeData[j].CurrentResearchData == UpgradesList[i] && UpgradesList[i].isPurchased)
                     {
                         CallOnSpecificReasearchBuy(upgradeData[j]);
-                        upgradeData[j].ButtonText.text = boughtText;
+                        upgradeData[j].ButtonText.text = Language.Instance.GetTranslation(boughtText);
                         upgradeData[j].ObjectButton.interactable = false;
                         break;
                     }
@@ -138,10 +138,8 @@ public class TechTreeController : Singleton<TechTreeController>
     {
         if(TutorialController.Instance.TutorialGoing)
         {
-            Debug.Log("disable in tutorial");
             if (canFinishQuestRocket)
             {
-                Debug.Log("finish rocket quest");
                 TutorialController.Instance.FinishQuest(rocketBuyQuest);
                 blockTechTree = true;
             }
@@ -174,7 +172,7 @@ public class TechTreeController : Singleton<TechTreeController>
         }
         MoneyController.Instance.RemoveRP(upgradeData.CurrentResearchData.ResearchCost);
         upgradeData.CurrentResearchData.isPurchased = true;
-        upgradeData.ButtonText.text = boughtText;
+        upgradeData.ButtonText.text = Language.Instance.GetTranslation(boughtText);
         upgradeData.ObjectButton.interactable = false;
         CallOnResearchBuy();
         CallOnSpecificReasearchBuy(upgradeData);

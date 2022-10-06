@@ -33,7 +33,7 @@ public class LevelLoader : MonoBehaviour, ITranslation
         ScreenTransition.Instance.startFadingOut();
         curiosity = CuriositiesController.Instance.GetCuriosities();
         curiosityImage.sprite = curiosity.CuriosityImage;
-        curosityText.text = Language.GetTranslation(curiosity.CuriosityDescription);
+        curosityText.text = Language.Instance.GetTranslation(curiosity.CuriosityDescription);
     }
 
     private void Start()
@@ -59,7 +59,7 @@ public class LevelLoader : MonoBehaviour, ITranslation
             yield return null;
         }
         loadingBar.fillAmount = 1;
-        finalText.BuildText(Language.GetTranslation(translateKey), .05f);
+        finalText.BuildText(Language.Instance.GetTranslation(translateKey), .05f);
 
         yield return new WaitUntil(() => Input.anyKeyDown);
 
@@ -71,17 +71,17 @@ public class LevelLoader : MonoBehaviour, ITranslation
 
     public void RefreshTranslation()
     {
-        finalText.ReplaceText(Language.GetTranslation(translateKey));
-        curosityText.text = Language.GetTranslation(curiosity.CuriosityDescription);
+        finalText.ReplaceText(Language.Instance.GetTranslation(translateKey));
+        curosityText.text = Language.Instance.GetTranslation(curiosity.CuriosityDescription);
     }
 
     public void OnEnable()
     {
-        Language.translationChanged += RefreshTranslation;
+        Language.Instance.translationChanged += RefreshTranslation;
     }
 
     public void OnDisable()
     {
-        Language.translationChanged -= RefreshTranslation;
+        Language.Instance.translationChanged -= RefreshTranslation;
     }
 }

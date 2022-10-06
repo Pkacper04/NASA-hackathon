@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe39b7fd8a3534bb32f09744b67095, type: 3}
   m_Name: ClickBuild
   m_EditorClassIdentifier: 
-  questName: Click To Build
-  questDescription: Click right button to build.
+  questName: 120
+  questDescription: 121
   questIndicatorPosition: {x: 150, y: 355, z: 0}
   questIndicatorScale: {x: 1.2, y: 1.2, z: 1}
   hiddenIndicator: 0

@@ -100,15 +100,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingPanel: {fileID: 0}
   buildingType: 2
-  infoOffset: {x: 0, y: 40, z: 0}
+  infoOffset: {x: 0, y: 0, z: 0}
   spriteRenderer: {fileID: 7644728174993500957}
   activeColor: {r: 0.6392157, g: 1, b: 0.61960787, a: 1}
   inActiveColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.64705884, g: 1, b: 0.99215686, a: 1}
-  amountToGive: 1
+  amountToGive: 2
   timeToGive: 10
   buildingLevel: 1
-  functionButtonText: Upgrade
+  functionButtonText: 64
   Level1: {fileID: 11400000, guid: d49a2a60db98f3b40bc813fd41d21b0a, type: 2}
   Level2: {fileID: 11400000, guid: 782660e1d84aecc42b0777145ee50fc1, type: 2}
   Level3: {fileID: 11400000, guid: c37435478af4e884aab3becd71eec296, type: 2}

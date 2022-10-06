@@ -499,7 +499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: MainGame
   finalText: {fileID: 1600339885}
-  startingText: Press any key to start
+  translateKey: 8
   loadingBar: {fileID: 36089714}
   curosityText: {fileID: 1570928224}
   curiosityImage: {fileID: 445416587}

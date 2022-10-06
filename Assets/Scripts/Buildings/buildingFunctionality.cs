@@ -76,7 +76,7 @@ public abstract class buildingFunctionality : MonoBehaviour, IPointerClickHandle
     {
         GameObject generatedObject = Instantiate(buildingPanel.gameObject, transform.position + infoOffset, Quaternion.identity);
         currentUI = generatedObject.GetComponent<BuildingUIData>();
-        currentUI.SetDecors(buildingData.BuildingSprite, buildingData.Header, buildingData.Description);
+        currentUI.SetDecors(buildingData.BuildingSprite, Language.Instance.GetTranslation(buildingData.Header), Language.Instance.GetTranslation(buildingData.Description));
         generatedObject.SetActive(true);
         SelectedColor();
     }
@@ -94,7 +94,7 @@ public abstract class buildingFunctionality : MonoBehaviour, IPointerClickHandle
     protected virtual void SetBuildingDecorData()
     {
         BuildingScriptableObject buildingData = BuildingController.Instance.GetBuildingData(buildingType);
-        buildingPanel.SetDecors(buildingData.BuildingSprite, buildingData.Header, buildingData.Description);
+        buildingPanel.SetDecors(buildingData.BuildingSprite, Language.Instance.GetTranslation(buildingData.Header), Language.Instance.GetTranslation(buildingData.Description));
     }
 
     public void OnPointerEnter(PointerEventData eventData)

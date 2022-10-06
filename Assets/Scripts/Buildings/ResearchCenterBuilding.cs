@@ -7,12 +7,12 @@ public class ResearchCenterBuilding : buildingFunctionality
 {
 
     [SerializeField]
-    private string functionButtonText;
+    private TranslateKeys functionButtonText;
 
     public override void DisplayBuilding()
     {
         base.DisplayBuilding();
-        currentUI.FunctionButtonText.text = functionButtonText;
+        currentUI.FunctionButtonText.text = Language.Instance.GetTranslation(functionButtonText);
         currentUI.FunctionButton.interactable = true;
         currentUI.FunctionButton.onClick.RemoveAllListeners();
         currentUI.FunctionButton.onClick.AddListener(() => OpenResources());

@@ -16,7 +16,7 @@ public class SchoolingBuilding : buildingFunctionality
     private int buildingLevel = 1;
 
     [SerializeField]
-    private string functionButtonText;
+    private TranslateKeys functionButtonText;
 
     [SerializeField]
     private ResearchData Level1;
@@ -146,14 +146,13 @@ public class SchoolingBuilding : buildingFunctionality
     public override void DisplayBuilding()
     {
         base.DisplayBuilding();
-        currentUI.FunctionButtonText.text = functionButtonText;
+        currentUI.FunctionButtonText.text = Language.Instance.GetTranslation(functionButtonText);
         currentUI.FunctionButton.onClick.RemoveAllListeners();
         currentUI.FunctionButton.onClick.AddListener(() => UpgradeBuilding());
 
         if (HasUpgrades)
         {
             currentUI.DeactiveButton();
-            Debug.Log("current level: " + currentLevel);
             if (currentLevel == Level1)
             {
 

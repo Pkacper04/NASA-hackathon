@@ -25,12 +25,12 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
     private Vector3 positionOffset;
 
     [SerializeField]
-    private string lockedButtonText;
+    private TranslateKeys lockedButtonText;
 
     [SerializeField]
     private ResearchData firstLevelData;
 
-    public string LockedButtonText { get => lockedButtonText; set => lockedButtonText = value; }
+    public TranslateKeys LockedButtonText { get => lockedButtonText; set => lockedButtonText = value; }
     public ResearchData FirstLevelData { get => firstLevelData; set => firstLevelData = value; }
 
     public buildingFunctionality BuildingOnSocket = null;
@@ -66,7 +66,6 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
         BuildingScriptableObject buildingData = BuildingController.Instance.GetBuildingData(buildingType);
         if(buildingData == null)
         {
-            Debug.LogError("building data is null");
             return;
         }
 

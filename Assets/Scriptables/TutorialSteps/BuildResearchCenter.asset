@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fe39b7fd8a3534bb32f09744b67095, type: 3}
   m_Name: BuildResearchCenter
   m_EditorClassIdentifier: 
-  questName: Build Research Center
-  questDescription: Click on free space and build Research Center.
+  questName: 118
+  questDescription: 119
   questIndicatorPosition: {x: 600, y: 50, z: 0}
   questIndicatorScale: {x: 2, y: 2, z: 1}
   hiddenIndicator: 0

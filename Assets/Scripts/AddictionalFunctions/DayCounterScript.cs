@@ -10,6 +10,9 @@ public class DayCounterScript : MonoBehaviour
     [SerializeField]
     private float DayLength = 10f;
 
+    [SerializeField]
+    private TranslateKeys daysKeys;
+
     private float timer;
     public TMP_Text DayCounterText;
     public int DayCounter;
@@ -31,13 +34,11 @@ public class DayCounterScript : MonoBehaviour
 
     private void SaveData()
     {
-        Debug.Log("saveDay");
         SaveSystem.SaveInt(DayCounter, "CurrentDay");
     }
 
     private void LoadData()
     {
-        Debug.Log("loadDay");
         if (SaveSystem.CheckIfFileExists("CurrentDay"))
         {
             DayCounter = SaveSystem.LoadInt("CurrentDay");
@@ -47,7 +48,7 @@ public class DayCounterScript : MonoBehaviour
     void Start()
     {
         timer = DayLength;
-        DayCounterText.text = "Day: " + DayCounter.ToString();
+        DayCounterText.text = Language.Instance.GetTranslation(daysKeys) + DayCounter.ToString();
     }
     void Update()
     {
@@ -57,7 +58,7 @@ public class DayCounterScript : MonoBehaviour
         {
             DayCounter++;
             timer = DayLength;
-            DayCounterText.text = "Day: " + DayCounter.ToString();
+            DayCounterText.text = Language.Instance.GetTranslation(daysKeys) + DayCounter.ToString();
         }
     }
 }

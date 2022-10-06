@@ -6,10 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TutorialSteps")]
 public class TutorialStepsData : ScriptableObject
 {
-    public string questName;
+    public TranslateKeys questName;
 
-    [Multiline]
-    public string questDescription;
+    public TranslateKeys questDescription;
     public Vector3 questIndicatorPosition;
     public Vector3 questIndicatorScale = Vector3.one;
     public bool hiddenIndicator = false;

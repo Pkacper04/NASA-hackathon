@@ -13,11 +13,8 @@ MonoBehaviour:
   m_Name: Antares
   m_EditorClassIdentifier: 
   planetSprite: {fileID: 21300000, guid: 1cdfc7660e792334c8381741f08b4ccd, type: 3}
-  PlanetName: Antares
-  PlanetDescription: is a red supergiant, a large evolved massive star and one of
-    the largest stars visible to the naked eye. Its exact size remains uncertain,
-    but if placed at the center of the Solar System, it would reach to somewhere
-    between the orbits of Mars and Jupiter.
+  PlanetName: 85
+  PlanetDescription: 86
   PlanetCashValue: 2
   PlanetResearchPointValue: 2
   rarity: 1

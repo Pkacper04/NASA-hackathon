@@ -202,6 +202,7 @@ GameObject:
   - component: {fileID: 99798299}
   - component: {fileID: 99798301}
   - component: {fileID: 99798300}
+  - component: {fileID: 99798302}
   m_Layer: 5
   m_Name: SkipButtonText
   m_TagString: Untagged
@@ -326,6 +327,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99798298}
   m_CullTransparentMesh: 1
+--- !u!114 &99798302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99798298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9466cf02b039f40a4e96af97debbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropdown: 0
+  translationKey: 135
+  translateKeys: 
 --- !u!1 &104886117
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,22 +562,23 @@ MonoBehaviour:
   musicAudio: {fileID: 0}
   soundFadeDuration: 0
   endButtonText: {fileID: 99798300}
+  endButtonTranslation: 136
   afterCutsceneScene: LoadingScreenScene
   listOfCutscenes:
     numberOfCutscenes:
     - cutsceneImages:
       - {fileID: 21300000, guid: c951c80c451cd3448a6a5536b7342bc3, type: 3}
-      TranslateKeys: 0
+      TranslateKeys: 105
       cutsceneDialogue: After years of hard work, humans finally managed to send
         Hubble Space Telescope into space. It was a giant breakthrough in human history.
     - cutsceneImages:
       - {fileID: 21300000, guid: af8bb9bff6f0cab46a3e5138f54fac83, type: 3}
-      TranslateKeys: 1
+      TranslateKeys: 106
       cutsceneDialogue: 'However, human desire for knowledge is incomprehensible.
         Humans want to know more and more about space. '
     - cutsceneImages:
       - {fileID: 21300000, guid: bd70cab78fc781a488334273771466bb, type: 3}
-      TranslateKeys: 2
+      TranslateKeys: 107
       cutsceneDialogue: "It didn\u2019t take them long to start building new telescope.
         With it, they can expand known universe to the brim."
 --- !u!4 &813430183

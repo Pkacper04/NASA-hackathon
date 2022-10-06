@@ -8,10 +8,10 @@ using UnityEngine;
 public class BuildingScriptableObject : ScriptableObject
 {
     public Sprite BuildingSprite;
-    public string Header;
 
-    [Multiline]
-    public string Description;
+    public TranslateKeys Header;
+
+    public TranslateKeys Description;
 
     public int Price;
 
