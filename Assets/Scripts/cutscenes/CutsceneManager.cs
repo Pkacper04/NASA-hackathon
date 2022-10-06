@@ -4,6 +4,8 @@ using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 public class CutsceneManager : MonoBehaviour
 {
     [SerializeField]
@@ -39,6 +41,10 @@ public class CutsceneManager : MonoBehaviour
     [SerializeField]
     private float soundFadeDuration;
 
+    [SerializeField]
+    private TMP_Text endButtonText;
+
+
     [Scene]
     public string afterCutsceneScene;
 
@@ -51,8 +57,10 @@ public class CutsceneManager : MonoBehaviour
 
     private void Start()
     {
+        buttonCanvas.alpha = 0;
+        buttonCanvas.interactable = false;
         dialoguePlace.color = new Color(1, 1, 1, 0);
-        StartCoroutine(BlackScreen(2));
+        StartCoroutine(BlackScreen(cutsceneBlackScreenDuration));
 
     }
 
@@ -100,6 +108,7 @@ public class CutsceneManager : MonoBehaviour
     public IEnumerator waitForCutsceneChange()
     {
         canSkip = false;
+
         while (cutscenePlace.color != new Color(0, 0, 0))
         {
             cutscenePlace.color -= new Color(cutsceneChangeSpeed, cutsceneChangeSpeed, cutsceneChangeSpeed, 0);
@@ -112,12 +121,18 @@ public class CutsceneManager : MonoBehaviour
             yield return null;
         }
         buttonCanvas.alpha = 0;
+        buttonCanvas.interactable = false;
         currentImage = 0;
         canChange = true;
         if (writer.TextIsBuilding)
             writer.StopBuildingText();
         writer.ClearDialogue();
         ChangeImage();
+
+        if (currentCutscene == listOfCutscenes.numberOfCutscenes.Count - 1 && endButtonText != null)
+        {
+            endButtonText.text = "Skip";
+        }
 
         yield return new WaitForSeconds(cutsceneBlackScreenDuration);
 
@@ -147,12 +162,15 @@ public class CutsceneManager : MonoBehaviour
         }
 
         buttonCanvas.alpha = 1;
+        buttonCanvas.interactable = true;
         writer.BuildText(listOfCutscenes.numberOfCutscenes[currentCutscene].cutsceneDialogue, dialogSpeed);
 
     }
 
     public IEnumerator BlackScreen(float time)
     {
+        cutscenePlace.sprite = listOfCutscenes.numberOfCutscenes[0].cutsceneImages[0];
+        cutscenePlace.color = new Color(0, 0, 0);
         yield return new WaitForSeconds(time);
         startCutscene = true;
         ChangeCutscene();
@@ -172,16 +190,20 @@ public class CutsceneManager : MonoBehaviour
             yield return null;
         }
         buttonCanvas.alpha = 0;
+        buttonCanvas.interactable = false;
         if (writer.TextIsBuilding)
             writer.StopBuildingText();
         writer.ClearDialogue();
 
-        yield return new WaitForSeconds(4.5f);
-        SceneManager.LoadScene(afterCutsceneScene);
+        yield return new WaitForSeconds(cutsceneBlackScreenDuration);
+        SceneManager.LoadScene(afterCutsceneScene, LoadSceneMode.Single);
     }
 
     private void ChangeImage()
     {
+        if (cutscenePlace.sprite == listOfCutscenes.numberOfCutscenes[currentCutscene].cutsceneImages[currentImage])
+            return;
+
         cutscenePlace.sprite = listOfCutscenes.numberOfCutscenes[currentCutscene].cutsceneImages[currentImage];
     }
 

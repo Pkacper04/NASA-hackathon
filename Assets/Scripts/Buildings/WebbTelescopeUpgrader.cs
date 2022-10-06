@@ -104,7 +104,6 @@ public class WebbTelescopeUpgrader : MonoBehaviour
 
     public void EndGame()
     {
-        Debug.Log("game is ending");
         ScreenTransition.Instance.startFadingIn();
         StartCoroutine(WaitForFade());
     }

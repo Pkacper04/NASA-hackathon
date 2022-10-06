@@ -520,6 +520,7 @@ public class MinigameController : Singleton<MinigameController>
         if(TutorialController.Instance.TutorialGoing)
         {
             TutorialController.Instance.FinishQuest(finishMinigameQuest);
+            TechTreeController.Instance.BlockTechTree = false;
         }
         hasCooldown = true;
     }

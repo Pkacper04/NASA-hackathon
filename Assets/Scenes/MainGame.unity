@@ -8284,7 +8284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3a37146f299d34d85eb321071e20a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DayLength: 10
+  DayLength: 90
   DayCounterText: {fileID: 610562549}
   DayCounter: 0
 --- !u!222 &610562551
@@ -14458,6 +14458,7 @@ MonoBehaviour:
   model1: {fileID: 21300000, guid: a752472793a2a144393de5e04a2e66dc, type: 3}
   model2: {fileID: 21300000, guid: f2408215f69e4fe4ca5b3cc91c41aa94, type: 3}
   model3: {fileID: 21300000, guid: 67de1dfe8e34d5943921963f6f7d64a7, type: 3}
+  LoadingText: {fileID: 2040293755}
   necessaryResearch:
   - {fileID: 11400000, guid: 3f9fc470939c9514aa655c5b5a08fda2, type: 2}
   - {fileID: 11400000, guid: d8a3779663f012f4ba809ba81999a7d9, type: 2}
@@ -25906,7 +25907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65455c6ae30759a4287a2412b9492cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeTime: 3
+  FadeTime: 2
   imageToFade: {fileID: 1778009562}
   canvas: {fileID: 1298137126}
   canvasRaycaster: {fileID: 1298137124}
@@ -29405,6 +29406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2055479496}
   - component: {fileID: 2055479495}
+  - component: {fileID: 2055479497}
   m_Layer: 0
   m_Name: Connections
   m_TagString: Untagged
@@ -29479,6 +29481,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2055479497
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055479494}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9f33a5c6d5575847b171635cc2489a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2070902043
 GameObject:
   m_ObjectHideFlags: 0
@@ -31979,7 +32001,7 @@ MonoBehaviour:
   detectingTime: 10
   timerText: {fileID: 7853449639560588179}
   LookingArea: {fileID: 7853449639542198366}
-  lookingOffset: 50
+  lookingOffset: 200
   cooldownTime: 60
   globalLight: {fileID: 1595238579}
   backgroundCanvas: {fileID: 7853449639588543358}

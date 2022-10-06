@@ -31,6 +31,7 @@ public class TutorialController : Singleton<TutorialController>
     // Start is called before the first frame update
     void Start()
     {
+        ScreenTransition.Instance.startFadingOut();
         hideFinalTutorialPanel();
         startTutorial();
     }
