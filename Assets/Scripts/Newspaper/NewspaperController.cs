@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class NewspaperController : Singleton<NewspaperController>
 {
@@ -23,6 +24,15 @@ public class NewspaperController : Singleton<NewspaperController>
 
     [SerializeField, Multiline]
     private string EarningsMessage;
+
+    [SerializeField]
+    private Image starImage;
+
+    [SerializeField]
+    private TMP_Text starName;
+
+    [SerializeField]
+    private TMP_Text starDescription;
 
     [SerializeField]
     private float animationSpeed;
@@ -72,7 +82,13 @@ public class NewspaperController : Singleton<NewspaperController>
         MoneyController.Instance.AddCash(calculatedCash);
         MoneyController.Instance.AddRP(calculatedRP);
         newspaperMessage.text.Remove(newspaperMessage.text.Length - 2, 2);
-        newspaperEarnings.text = EarningsMessage + "Cash: " + calculatedCash + " Resource Points: " + calculatedRP;
+        newspaperEarnings.text = EarningsMessage + "\nCash: " + calculatedCash + "\nResource Points: " + calculatedRP;
+
+        PlanetsScriptableData randomStar = starsFound[UnityEngine.Random.Range(0, starsFound.Count)];
+
+        starImage.sprite = randomStar.planetSprite;
+        starName.text = randomStar.PlanetName;
+        starDescription.text = randomStar.PlanetDescription;
 
 
         timeElapsed = 0;

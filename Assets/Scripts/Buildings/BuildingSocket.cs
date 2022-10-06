@@ -52,16 +52,6 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
                 PlayerEvents.Instance.OnPlayerMouseDown -= Pointer;
         }*/
 
-    private void Start()
-    {
-        switch(buildingType)
-        {
-            case BuildingTypes.Observatory:
-                positionOffset = new Vector3(0, 25, 0);
-                break;
-        }
-    }
-
     public void Pointer()
     {
         if (!selected)
