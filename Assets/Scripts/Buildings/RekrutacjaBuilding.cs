@@ -64,13 +64,13 @@ public class RekrutacjaBuilding : buildingFunctionality
         else if (level == 2)
         {
             currentLevel = Level2;
-            amountToGive += 10;
+            amountToGive += 5;
             SpriteRendererO.sprite = Level2Sprite;
         }
         else
         {
             currentLevel = Level3;
-            amountToGive += 10;
+            amountToGive += 5;
             SpriteRendererO.sprite = Level3Sprite;
         }
     }
@@ -118,7 +118,7 @@ public class RekrutacjaBuilding : buildingFunctionality
 
             SpriteRendererO.sprite = Level2Sprite;
             currentLevel = Level2;
-            amountToGive += 10;
+            amountToGive += 5;
             base.HideBuilding();
         }
         else if (currentLevel == Level2)
@@ -131,7 +131,7 @@ public class RekrutacjaBuilding : buildingFunctionality
             SpriteRendererO.sprite = Level3Sprite;
 
             currentLevel = Level3;
-            amountToGive += 10;
+            amountToGive += 5;
             base.HideBuilding();
         }
     }
@@ -153,13 +153,13 @@ public class RekrutacjaBuilding : buildingFunctionality
     {
         if (currentLevel == Level1)
         {
-            amountToGive = 10;
+            amountToGive = 5;
         }
         else if (currentLevel == Level2)
         {
-            amountToGive = 20;
+            amountToGive = 10;
         }
         else
-            amountToGive = 30;
+            amountToGive = 15;
     }
 }

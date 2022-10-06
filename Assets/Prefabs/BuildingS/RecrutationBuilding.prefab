@@ -75,12 +75,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 8
-  m_Sprite: {fileID: 21300000, guid: a642e583550bd0541948f559e02639b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 581703664f073b74680bfedc9e1c87b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.42, y: 3.86}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -118,10 +118,10 @@ MonoBehaviour:
   buildingType: 3
   infoOffset: {x: 0, y: 25, z: 0}
   spriteRenderer: {fileID: 2863736107341876120}
-  activeColor: {r: 0.0627451, g: 1, b: 0, a: 1}
+  activeColor: {r: 0.6392157, g: 1, b: 0.61960787, a: 1}
   inActiveColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0, g: 1, b: 0.9725491, a: 1}
-  amountToGive: 10
+  selectedColor: {r: 0.64705884, g: 1, b: 0.99215686, a: 1}
+  amountToGive: 5
   timeToGive: 10
   buildingLevel: 1
   functionButtonText: Upgrade
@@ -129,5 +129,5 @@ MonoBehaviour:
   Level2: {fileID: 11400000, guid: 06e0ea5e52da39e4cacf7b64ffc3db77, type: 2}
   Level3: {fileID: 11400000, guid: a3c8ea75ef894ff488ddd0d95161797d, type: 2}
   HasUpgrades: 1
-  Level2Sprite: {fileID: 21300000, guid: 3a55569d37d91bd48a0e0f49b2ba6fe3, type: 3}
-  Level3Sprite: {fileID: 21300000, guid: 464cb4594a913f546881b1ff799f03e0, type: 3}
+  Level2Sprite: {fileID: 21300000, guid: 5c99a332809e94d4a9cf299f52cfa9e9, type: 3}
+  Level3Sprite: {fileID: 21300000, guid: 41e0449e768f7d041a644621cd9008a9, type: 3}

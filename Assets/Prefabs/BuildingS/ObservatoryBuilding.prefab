@@ -80,7 +80,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8, y: 8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -102,9 +102,9 @@ MonoBehaviour:
   buildingType: 2
   infoOffset: {x: 0, y: 40, z: 0}
   spriteRenderer: {fileID: 7644728174993500957}
-  activeColor: {r: 0.064584255, g: 1, b: 0, a: 1}
+  activeColor: {r: 0.6392157, g: 1, b: 0.61960787, a: 1}
   inActiveColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0, g: 1, b: 0.97175574, a: 1}
+  selectedColor: {r: 0.64705884, g: 1, b: 0.99215686, a: 1}
   amountToGive: 1
   timeToGive: 10
   buildingLevel: 1
@@ -112,8 +112,8 @@ MonoBehaviour:
   Level1: {fileID: 11400000, guid: d49a2a60db98f3b40bc813fd41d21b0a, type: 2}
   Level2: {fileID: 11400000, guid: 782660e1d84aecc42b0777145ee50fc1, type: 2}
   Level3: {fileID: 11400000, guid: c37435478af4e884aab3becd71eec296, type: 2}
-  Level2Sprite: {fileID: 21300000, guid: 890059b5ba6cdb54d97a61dfe5f6d383, type: 3}
-  Level3Sprite: {fileID: 21300000, guid: 469dd4a5705957e499a65cc12a220dd8, type: 3}
+  Level2Sprite: {fileID: 21300000, guid: 5b59f7275f7546e4da5b2b60d051087a, type: 3}
+  Level3Sprite: {fileID: 21300000, guid: b6de2a44010c7e040af7c47aa23d033d, type: 3}
   HasUpgrades: 1
 --- !u!70 &7644728174993500934
 CapsuleCollider2D:

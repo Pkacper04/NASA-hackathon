@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676dd59e85273644d92f0fb7c299a93f, type: 3}
   m_Name: RecrutationCenter
   m_EditorClassIdentifier: 
-  BuildingSprite: {fileID: 21300000, guid: a642e583550bd0541948f559e02639b3, type: 3}
+  BuildingSprite: {fileID: 21300000, guid: 581703664f073b74680bfedc9e1c87b7, type: 3}
   Header: Recruitment Center
   Description: By hiring more people inside the recruitment center, you can increase
     your earnings.
