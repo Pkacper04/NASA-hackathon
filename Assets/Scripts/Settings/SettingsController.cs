@@ -9,6 +9,8 @@ public class SettingsController : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDropdown;
+    [SerializeField]
+    private TMP_Dropdown languageDropdown;
     Resolution[] resolutions;
     private void Start()
     {
@@ -44,5 +46,10 @@ public class SettingsController : MonoBehaviour
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
 
+    }
+
+    public void OnLanguageChange()
+    {
+        Debug.Log("languageChanged: " + languageDropdown.options[languageDropdown.value].text);
     }
 }

@@ -26,6 +26,11 @@ public class TextWriter : MonoBehaviour
         return dialogue.text + text;
     }
 
+    public void ReplaceText(string text)
+    {
+        dialogue.text = text;   
+    }
+
     public void ClearDialogue()
     {
         dialogue.text = "";

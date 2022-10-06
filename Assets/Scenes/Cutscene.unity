@@ -551,14 +551,17 @@ MonoBehaviour:
     numberOfCutscenes:
     - cutsceneImages:
       - {fileID: 21300000, guid: c951c80c451cd3448a6a5536b7342bc3, type: 3}
+      TranslateKeys: 0
       cutsceneDialogue: After years of hard work, humans finally managed to send
         Hubble Space Telescope into space. It was a giant breakthrough in human history.
     - cutsceneImages:
       - {fileID: 21300000, guid: af8bb9bff6f0cab46a3e5138f54fac83, type: 3}
+      TranslateKeys: 1
       cutsceneDialogue: 'However, human desire for knowledge is incomprehensible.
         Humans want to know more and more about space. '
     - cutsceneImages:
       - {fileID: 21300000, guid: bd70cab78fc781a488334273771466bb, type: 3}
+      TranslateKeys: 2
       cutsceneDialogue: "It didn\u2019t take them long to start building new telescope.
         With it, they can expand known universe to the brim."
 --- !u!4 &813430183

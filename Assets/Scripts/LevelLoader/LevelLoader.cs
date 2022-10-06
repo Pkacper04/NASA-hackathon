@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class LevelLoader : MonoBehaviour
+public class LevelLoader : MonoBehaviour, ITranslation
 {
 
     [SerializeField, Scene]
@@ -15,7 +15,7 @@ public class LevelLoader : MonoBehaviour
     private TextWriter finalText;
 
     [SerializeField]
-    private string startingText;
+    private TranslateKeys translateKey;
 
     [SerializeField]
     private Image loadingBar;
@@ -26,13 +26,14 @@ public class LevelLoader : MonoBehaviour
     [SerializeField]
     private Image curiosityImage;
 
+    private CuriositiesScriptableObject curiosity;
 
     private void Awake()
     {
         ScreenTransition.Instance.startFadingOut();
-        CuriositiesScriptableObject curiosity = CuriositiesController.Instance.GetCuriosities();
+        curiosity = CuriositiesController.Instance.GetCuriosities();
         curiosityImage.sprite = curiosity.CuriosityImage;
-        curosityText.text = curiosity.CuriosityDescription;
+        curosityText.text = Language.GetTranslation(curiosity.CuriosityDescription);
     }
 
     private void Start()
@@ -58,7 +59,7 @@ public class LevelLoader : MonoBehaviour
             yield return null;
         }
         loadingBar.fillAmount = 1;
-        finalText.BuildText(startingText, .05f);
+        finalText.BuildText(Language.GetTranslation(translateKey), .05f);
 
         yield return new WaitUntil(() => Input.anyKeyDown);
 
@@ -66,5 +67,21 @@ public class LevelLoader : MonoBehaviour
 
         yield return new WaitUntil(() => !ScreenTransition.Instance.InTransition);
         operation.allowSceneActivation = true;
+    }
+
+    public void RefreshTranslation()
+    {
+        finalText.ReplaceText(Language.GetTranslation(translateKey));
+        curosityText.text = Language.GetTranslation(curiosity.CuriosityDescription);
+    }
+
+    public void OnEnable()
+    {
+        Language.translationChanged += RefreshTranslation;
+    }
+
+    public void OnDisable()
+    {
+        Language.translationChanged -= RefreshTranslation;
     }
 }

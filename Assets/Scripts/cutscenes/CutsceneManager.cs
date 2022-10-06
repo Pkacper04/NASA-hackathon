@@ -55,6 +55,31 @@ public class CutsceneManager : MonoBehaviour
     private bool startCutscene = false;
     private bool canSkip = false;
 
+
+    public void OnDisable()
+    {
+        Language.translationChanged -= RefreshTranslation;
+    }
+
+    public void OnEnable()
+    {
+        foreach(cutscenes cutscene in listOfCutscenes.numberOfCutscenes)
+        {
+            cutscene.cutsceneDialogue = Language.GetTranslation(cutscene.TranslateKeys);
+        }
+        Language.translationChanged += RefreshTranslation;
+    }
+
+    public void RefreshTranslation()
+    {
+        foreach (cutscenes cutscene in listOfCutscenes.numberOfCutscenes)
+        {
+            cutscene.cutsceneDialogue = Language.GetTranslation(cutscene.TranslateKeys);
+        }
+    }
+
+
+
     private void Start()
     {
         buttonCanvas.alpha = 0;

@@ -6,8 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CuriositiesData")]
 public class CuriositiesScriptableObject : ScriptableObject
 {
-    public string CuriosityName;
-    [Multiline]
-    public string CuriosityDescription;
+    public TranslateKeys CuriosityName;
+    public TranslateKeys CuriosityDescription;
+
     public Sprite CuriosityImage;
 }
