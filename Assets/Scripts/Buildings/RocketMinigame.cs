@@ -39,8 +39,9 @@ public class RocketMinigame : buildingFunctionality
     {
         base.DisplayBuilding();
         currentUI.FunctionButtonText.text = Language.Instance.GetTranslation(functionButtonText);
+        currentUI.SellButton.gameObject.SetActive(false);
 
-        if(MinigameController.Instance.HasCooldown)
+        if (MinigameController.Instance.HasCooldown)
         {
             currentUI.FunctionButton.interactable = false;
             return;
@@ -49,7 +50,7 @@ public class RocketMinigame : buildingFunctionality
         currentUI.FunctionButton.interactable = true;
         currentUI.FunctionButton.onClick.RemoveAllListeners();
         currentUI.FunctionButton.onClick.AddListener(() => StartMinigame());
-        currentUI.SellButton.gameObject.SetActive(false);
+
 
     }
 

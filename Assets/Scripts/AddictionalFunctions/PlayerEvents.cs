@@ -1,4 +1,3 @@
-using Game.SaveLoadSystem;
 using System;
 using System.Reflection;
 using UnityEngine;
@@ -42,15 +41,18 @@ namespace Events
                 OnLoadGame.Invoke();
         }
 
-
-        public void SaveGame()
+        public Action<TutorialStepsData> OnTutorialStepFinish;
+        public void CallOnTutorialStepFinish(TutorialStepsData tutorialStep)
         {
-            CallOnSaveGame();
+            if (OnTutorialStepFinish != null)
+                OnTutorialStepFinish.Invoke(tutorialStep);
         }
 
-        public void LoadGame()
+        public Action<TutorialStepsData> OnTutorialStepStarted;
+        public void CallOnTutorialStepStarted(TutorialStepsData tutorialStep)
         {
-            CallOnLoadGame();
+            if (OnTutorialStepStarted != null)
+                OnTutorialStepStarted.Invoke(tutorialStep);
         }
 
     }

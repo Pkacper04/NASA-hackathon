@@ -1,5 +1,5 @@
 using Events;
-using Game.SaveLoadSystem;
+using Histhack.Core.SaveLoadSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ public class TechTreeController : Singleton<TechTreeController>
     private ResearchData rocketBuilding;
 
     [SerializeField]
-    private TechTreeUI TechTreeUI;
+    private TechTreeUI techTreeUI;
 
     [SerializeField]
     private TranslateKeys boughtText;
@@ -33,6 +33,7 @@ public class TechTreeController : Singleton<TechTreeController>
 
     public bool BlockTechTree { get => blockTechTree; set => blockTechTree = value; }
 
+    public TechTreeUI TechTreeUI { get => techTreeUI; set => techTreeUI = value; }
 
     private bool canFinishQuestRocket = false;
 
@@ -74,14 +75,14 @@ public class TechTreeController : Singleton<TechTreeController>
         {
             upgradesList.Add(data.isPurchased);
         }
-        SaveSystem.SaveBoolList(upgradesList, "UpgradeLists");
+        SaveSystem.Save<List<bool>>(upgradesList, "UpgradeLists",SaveDirectories.Player);
     }
 
     private void LoadData()
     {
-        if(SaveSystem.CheckIfFileExists("UpgradeLists"))
+        if(SaveSystem.CheckIfFileExists("UpgradeLists",SaveDirectories.Player))
         {
-            List<bool> upgradesList = new List<bool>(SaveSystem.LoadBoolList("UpgradeLists"));
+            List<bool> upgradesList = SaveSystem.Load<List<bool>>("UpgradeLists",null,SaveDirectories.Player);
             List<UpgradeData> upgradeData = new List<UpgradeData>(FindObjectsOfType<UpgradeData>());
 
 
@@ -97,6 +98,7 @@ public class TechTreeController : Singleton<TechTreeController>
                     if (upgradeData[j].CurrentResearchData == UpgradesList[i] && UpgradesList[i].isPurchased)
                     {
                         CallOnSpecificReasearchBuy(upgradeData[j]);
+                        CallOnResearchBuy();
                         upgradeData[j].ButtonText.text = Language.Instance.GetTranslation(boughtText);
                         upgradeData[j].ObjectButton.interactable = false;
                         break;
@@ -136,14 +138,9 @@ public class TechTreeController : Singleton<TechTreeController>
 
     public void DisavleTechTreeUI()
     {
-        if(TutorialController.Instance.TutorialGoing)
-        {
-            if (canFinishQuestRocket)
-            {
-                TutorialController.Instance.FinishQuest(rocketBuyQuest);
-                blockTechTree = true;
-            }
-        }
+        if (blockTechTree)
+            return;
+
         TechTreeUI.DisableTechTree();
     }
 
@@ -203,6 +200,27 @@ public class TechTreeController : Singleton<TechTreeController>
             if (Upgrade.previousUpgrade.isPurchased)
                 return true;
             return false;
+        }
+    }
+
+    public void BlockTechTreeMethod()
+    {
+        blockTechTree = true;
+    }
+
+    public void UnBlockTechTreeMethod()
+    {
+        blockTechTree = false;
+    }
+
+    public void finishQuest()
+    {
+        if (TutorialController.Instance.TutorialGoing)
+        {
+            if (canFinishQuestRocket)
+            {
+                TutorialController.Instance.FinishQuest(rocketBuyQuest);
+            }
         }
     }
 }

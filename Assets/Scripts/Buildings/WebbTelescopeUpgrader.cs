@@ -45,8 +45,10 @@ public class WebbTelescopeUpgrader : MonoBehaviour
     [SerializeField]
     private TMP_Text endGameText;
 
-    private void OnEnable()
+    private void Awake()
     {
+        endGameButton.interactable = false;
+        endGameText.text = "0%";
         TechTreeController.Instance.OnResearchBuy += OnReasearchPurchase;
     }
 
@@ -54,12 +56,6 @@ public class WebbTelescopeUpgrader : MonoBehaviour
     {
         if(TechTreeController.Instance != null)
             TechTreeController.Instance.OnResearchBuy -= OnReasearchPurchase;
-    }
-
-    private void Start()
-    {
-        endGameButton.interactable = false;
-        endGameText.text = "0%";
     }
 
     private void OnReasearchPurchase()

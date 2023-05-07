@@ -1,5 +1,5 @@
 using Events;
-using Game.SaveLoadSystem;
+using Histhack.Core.SaveLoadSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -105,8 +105,8 @@ public class BuildingController : Singleton<BuildingController>
             }
         }
 
-        SaveSystem.SaveBoolList(hasBuildings, "SavedBuildingsInfo");
-        SaveSystem.SaveIntList(whatLevel, "SavedBuildingsLevel");
+        SaveSystem.Save<List<bool>>(hasBuildings, "SavedBuildingsInfo",SaveDirectories.Level);
+        SaveSystem.Save<List<int>>(whatLevel, "SavedBuildingsLevel", SaveDirectories.Level);
     }
 
     private void LoadData()
@@ -114,14 +114,14 @@ public class BuildingController : Singleton<BuildingController>
         List<int> whatLevel = new List<int>();
         List<bool> hasBuildings = new List<bool>();
 
-        if (SaveSystem.CheckIfFileExists("SavedBuildingsInfo"))
+        if (SaveSystem.CheckIfFileExists("SavedBuildingsInfo",SaveDirectories.Level))
         {
-            hasBuildings = new List<bool>(SaveSystem.LoadBoolList("SavedBuildingsInfo"));
+            hasBuildings = SaveSystem.Load<List<bool>>("SavedBuildingsInfo",null,SaveDirectories.Level);
         }
 
-        if(SaveSystem.CheckIfFileExists("SavedBuildingsLevel"))
+        if(SaveSystem.CheckIfFileExists("SavedBuildingsLevel", SaveDirectories.Level))
         {
-            whatLevel = new List<int>(SaveSystem.LoadIntList("SavedBuildingsLevel"));
+            whatLevel = SaveSystem.Load<List<int>>("SavedBuildingsLevel",null, SaveDirectories.Level);
         }
 
         for(int i=0; i< hasBuildings.Count; i++)

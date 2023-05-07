@@ -36,6 +36,9 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
     [SerializeField]
     private Button purchaseButton;
 
+    [SerializeField]
+    private Button cancelButton;
+
     private Sprite buildingSprite;
     private string buildingName;
     private string buildingDescription;
@@ -51,6 +54,8 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
     private Coroutine showingCoroutine = null;
 
     private BuildingSocket lastSocket = null;
+
+    private bool blockHiding = false;
 
     public bool Init(BuildingScriptableObject buildingData, BuildingSocket currentSocket)
     {
@@ -103,6 +108,11 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
     {
         if (lastSocket == null)
             return;
+
+        if (blockHiding)
+            return;
+
+
         lastSocket.UnSelect();
         lastBuildingData = null;
         lastSocket = null;
@@ -119,6 +129,7 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
 
         MoneyController.Instance.RemoveCash(lastBuildingData.Price);
         lastSocket.BuildBuilding();
+        blockHiding = false;
         DeInit();
     }
 
@@ -175,5 +186,35 @@ public class BuildingPanelController : Singleton<BuildingPanelController>
 
 
         showingCoroutine = null;
+    }
+
+    public void BlockBuildButton()
+    {
+        purchaseButton.interactable = false;
+    }
+
+    public void UnBlockBuildButton()
+    {
+        purchaseButton.interactable = true;
+    }
+
+    public void BlockCancelButton()
+    {
+        cancelButton.interactable = false;
+    }
+
+    public void UnBlockCancelButton()
+    {
+        cancelButton.interactable = true;
+    }
+
+    public void BlockHidingPanel()
+    {
+        blockHiding = true;
+    }
+
+    public void UnBlockHidingPanel()
+    {
+        blockHiding = false;
     }
 }

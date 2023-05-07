@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 using Events;
-using Game.SaveLoadSystem;
+using Histhack.Core.SaveLoadSystem;
 
 public class MoneyController : Singleton<MoneyController>
 {
@@ -34,20 +34,20 @@ public class MoneyController : Singleton<MoneyController>
 
     private void SaveStats()
     {
-        SaveSystem.SaveInt(totalCash, "CashStorage");
-        SaveSystem.SaveInt(totalResearchPoints, "RPStorage");
+        SaveSystem.Save<int>(totalCash, "CashStorage", SaveDirectories.Player);
+        SaveSystem.Save<int>(totalResearchPoints, "RPStorage", SaveDirectories.Player);
     }
 
     private void LoadGame()
     {
-        if(SaveSystem.CheckIfFileExists("CashStorage"))
+        if(SaveSystem.CheckIfFileExists("CashStorage",SaveDirectories.Player))
         {
-            totalCash = SaveSystem.LoadInt("CashStorage");
+            totalCash = SaveSystem.Load<int>("CashStorage",0,SaveDirectories.Player);
         }
 
-        if(SaveSystem.CheckIfFileExists("RPStorage"))
+        if(SaveSystem.CheckIfFileExists("RPStorage",SaveDirectories.Player))
         {
-            totalResearchPoints = SaveSystem.LoadInt("RPStorage");
+            totalResearchPoints = SaveSystem.Load<int>("RPStorage",0,SaveDirectories.Player);
         }
     }
 

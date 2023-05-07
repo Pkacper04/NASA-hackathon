@@ -1,3 +1,5 @@
+using Events;
+using Histhack.Core.SaveLoadSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,6 +28,9 @@ public class TutorialController : Singleton<TutorialController>
     [SerializeField]
     private RectTransform indicatorParent;
 
+    [SerializeField]
+    SettingsController settingController;
+
     private bool tutorialGoing = true;
 
     public bool TutorialGoing { get => tutorialGoing; set => tutorialGoing = value; }
@@ -43,11 +48,39 @@ public class TutorialController : Singleton<TutorialController>
     // Start is called before the first frame update
     void Start()
     {
-        BuildingPanelController.Instance.BlockBuilding = true;
         ScreenTransition.Instance.startFadingOut();
-        hideFinalTutorialPanel();
-        startTutorial();
         HideMinigameTutorialPanel();
+        hideFinalTutorialPanel();
+        if (tutorialGoing)
+        {
+            BuildingPanelController.Instance.BlockBuilding = true;
+            SocketsController.Instance.BlockSockets();
+            startTutorial();
+        }
+        else
+        {
+            startingTutorial.alpha = 0f;
+            startingTutorial.interactable = false;
+            startingTutorial.blocksRaycasts = false;
+            TechTreeController.Instance.UnBlockTechTreeMethod();
+            TechTreeController.Instance.TechTreeUI.UnBlockChangingPanels();
+            BuildingPanelController.Instance.UnBlockCancelButton();
+            BuildingPanelController.Instance.UnBlockBuildButton();
+            SocketsController.Instance.UnblockSockets();
+        }
+        settingController.LoadLoudness();
+    }
+
+    private void OnEnable()
+    {
+        PlayerEvents.Instance.OnSaveGame += SaveTutorial;
+        PlayerEvents.Instance.OnLoadGame += LoadTutorial;
+    }
+
+    private void OnDisable()
+    {
+        PlayerEvents.Instance.OnSaveGame -= SaveTutorial;
+        PlayerEvents.Instance.OnLoadGame -= LoadTutorial;
     }
 
     private void startTutorial()
@@ -59,7 +92,7 @@ public class TutorialController : Singleton<TutorialController>
 
     public void DisplayFinalTutorialPanel()
     {
-        tutorialGoing = false;
+        Time.timeScale = 0;
         endTutorialPanel.alpha = 1;
         endTutorialPanel.interactable = true;
         endTutorialPanel.blocksRaycasts = true;
@@ -83,6 +116,17 @@ public class TutorialController : Singleton<TutorialController>
 
     public void hideFinalTutorialPanel()
     {
+        if (currentQuest == steps.Count)
+        {
+            TechTreeController.Instance.UnBlockTechTreeMethod();
+            TechTreeController.Instance.TechTreeUI.UnBlockChangingPanels();
+            BuildingPanelController.Instance.UnBlockCancelButton();
+            BuildingPanelController.Instance.UnBlockBuildButton();
+            SocketsController.Instance.UnblockSockets();
+            Time.timeScale = 1;
+            tutorialGoing = false;
+            DataManager.Instance.SaveGame();
+        }
         endTutorialPanel.alpha = 0;
         endTutorialPanel.interactable = false;
         endTutorialPanel.blocksRaycasts = false;
@@ -110,6 +154,7 @@ public class TutorialController : Singleton<TutorialController>
             DisplayFinalTutorialPanel();
             return;
         }
+        PlayerEvents.Instance.CallOnTutorialStepStarted(steps[currentQuest]);
 
         if (!steps[currentQuest].hiddenIndicator && BuildingPanelController.Instance.BlockBuilding)
         {
@@ -161,9 +206,24 @@ public class TutorialController : Singleton<TutorialController>
 
     public void FinishQuest(TutorialStepsData currentQuest)
     {
-        if (currentQuest != steps[this.currentQuest])
+        if (this.currentQuest < 0 || currentQuest != steps[this.currentQuest])
             return;
 
+        PlayerEvents.Instance.CallOnTutorialStepFinish(currentQuest);
         NextQuest();
+    }
+
+
+    private void SaveTutorial()
+    {
+        SaveSystem.Save<bool>(tutorialGoing, "TutorialValues", SaveDirectories.Level);
+    }
+
+    private void LoadTutorial()
+    {
+        if (SaveSystem.CheckIfFileExists("TutorialValues", SaveDirectories.Level))
+        {
+            tutorialGoing = SaveSystem.Load<bool>("TutorialValues", false, SaveDirectories.Level);
+        }
     }
 }

@@ -17,8 +17,16 @@ public class TechTreeUI : MonoBehaviour
     [SerializeField]
     private CanvasGroup MainGroup;
 
+    [SerializeField]
+    private TutorialStepsData tutorialStepToFinish;
+
+    private bool blockChangingPanels = false;
+
     public void DisplaySateliteUpgrades()
     {
+        if (blockChangingPanels)
+            return;
+
         SateliteGroup.alpha = 1;
         SateliteGroup.blocksRaycasts = true;
         SateliteGroup.interactable = true;
@@ -28,6 +36,9 @@ public class TechTreeUI : MonoBehaviour
 
     public void DisplayBuildingsUpgrades()
     {
+        if (blockChangingPanels)
+            return;
+
         BuildingsGroup.alpha = 1;
         BuildingsGroup.blocksRaycasts = true;
         BuildingsGroup.interactable = true;
@@ -37,6 +48,9 @@ public class TechTreeUI : MonoBehaviour
 
     public void DisplayMainUpgrades()
     {
+        if (blockChangingPanels)
+            return;
+
         MainGroup.alpha = 1;
         MainGroup.blocksRaycasts = true;
         MainGroup.interactable = true;
@@ -74,6 +88,11 @@ public class TechTreeUI : MonoBehaviour
 
     public void DisableTechTree()
     {
+        if(TutorialController.Instance.TutorialGoing)
+        {
+            TutorialController.Instance.FinishQuest(tutorialStepToFinish);
+        }
+
         TechtreeGroup.alpha = 0;
         TechtreeGroup.blocksRaycasts = false;
         TechtreeGroup.interactable = false;
@@ -82,5 +101,15 @@ public class TechTreeUI : MonoBehaviour
     public bool TechtreeActive()
     {
         return TechtreeGroup.interactable;
+    }
+
+    public void BlockChangingPanels()
+    {
+        blockChangingPanels = true;
+    }
+
+    public void UnBlockChangingPanels()
+    {
+        blockChangingPanels = false;
     }
 }

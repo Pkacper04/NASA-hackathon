@@ -1238,6 +1238,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 8476053050651969967}
+        m_TargetAssemblyTypeName: SettingsController, Assembly-CSharp
+        m_MethodName: SaveLoudness
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &8476053049561273760
 GameObject:
   m_ObjectHideFlags: 0
@@ -3279,6 +3291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: b0492ddbad8abca44a78b55fcf0a848d, type: 2}
   resolutionDropdown: {fileID: 8476053050267739748}
+  languageDropdown: {fileID: 0}
+  volumeSlider: {fileID: 8476053050689224675}
 --- !u!1 &8476053050689224677
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Events;
-using Game.SaveLoadSystem;
+using Histhack.Core.SaveLoadSystem;
 
 public class DayCounterScript : MonoBehaviour
 {
@@ -34,14 +34,14 @@ public class DayCounterScript : MonoBehaviour
 
     private void SaveData()
     {
-        SaveSystem.SaveInt(DayCounter, "CurrentDay");
+        SaveSystem.Save<int>(DayCounter, "CurrentDay",SaveDirectories.Level);
     }
 
     private void LoadData()
     {
-        if (SaveSystem.CheckIfFileExists("CurrentDay"))
+        if (SaveSystem.CheckIfFileExists("CurrentDay",SaveDirectories.Level))
         {
-            DayCounter = SaveSystem.LoadInt("CurrentDay");
+            DayCounter = SaveSystem.Load<int>("CurrentDay",0, SaveDirectories.Level);
         }
     }
 
@@ -52,6 +52,9 @@ public class DayCounterScript : MonoBehaviour
     }
     void Update()
     {
+        if (TutorialController.Instance.TutorialGoing || MinigameController.Instance.GameStarted)
+            return;
+
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
@@ -59,6 +62,7 @@ public class DayCounterScript : MonoBehaviour
             DayCounter++;
             timer = DayLength;
             DayCounterText.text = Language.Instance.GetTranslation(daysKeys) + DayCounter.ToString();
+            DataManager.Instance.SaveGame();
         }
     }
 }

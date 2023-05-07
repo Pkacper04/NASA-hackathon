@@ -5,6 +5,8 @@ using TMPro;
 using NaughtyAttributes;
 using System;
 using UnityEngine.UI;
+using Histhack.Core.SaveLoadSystem;
+using Events;
 
 public class MinigameController : Singleton<MinigameController>
 {
@@ -25,6 +27,9 @@ public class MinigameController : Singleton<MinigameController>
 
     [SerializeField]
     private float lookingOffset;
+
+    [SerializeField]
+    private float starsOffset;
 
     [SerializeField]
     private float cooldownTime;
@@ -152,6 +157,8 @@ public class MinigameController : Singleton<MinigameController>
     private void OnEnable()
     {
         TechTreeController.Instance.OnSpecificResearchBuy += upgradeSatelite;
+        PlayerEvents.Instance.OnSaveGame += SaveMinigameData;
+        PlayerEvents.Instance.OnLoadGame += LoadMinigameData;
     }
 
     private void OnDisable()
@@ -159,6 +166,12 @@ public class MinigameController : Singleton<MinigameController>
         if (TechTreeController.Instance != null)
         {
             TechTreeController.Instance.OnSpecificResearchBuy -= upgradeSatelite;
+        }
+
+        if(PlayerEvents.Instance != null)
+        {
+            PlayerEvents.Instance.OnSaveGame -= SaveMinigameData;
+            PlayerEvents.Instance.OnLoadGame -= LoadMinigameData;
         }
     }
 
@@ -277,7 +290,6 @@ public class MinigameController : Singleton<MinigameController>
 
         for (int i = 0; i < starsCounter; i++)
         {
-            Debug.Log("start");
             Vector3 starPosition = FindSpot();
             Star starToAdd = null;
 
@@ -290,7 +302,6 @@ public class MinigameController : Singleton<MinigameController>
                 if (CheckIfStarExists(starToAdd.StarData))
                 {
                     i -= 1;
-                    Debug.Log("check");
                     continue;
                 }
             }
@@ -302,7 +313,6 @@ public class MinigameController : Singleton<MinigameController>
                 if (CheckIfStarExists(starToAdd.StarData))
                 {
                     i -= 1;
-                    Debug.Log("check");
                     continue;
                 }
             }
@@ -313,11 +323,9 @@ public class MinigameController : Singleton<MinigameController>
                 if (CheckIfStarExists(starToAdd.StarData))
                 {
                     i -= 1;
-                    Debug.Log("check");
                     continue;
                 }
             }
-            Debug.Log("finish");
             GameObject NewStar = Instantiate(starToAdd.gameObject, starPosition, Quaternion.identity, LookingArea);
             NewStar.GetComponent<RectTransform>().anchoredPosition3D = starPosition;
         }
@@ -365,25 +373,22 @@ public class MinigameController : Singleton<MinigameController>
                 continue;
             positions.Add(newPosition);
 
-            Debug.Log("return new position");
-
             return newPosition;
         }
 
-        Debug.Log("return 0");
         return Vector3.zero;
     }
 
     private bool CheckIfPositionOccupied(Vector3 ourPosition)
     {
-
-        Collider2D hitColliders = Physics2D.OverlapCircle(ourPosition, 20);
-
-        if (hitColliders != null)
+        foreach(Vector3 position in positions)
         {
-            return false;
+            if(Vector3.Distance(position,ourPosition) < starsOffset)
+            {
+                return false;
+            }
         }
-        
+
         return true;
     }
 
@@ -550,8 +555,38 @@ public class MinigameController : Singleton<MinigameController>
         if(TutorialController.Instance.TutorialGoing)
         {
             TutorialController.Instance.FinishQuest(finishMinigameQuest);
-            TechTreeController.Instance.BlockTechTree = false;
         }
         hasCooldown = true;
+    }
+
+    private void SaveMinigameData()
+    {
+        MinigameData data = new MinigameData(hasCooldown, timeToLeft);
+        SaveSystem.SaveClass<MinigameData>(data, "MinigameData", SaveDirectories.Level);
+    }
+
+    private void LoadMinigameData()
+    {
+        if(SaveSystem.CheckIfFileExists("MinigameData",SaveDirectories.Level))
+        {
+            MinigameData data = SaveSystem.LoadClass<MinigameData>("MinigameData", SaveDirectories.Level);
+
+            hasCooldown = data.hasCooldown;
+            timeToLeft = data.timeToLeft;
+        }
+    }
+}
+
+public class MinigameData
+{
+    public bool hasCooldown;
+    public float timeToLeft;
+
+    public MinigameData() { }
+
+    public MinigameData(bool hasCooldown, float timeToLeft)
+    {
+        this.hasCooldown = hasCooldown;
+        this.timeToLeft = timeToLeft;   
     }
 }

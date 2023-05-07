@@ -50,9 +50,9 @@ public class RekrutacjaBuilding : buildingFunctionality
             amountToGive += schooling.AddBuildingToList(this);
         }
     }
-    protected override void Start()
+
+    private void Awake()
     {
-        base.Start();
         time = timeToGive;
         currentLevel = Level1;
     }

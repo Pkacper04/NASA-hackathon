@@ -103,9 +103,8 @@ public class SchoolingBuilding : buildingFunctionality
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        base.Start();
         currentLevel = Level1;
     }
 

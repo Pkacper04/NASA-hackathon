@@ -292,6 +292,10 @@ public class LanguageDatabase : MonoBehaviour
                 return "Powrot do gry";
             case TranslateKeys.ExitToMenu:
                 return "Wyjscie do menu";
+            case TranslateKeys.Continue:
+                return "Kontynuuj";
+            case TranslateKeys.NewGameConfirm:
+                return "Jestes pewny, ze chcesz zaczac nowa gre ?";
             default:
                 return "klucz nie istnieje";
         }
@@ -589,6 +593,10 @@ public class LanguageDatabase : MonoBehaviour
                 return "Back to game";
             case TranslateKeys.ExitToMenu:
                 return "Exit to main menu";
+            case TranslateKeys.Continue:
+                return "Continue";
+            case TranslateKeys.NewGameConfirm:
+                return "Are you sure you want to start a new game ?";
             default:
                 return "Key does not exist";
         }
@@ -746,7 +754,9 @@ public enum TranslateKeys
     EndGame,
     PausedGame,
     BackToGame,
-    ExitToMenu
+    ExitToMenu,
+    Continue,
+    NewGameConfirm
 }
 #endregion TranslateKeys
 

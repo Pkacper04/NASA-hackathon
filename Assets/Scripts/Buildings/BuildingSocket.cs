@@ -41,6 +41,10 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
 
     public BuildingTypes BuildingType { get => buildingType; set => buildingType = value; }
 
+    private bool blockSocket = false;
+
+    public bool BlockSocket { get => blockSocket; set => blockSocket = value; } 
+
     /*    private void OnEnable()
         {
             PlayerEvents.Instance.OnPlayerMouseDown += Pointer;
@@ -63,6 +67,9 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (blockSocket)
+            return;
+
         BuildingScriptableObject buildingData = BuildingController.Instance.GetBuildingData(buildingType);
         if(buildingData == null)
         {
@@ -74,6 +81,9 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (blockSocket)
+            return;
+
         if (selected)
             return;
 
@@ -82,6 +92,9 @@ public class BuildingSocket : MonoBehaviour, IPointerClickHandler, IPointerEnter
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (blockSocket)
+            return;
+
         if (selected)
             return;
 

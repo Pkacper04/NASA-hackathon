@@ -51,9 +51,8 @@ public class ObservatoryUsage : buildingFunctionality
         }
     }
 
-    private void Start()
+    private void Awake()
     {
-        base.Start();
         time = timeToGive;
         currentLevel = Level1;
     }
